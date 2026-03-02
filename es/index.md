@@ -23,7 +23,7 @@ Bienvenido a mi portfolio de investigaciones de seguridad y bug bounties reporta
       <th>Vulnerabilidad</th>
       <th>Severidad</th>
       <th>Estado</th>
-      <th>Write-up</th>
+      <th>Reporte</th>
     </tr>
   </thead>
   <tbody>
@@ -31,33 +31,33 @@ Bienvenido a mi portfolio de investigaciones de seguridad y bug bounties reporta
       <td>2025-10-10</td>
       <td>NFL</td>
       <td>Reflected XSS in URL Search Query Parameter</td>
-      <td><span class="badge badge-medium">Media</span></td>
-      <td><span class="badge badge-resolved">Resuelto</span></td>
-      <td><a href="./bounties/nfl-xss-search-query.md">Ver Reporte</a></td>
+      <td><span class="badge badge-p3">P3</span></td>
+      <td><span class="badge badge-resolved" title="Resuelto">✅</span></td>
+      <td><a href="./bounties/nfl-xss-search-query.md" title="Ver Reporte">👁️</a></td>
     </tr>
     <tr>
       <td>2025-09-25</td>
       <td>University of Canterbury</td>
       <td><code>[CONFIDENCIAL]</code></td>
-      <td><span class="badge badge-high">Alta</span></td>
-      <td><span class="badge badge-unresolved">No Resuelto</span></td>
+      <td><span class="badge badge-p2">P2</span></td>
+      <td><span class="badge badge-unresolved" title="No Resuelto">⏳</span></td>
       <td>-</td>
     </tr>
     <tr>
       <td>2025-09-18</td>
       <td>US International Trade Commission</td>
       <td><code>[CONFIDENCIAL]</code></td>
-      <td><span class="badge badge-medium">Media</span></td>
-      <td><span class="badge badge-unresolved">No Resuelto</span></td>
+      <td><span class="badge badge-p3">P3</span></td>
+      <td><span class="badge badge-unresolved" title="No Resuelto">⏳</span></td>
       <td>-</td>
     </tr>
     <tr>
       <td>2025-09-16</td>
       <td>NASA JPL ECCO</td>
       <td>Search Form XSS Cookie Exfiltration with WAF Bypass</td>
-      <td><span class="badge badge-medium">Media</span></td>
-      <td><span class="badge badge-resolved">Resuelto</span></td>
-      <td><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md">Ver Reporte</a></td>
+      <td><span class="badge badge-p3">P3</span></td>
+      <td><span class="badge badge-resolved" title="Resuelto">✅</span></td>
+      <td><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md" title="Ver Reporte">👁️</a></td>
     </tr>
   </tbody>
 </table>

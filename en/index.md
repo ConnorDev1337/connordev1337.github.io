@@ -20,11 +20,10 @@ Welcome to my portfolio of security research and reported bug bounties.
     <tr>
       <th>Date</th>
       <th>Company</th>
-      <th>Product</th>
       <th>Vulnerability</th>
       <th>Severity</th>
       <th>Status</th>
-      <th>Write-up</th>
+      <th>Report</th>
     </tr>
   </thead>
   <tbody>
@@ -32,33 +31,33 @@ Welcome to my portfolio of security research and reported bug bounties.
       <td>2025-10-10</td>
       <td>NFL</td>
       <td>Reflected XSS in URL Search Query Parameter</td>
-      <td><span class="badge badge-medium">Medium</span></td>
-      <td><span class="badge badge-resolved">Resolved</span></td>
-      <td><a href="./bounties/nfl-xss-search-query.md">View Report</a></td>
+      <td><span class="badge badge-p3">P3</span></td>
+      <td><span class="badge badge-resolved" title="Resolved">✅</span></td>
+      <td><a href="./bounties/nfl-xss-search-query.md" title="View Report">👁️</a></td>
     </tr>
     <tr>
       <td>2025-09-25</td>
       <td>University of Canterbury</td>
       <td><code>[CONFIDENTIAL]</code></td>
-      <td><span class="badge badge-high">High</span></td>
-      <td><span class="badge badge-unresolved">Unresolved</span></td>
+      <td><span class="badge badge-p2">P2</span></td>
+      <td><span class="badge badge-unresolved" title="Unresolved">⏳</span></td>
       <td>-</td>
     </tr>
     <tr>
       <td>2025-09-18</td>
       <td>US International Trade Commission</td>
       <td><code>[CONFIDENTIAL]</code></td>
-      <td><span class="badge badge-medium">Medium</span></td>
-      <td><span class="badge badge-unresolved">Unresolved</span></td>
+      <td><span class="badge badge-p3">P3</span></td>
+      <td><span class="badge badge-unresolved" title="Unresolved">⏳</span></td>
       <td>-</td>
     </tr>
     <tr>
       <td>2025-09-16</td>
       <td>NASA JPL ECCO</td>
       <td>Search Form XSS Cookie Exfiltration with WAF Bypass</td>
-      <td><span class="badge badge-medium">Medium</span></td>
-      <td><span class="badge badge-resolved">Resolved</span></td>
-      <td><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md">View Report</a></td>
+      <td><span class="badge badge-p3">P3</span></td>
+      <td><span class="badge badge-resolved" title="Resolved">✅</span></td>
+      <td><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md" title="View Report">👁️</a></td>
     </tr>
   </tbody>
 </table>
