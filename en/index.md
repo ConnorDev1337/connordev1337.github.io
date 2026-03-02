@@ -31,7 +31,6 @@ Welcome to my portfolio of security research and reported bug bounties.
     <tr>
       <td>2025-10-10</td>
       <td>NFL</td>
-      <td>HBCU Tournament</td>
       <td>Reflected XSS in URL Search Query Parameter</td>
       <td><span class="badge badge-medium">Medium</span></td>
       <td><span class="badge badge-resolved">Resolved</span></td>
@@ -41,15 +40,13 @@ Welcome to my portfolio of security research and reported bug bounties.
       <td>2025-09-25</td>
       <td>University of Canterbury</td>
       <td><code>[CONFIDENTIAL]</code></td>
-      <td><code>[CONFIDENTIAL]</code></td>
       <td><span class="badge badge-high">High</span></td>
       <td><span class="badge badge-unresolved">Unresolved</span></td>
       <td>-</td>
     </tr>
     <tr>
       <td>2025-09-18</td>
-      <td>US International Trade Comm</td>
-      <td><code>[CONFIDENTIAL]</code></td>
+      <td>US International Trade Commission</td>
       <td><code>[CONFIDENTIAL]</code></td>
       <td><span class="badge badge-medium">Medium</span></td>
       <td><span class="badge badge-unresolved">Unresolved</span></td>
@@ -57,8 +54,7 @@ Welcome to my portfolio of security research and reported bug bounties.
     </tr>
     <tr>
       <td>2025-09-16</td>
-      <td>NASA</td>
-      <td>ECCO JPL NASA</td>
+      <td>NASA JPL ECCO</td>
       <td>Search Form XSS Cookie Exfiltration with WAF Bypass</td>
       <td><span class="badge badge-medium">Medium</span></td>
       <td><span class="badge badge-resolved">Resolved</span></td>
