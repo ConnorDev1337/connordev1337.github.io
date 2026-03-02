@@ -4,8 +4,8 @@ title: Portfolio de Bug Bounty
 ---
 
 <div class="lang-switcher">
-  <a href="./index_es.md" class="lang-btn active">Español (ES)</a>
-  <a href="./index.md" class="lang-btn">English (EN)</a>
+  <a href="./" class="lang-btn active">Español (ES)</a>
+  <a href="../en/" class="lang-btn">English (EN)</a>
 </div>
 
 # 🛡️ Portfolio de Bug Bounty
@@ -36,7 +36,7 @@ Bienvenido a mi portfolio de investigaciones de seguridad y bug bounties reporta
       <td>Reflected XSS in URL Search Query Parameter</td>
       <td><span class="badge badge-medium">Mediana</span></td>
       <td><span class="badge badge-resolved">Resuelto</span></td>
-      <td><a href="./bounties/nfl-xss-search-query_es.md">Ver Reporte</a></td>
+      <td><a href="./bounties/nfl-xss-search-query.md">Ver Reporte</a></td>
     </tr>
     <tr>
       <td>2025-09-25</td>
@@ -63,7 +63,7 @@ Bienvenido a mi portfolio de investigaciones de seguridad y bug bounties reporta
       <td>Search Form XSS Cookie Exfiltration with WAF Bypass</td>
       <td><span class="badge badge-medium">Mediana</span></td>
       <td><span class="badge badge-resolved">Resuelto</span></td>
-      <td><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass_es.md">Ver Reporte</a></td>
+      <td><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md">Ver Reporte</a></td>
     </tr>
   </tbody>
 </table>
