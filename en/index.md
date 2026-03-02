@@ -1,19 +1,18 @@
 ---
 layout: default
-title: ConnorDev | Bug Bounty Portfolio
+title: ConnorDev | Security Research Portfolio
 ---
 
 <div class="lang-switcher">
   <a href="../es/" class="lang-btn">Español (ES)</a>
 </div>
 
-# 🛡️ Bug Bounty Portfolio
+<header>
+  <h1>Bug Bounty Portfolio</h1>
+  <p style="color: var(--text-secondary); font-size: 1.1rem;">Security Research & Detailed Vulnerability Reports.</p>
+</header>
 
-Welcome to my portfolio of security research and reported bug bounties.
-
----
-
-## 📅 Timeline
+<h2 class="section-title">📅 Timeline</h2>
 
 <table>
   <thead>
@@ -31,59 +30,58 @@ Welcome to my portfolio of security research and reported bug bounties.
       <td>2025-10-10</td>
       <td>NFL</td>
       <td>Reflected XSS in URL Search Query Parameter</td>
-      <td><span class="badge badge-p3">P3</span></td>
-      <td><span class="badge badge-resolved" title="Resolved">✅</span></td>
-      <td><a href="./bounties/nfl-xss-search-query.md" title="View Report">👁️</a></td>
+      <td style="text-align:center;"><span class="badge badge-p3">P3</span></td>
+      <td style="text-align:center;"><span class="status-icon" title="Resolved">✅</span></td>
+      <td style="text-align:center;"><a href="./bounties/nfl-xss-search-query.md" class="view-link" title="View Report">👁️</a></td>
     </tr>
     <tr>
       <td>2025-09-25</td>
       <td>University of Canterbury</td>
       <td><code>[CONFIDENTIAL]</code></td>
-      <td><span class="badge badge-p2">P2</span></td>
-      <td><span class="badge badge-unresolved" title="Unresolved">⏳</span></td>
-      <td>-</td>
+      <td style="text-align:center;"><span class="badge badge-p2">P2</span></td>
+      <td style="text-align:center;"><span class="status-icon" title="Unresolved">⏳</span></td>
+      <td style="text-align:center;">-</td>
     </tr>
     <tr>
       <td>2025-09-18</td>
       <td>US International Trade Commission</td>
       <td><code>[CONFIDENTIAL]</code></td>
-      <td><span class="badge badge-p3">P3</span></td>
-      <td><span class="badge badge-unresolved" title="Unresolved">⏳</span></td>
-      <td>-</td>
+      <td style="text-align:center;"><span class="badge badge-p3">P3</span></td>
+      <td style="text-align:center;"><span class="status-icon" title="Unresolved">⏳</span></td>
+      <td style="text-align:center;">-</td>
     </tr>
     <tr>
       <td>2025-09-16</td>
       <td>NASA JPL ECCO</td>
       <td>Search Form XSS Cookie Exfiltration with WAF Bypass</td>
-      <td><span class="badge badge-p3">P3</span></td>
-      <td><span class="badge badge-resolved" title="Resolved">✅</span></td>
-      <td><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md" title="View Report">👁️</a></td>
+      <td style="text-align:center;"><span class="badge badge-p3">P3</span></td>
+      <td style="text-align:center;"><span class="status-icon" title="Resolved">✅</span></td>
+      <td style="text-align:center;"><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md" class="view-link" title="View Report">👁️</a></td>
     </tr>
   </tbody>
 </table>
 
 ---
 
-## 📊 Summary
-
-- 🏢 Total Companies Impacted: 4
-- 🐞 Total Vulnerabilities Reported: 4
-- 🟢 Resolved: 2
-- 🟡 Unresolved: 2
-- ⚪ N/A / Info: 0
-
-### 🤝 Collaborative Research
-- **NASA (ECCO JPL)**: 50% {{ site.researchers.ivan.name }} / 50% {{ site.researchers.diego.name }}
-- **NFL (HBCU Tournament)**: 50% {{ site.researchers.ivan.name }} / 50% {{ site.researchers.diego.name }}
-
----
-
-## 🧠 Methodology Focus
-
-- **Web Application Security**: Discovering hidden attack surfaces.
-- **XSS & WAF Bypass**: Deep analysis of input filtering & encoding bypass techniques.
-- **Client-Side Attacks**: Analyzing modern browser-side security mechanisms.
+<div class="summary-container">
+  <h2 class="section-title">📊 Summary</h2>
+  <div class="summary-item">Impacted Companies: <strong>4</strong></div>
+  <div class="summary-item">Vulnerabilities Reported: <strong>4</strong></div>
+  <div class="summary-item">Resolved Status: <strong>2/4</strong></div>
+  
+  <h3 style="margin-top:2rem; font-size:1.1rem; color:var(--text-secondary);">🤝 Collaborative Research</h3>
+  <div class="summary-item"><strong>NASA (ECCO JPL)</strong>: 50% {{ site.researchers.ivan.name }} / 50% {{ site.researchers.diego.name }}</div>
+  <div class="summary-item"><strong>NFL (HBCU Tournament)</strong>: 50% {{ site.researchers.ivan.name }} / 50% {{ site.researchers.diego.name }}</div>
+</div>
 
 ---
 
-_This portfolio is continuously updated._
+<h2 class="section-title">🧠 Methodology Focus</h2>
+
+<ul style="list-style:none; padding:0;">
+  <li class="summary-item"><strong>Web Application Security</strong>: Discovering hidden attack surfaces.</li>
+  <li class="summary-item"><strong>XSS & WAF Bypass</strong>: Deep analysis of input filtering & encoding bypass techniques.</li>
+  <li class="summary-item"><strong>Client-Side Attacks</strong>: Analyzing modern browser-side security mechanisms.</li>
+</ul>
+
+<p style="text-align:center; color:var(--text-secondary); margin-top:4rem; font-style:italic;">This portfolio is continuously updated.</p>
