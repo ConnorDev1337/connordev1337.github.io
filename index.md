@@ -3,24 +3,70 @@ layout: default
 title: Bug Bounty Portfolio
 ---
 
-[Español (ES)](./index_es.md)
+<div class="lang-switcher">
+  <a href="./index_es.md" class="lang-btn">Español (ES)</a>
+  <a href="./index.md" class="lang-btn active">English (EN)</a>
+</div>
 
 # 🛡️ Bug Bounty Portfolio
 
 Welcome to my portfolio of security research and reported bug bounties.
 
-Here I document discovered vulnerabilities, exploitation processes, bypasses performed, and disclosure status.
-
 ---
 
 ## 📅 Timeline
 
-| Date       | Company                     | Product          | Vulnerability                                       | Severity | Status     | Write-up                                                  |
-| ---------- | --------------------------- | ---------------- | --------------------------------------------------- | -------- | ---------- | --------------------------------------------------------- |
-| 2025-10-10 | NFL                         | HBCU Tournament  | Reflected XSS in URL Search Query Parameter         | Medium   | Resolved   | [View Report](./bounties/nfl-xss-search-query.md)         |
-| 2025-09-25 | University of Canterbury    | `[CONFIDENTIAL]` | `[CONFIDENTIAL]`                                    | High     | Unresolved | -                                                         |
-| 2025-09-18 | US International Trade Comm | `[CONFIDENTIAL]` | `[CONFIDENTIAL]`                                    | Medium   | Unresolved | -                                                         |
-| 2025-09-16 | NASA                        | ECCO JPL NASA    | Search Form XSS Cookie Exfiltration with WAF Bypass | Medium   | Resolved   | [View Report](./bounties/nasa-jpl-ecco-xss-waf-bypass.md) |
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Company</th>
+      <th>Product</th>
+      <th>Vulnerability</th>
+      <th>Severity</th>
+      <th>Status</th>
+      <th>Write-up</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-10-10</td>
+      <td>NFL</td>
+      <td>HBCU Tournament</td>
+      <td>Reflected XSS in URL Search Query Parameter</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td><span class="badge badge-resolved">Resolved</span></td>
+      <td><a href="./bounties/nfl-xss-search-query.md">View Report</a></td>
+    </tr>
+    <tr>
+      <td>2025-09-25</td>
+      <td>University of Canterbury</td>
+      <td><code>[CONFIDENTIAL]</code></td>
+      <td><code>[CONFIDENTIAL]</code></td>
+      <td><span class="badge badge-high">High</span></td>
+      <td><span class="badge badge-unresolved">Unresolved</span></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>2025-09-18</td>
+      <td>US International Trade Comm</td>
+      <td><code>[CONFIDENTIAL]</code></td>
+      <td><code>[CONFIDENTIAL]</code></td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td><span class="badge badge-unresolved">Unresolved</span></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>2025-09-16</td>
+      <td>NASA</td>
+      <td>ECCO JPL NASA</td>
+      <td>Search Form XSS Cookie Exfiltration with WAF Bypass</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td><span class="badge badge-resolved">Resolved</span></td>
+      <td><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md">View Report</a></td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -40,10 +86,9 @@ Here I document discovered vulnerabilities, exploitation processes, bypasses per
 
 ## 🧠 Methodology Focus
 
-- Web Application Security
-- XSS & WAF Bypass
-- Client-side attack surface analysis
-- Input filtering & encoding bypass techniques
+- **Web Application Security**: Discovering hidden attack surfaces.
+- **XSS & WAF Bypass**: Deep analysis of input filtering & encoding bypass techniques.
+- **Client-Side Attacks**: Analyzing modern browser-side security mechanisms.
 
 ---
 

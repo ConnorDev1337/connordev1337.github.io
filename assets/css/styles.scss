@@ -1,4 +1,170 @@
----
----
+--- --- @import "{{ site.theme }}";
 
-@import "{{ site.theme }}";
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --bg-color: #0d1117;
+    --header-bg: #161b22;
+    --accent-blue: #58a6ff;
+    --accent-green: #3fb950;
+    --accent-yellow: #d29922;
+    --accent-red: #f85149;
+    --accent-info: #bc8cff;
+    --text-main: #c9d1d9;
+    --text-muted: #8b949e;
+    --border-color: #30363d;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+header {
+    background: var(--header-bg);
+    border-bottom: 2px solid var(--border-color);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--accent-blue) !important;
+}
+
+header a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+header a:hover {
+    color: var(--accent-blue);
+}
+
+/* Tablas Profesionales */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2rem 0;
+    background: var(--header-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background: rgba(88, 166, 255, 0.1);
+    color: var(--accent-blue);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Sistema de Badges */
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.badge-high {
+    background: rgba(248, 81, 73, 0.15);
+    color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+}
+
+.badge-medium {
+    background: rgba(210, 153, 34, 0.15);
+    color: var(--accent-yellow);
+    border: 1px solid var(--accent-yellow);
+}
+
+.badge-info {
+    background: rgba(188, 140, 255, 0.15);
+    color: var(--accent-info);
+    border: 1px solid var(--accent-info);
+}
+
+.badge-resolved {
+    background: rgba(63, 185, 80, 0.15);
+    color: var(--accent-green);
+    border: 1px solid var(--accent-green);
+}
+
+.badge-unresolved {
+    background: rgba(139, 148, 158, 0.15);
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+}
+
+/* Enlaces y Botones */
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(110, 118, 129, 0.2);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+pre {
+    background: #010409 !important;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+/* Botón de Idioma Custom */
+.lang-switcher {
+    display: inline-flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.lang-btn {
+    padding: 5px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    background: var(--header-bg);
+}
+
+.lang-btn:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
