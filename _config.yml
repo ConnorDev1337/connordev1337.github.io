@@ -1,0 +1,33 @@
+title: Bug Bounty Portfolio
+description: Security Research & Bug Bounty Reports by ConnorDev.
+show_downloads: false
+google_analytics: 
+
+remote_theme: pages-themes/hacker@v0.2.0
+
+plugins:
+  - jekyll-remote-theme
+
+baseurl: "" 
+url: "https://connordev1337.github.io"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+researchers:
+  ivan:
+    name: "Iván Córcoles Martínez"
+    email: "connordev@protonmail.com"
+    bugcrowd: "https://bugcrowd.com/h/ConnorDev"
+  diego:
+    name: "Diego García Ayala"
+    email: "diego.garaya02@gmail.com"
+    bugcrowd: "https://bugcrowd.com/h/sl4sh1t0"
+
+exclude:
+  - README.md
+  - .gitignore
+  - .git/
+  - tmp/

@@ -33,8 +33,8 @@ Aquí documento vulnerabilidades descubiertas, proceso de explotación, bypasses
 - ⚪ N/A / Info: 0
 
 ### 🤝 Investigación Colaborativa
-- **NASA (ECCO JPL)**: 50% Iván Córcoles / 50% Diego García
-- **NFL (HBCU Tournament)**: 50% Iván Córcoles / 50% Diego García
+- **NASA (ECCO JPL)**: 50% {{ site.researchers.ivan.name }} / 50% {{ site.researchers.diego.name }}
+- **NFL (HBCU Tournament)**: 50% {{ site.researchers.ivan.name }} / 50% {{ site.researchers.diego.name }}
 
 ---
 
