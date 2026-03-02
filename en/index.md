@@ -1,11 +1,10 @@
 ---
 layout: default
-title: Bug Bounty Portfolio
+title: ConnorDev | Bug Bounty Portfolio
 ---
 
 <div class="lang-switcher">
   <a href="../es/" class="lang-btn">Español (ES)</a>
-  <a href="./" class="lang-btn active">English (EN)</a>
 </div>
 
 # 🛡️ Bug Bounty Portfolio
