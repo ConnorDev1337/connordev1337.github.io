@@ -1,6 +1,4 @@
----
----
-
+--- ---
 /* 
    ==========================================================================
    CONNORDEV | STEALTH CYBER DESIGN SYSTEM (V2.0)
@@ -113,12 +111,14 @@ hr {
     margin: 50px 0;
 }
 
-/* Language Switcher */
+/* Language Switcher - floating top right */
 .lang-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
     display: flex;
-    justify-content: flex-end;
     gap: 12px;
-    margin-bottom: 20px;
 }
 
 .lang-btn {
