@@ -1,5 +1,4 @@
----
----
+--- ---
 /* 
    ==========================================================================
    CONNORDEV | STEALTH CYBER DESIGN SYSTEM (V2.0)
@@ -209,6 +208,15 @@ td {
     font-size: 0.95rem;
 }
 
+.company-logo {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
 /* Center severity, status, access columns */
 .col-severity,
 .col-status,
@@ -375,8 +383,6 @@ article {
 }
 
 .bounty-header {
-    margin-bottom: 50px;
-    border-bottom: 1px solid var(--border-dim);
     padding-bottom: 30px;
 }
 

@@ -6,7 +6,7 @@ layout: default
 <article>
   <a href="../../../es/" class="back-btn">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    Cyber Research Portfolio
+    ConnorDev Bounties Portfolio
   </a>
   <div class="lang-switcher">
     <a href="../../../en/bounties/nasa-jpl-ecco-xss-waf-bypass/" class="lang-btn">English (EN)</a>
