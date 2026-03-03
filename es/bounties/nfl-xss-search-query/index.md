@@ -56,33 +56,71 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
 
     <h2>🤝 Detalle de Colaboración</h2>
     <p>Esta investigación fue realizada en un esfuerzo conjunto con los siguientes investigadores:</p>
-    <ul>
-      <li>
-        <strong>{{ site.researchers.ivan.name }}</strong>
-        <div>
-          <a href="{{ site.researchers.ivan.bugcrowd }}" target="_blank" rel="noopener noreferrer">Bugcrowd</a>
-          <span>·</span>
-          <a href="{{ site.researchers.ivan.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <div class="collab-grid">
+      <div class="collab-card">
+        <div class="collab-avatar">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
         </div>
-      </li>
-      <li>
-        <strong>{{ site.researchers.diego.name }}</strong>
-        <div>
-          <a href="{{ site.researchers.diego.bugcrowd }}" target="_blank" rel="noopener noreferrer">Bugcrowd</a>
-          <span>·</span>
-          <a href="{{ site.researchers.diego.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <div class="collab-body">
+          <div class="collab-name">{{ site.researchers.ivan.name }}</div>
+          <div class="collab-links">
+            <a class="social-pill" href="{{ site.researchers.ivan.bugcrowd }}" target="_blank" rel="noopener noreferrer">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"></path><path d="M9 12l2 2 4-5"></path></svg>
+              <span>Bugcrowd</span>
+            </a>
+            <a class="social-pill" href="{{ site.researchers.ivan.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
-      </li>
-    </ul>
-
-    <div class="card-grid" style="margin-top: 3rem;">
-      <div class="glass-card">
-        <small>Estado</small>
-        <strong>Resuelto y Verificado</strong>
       </div>
-      <div class="glass-card">
-        <small>Severidad</small>
-        <strong>Alta (reportada como P3)</strong>
+
+      <div class="collab-card">
+        <div class="collab-avatar">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="collab-body">
+          <div class="collab-name">{{ site.researchers.diego.name }}</div>
+          <div class="collab-links">
+            <a class="social-pill" href="{{ site.researchers.diego.bugcrowd }}" target="_blank" rel="noopener noreferrer">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"></path><path d="M9 12l2 2 4-5"></path></svg>
+              <span>Bugcrowd</span>
+            </a>
+            <a class="social-pill" href="{{ site.researchers.diego.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <div class="meta-left">
+          <div class="meta-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+          </div>
+          <div class="meta-title">
+            <small>Estado</small>
+            <strong>Resuelto y Verificado</strong>
+          </div>
+        </div>
+        <div class="meta-badge success">Verificado</div>
+      </div>
+
+      <div class="meta-card">
+        <div class="meta-left">
+          <div class="meta-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.29 3.86l-8.12 14.06A2 2 0 0 0 3.9 21h16.2a2 2 0 0 0 1.73-3.08L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+          </div>
+          <div class="meta-title">
+            <small>Severidad</small>
+            <strong>Alta (reportada como P3)</strong>
+          </div>
+        </div>
+        <div class="meta-badge warning">P3</div>
       </div>
     </div>
 

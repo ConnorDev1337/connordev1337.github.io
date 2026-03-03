@@ -493,6 +493,191 @@ th.col-report {
     text-decoration: underline;
 }
 
+.collab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 18px 0 10px;
+}
+
+.collab-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: var(--transition-smooth);
+}
+
+.collab-card:hover {
+    border-color: rgba(47, 129, 247, 0.35);
+    background: rgba(47, 129, 247, 0.06);
+    transform: translateY(-2px);
+}
+
+.collab-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    flex: 0 0 auto;
+}
+
+.collab-avatar .svg-icon {
+    width: 22px;
+    height: 22px;
+    stroke-width: 2;
+    color: rgba(255, 255, 255, 0.90);
+}
+
+.collab-body {
+    min-width: 0;
+    flex: 1;
+}
+
+.collab-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-top: 2px;
+}
+
+.collab-links {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.social-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+.social-pill:hover {
+    border-color: rgba(90, 200, 250, 0.55);
+    background: rgba(90, 200, 250, 0.10);
+    transform: translateY(-1px);
+}
+
+.social-pill .svg-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 2.2rem;
+}
+
+.meta-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: var(--transition-smooth);
+}
+
+.meta-card:hover {
+    border-color: rgba(47, 129, 247, 0.35);
+    background: rgba(47, 129, 247, 0.06);
+    transform: translateY(-2px);
+}
+
+.meta-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.meta-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    flex: 0 0 auto;
+}
+
+.meta-icon .svg-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.meta-title small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+}
+
+.meta-title strong {
+    display: block;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.meta-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.92);
+    flex: 0 0 auto;
+}
+
+.meta-badge.success {
+    border-color: rgba(52, 199, 89, 0.25);
+    background: rgba(52, 199, 89, 0.10);
+}
+
+.meta-badge.warning {
+    border-color: rgba(255, 204, 0, 0.22);
+    background: rgba(255, 204, 0, 0.10);
+}
+
 .stat-icon .svg-icon {
     width: 22px;
     height: 22px;

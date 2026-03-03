@@ -97,24 +97,45 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
 
     <h2>🤝 Collaboration Details</h2>
     <p>This research was conducted in a joint effort with the following researchers:</p>
-    <ul>
-      <li>
-        <strong>{{ site.researchers.ivan.name }}</strong>
-        <div>
-          <a href="{{ site.researchers.ivan.bugcrowd }}" target="_blank" rel="noopener noreferrer">Bugcrowd</a>
-          <span>·</span>
-          <a href="{{ site.researchers.ivan.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <div class="collab-grid">
+      <div class="collab-card">
+        <div class="collab-avatar">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
         </div>
-      </li>
-      <li>
-        <strong>{{ site.researchers.diego.name }}</strong>
-        <div>
-          <a href="{{ site.researchers.diego.bugcrowd }}" target="_blank" rel="noopener noreferrer">Bugcrowd</a>
-          <span>·</span>
-          <a href="{{ site.researchers.diego.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <div class="collab-body">
+          <div class="collab-name">{{ site.researchers.ivan.name }}</div>
+          <div class="collab-links">
+            <a class="social-pill" href="{{ site.researchers.ivan.bugcrowd }}" target="_blank" rel="noopener noreferrer">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"></path><path d="M9 12l2 2 4-5"></path></svg>
+              <span>Bugcrowd</span>
+            </a>
+            <a class="social-pill" href="{{ site.researchers.ivan.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
-      </li>
-    </ul>
+      </div>
+
+      <div class="collab-card">
+        <div class="collab-avatar">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="collab-body">
+          <div class="collab-name">{{ site.researchers.diego.name }}</div>
+          <div class="collab-links">
+            <a class="social-pill" href="{{ site.researchers.diego.bugcrowd }}" target="_blank" rel="noopener noreferrer">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"></path><path d="M9 12l2 2 4-5"></path></svg>
+              <span>Bugcrowd</span>
+            </a>
+            <a class="social-pill" href="{{ site.researchers.diego.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="verification-panel">
       <h3>Verification</h3>
