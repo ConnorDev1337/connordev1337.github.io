@@ -40,7 +40,6 @@
     --radius-md: 12px;
     --radius-sm: 8px;
     --container-max: 1200px;
-    /* Wider for better tables */
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -55,7 +54,6 @@ body {
     padding: 0;
 }
 
-/* Ensure full coverage */
 html,
 body {
     min-height: 100vh;
@@ -103,8 +101,6 @@ h2.section-title::after {
 header {
     padding: 60px 0 40px;
 }
-
-/* Reduced top padding */
 
 .lang-switcher {
     display: flex;
@@ -165,6 +161,35 @@ td {
     padding: 24px 20px;
     border-bottom: 1px solid var(--border-dim);
     font-size: 0.95rem;
+}
+
+.svg-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.icon-success {
+    color: var(--p5);
+}
+
+.icon-pending {
+    color: var(--p3);
+}
+
+.icon-view {
+    color: var(--text-muted);
+    transition: var(--transition-smooth);
+}
+
+.icon-view:hover {
+    color: #fff;
+    transform: scale(1.1);
 }
 
 .badge {
@@ -236,47 +261,6 @@ td {
     color: #fff;
 }
 
-.method-list li {
-    margin: 15px 0;
-    color: var(--text-secondary);
-}
-
-.method-list li::before {
-    content: '→ ';
-    color: var(--accent-primary);
-}
-
-/* SVG Icons Styles */
-.svg-icon {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-}
-
-.icon-success {
-    color: var(--p5);
-}
-
-.icon-pending {
-    color: var(--p3);
-}
-
-.icon-view {
-    color: var(--text-muted);
-    transition: var(--transition-smooth);
-}
-
-.icon-view:hover {
-    color: #fff;
-    transform: scale(1.1);
-}
-
-/* Wall of Fame */
 .wof-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -294,6 +278,7 @@ td {
     justify-content: center;
     transition: var(--transition-smooth);
     background-clip: padding-box;
+    text-decoration: none;
 }
 
 .wof-card:hover {
@@ -316,9 +301,8 @@ td {
     opacity: 1;
 }
 
-/* Bounty Article Design */
 article {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 40px 0 120px;
 }
@@ -370,7 +354,6 @@ article {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Code in Bounty */
 .bounty-content code {
     background: rgba(47, 129, 247, 0.1);
     color: var(--accent-secondary);

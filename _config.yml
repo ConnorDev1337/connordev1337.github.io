@@ -5,7 +5,7 @@ show_downloads: false
 # No theme - fully custom CSS
 # remote_theme: pages-themes/hacker@v0.2.0
 
-baseurl: "" 
+baseurl: ""
 url: "https://connordev1337.github.io"
 
 markdown: kramdown
