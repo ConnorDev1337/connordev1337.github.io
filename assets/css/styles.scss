@@ -214,12 +214,13 @@ td {
 }
 
 .company-logo {
-    width: 22px;
-    height: 22px;
+    width: 36px;
+    height: 36px;
     border-radius: 4px;
     object-fit: contain;
     vertical-align: middle;
     margin-right: 10px;
+    background-color: white;
 }
 
 /* Center severity, status, access columns */

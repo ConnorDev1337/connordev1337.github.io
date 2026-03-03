@@ -82,36 +82,6 @@ title: ConnorDev | Bug Bounty Portfolio
     </table>
   </div>
 
-  <div class="card-grid">
-    <div class="glass-card">
-      <h2 style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--text-secondary);">📊 Estadísticas</h2>
-      <div class="card-item">
-        <small>Alcance de Impacto</small>
-        <strong>5 Entidades Globales</strong>
-      </div>
-      <div class="card-item">
-        <small>Vectores de Investigación</small>
-        <strong>4 Write-ups</strong>
-      </div>
-      <div class="card-item">
-        <small>Tasa de Resolución</small>
-        <strong>100% Verificado</strong>
-      </div>
-    </div>
-
-    <div class="glass-card">
-      <h2 style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--text-secondary);">🤝 Colaboración</h2>
-      <div class="card-item">
-        <small>Investigación Conjunta (NASA)</small>
-        <strong>{{ site.researchers.ivan.name }} / {{ site.researchers.diego.name }}</strong>
-      </div>
-      <div class="card-item">
-        <small>Investigación Conjunta (NFL)</small>
-        <strong>{{ site.researchers.ivan.name }} / {{ site.researchers.diego.name }}</strong>
-      </div>
-    </div>
-  </div>
-
   <h2 class="section-title section-mt">Muro de la Fama</h2>
   <div class="wof-grid">
     <a href="https://bugcrowd.com/engagements/nfl-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="NFL Hall of Fame">
@@ -129,6 +99,22 @@ title: ConnorDev | Bug Bounty Portfolio
     <a href="https://bugcrowd.com/engagements/gamingcorps-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="Gaming Corps Hall of Fame">
       <img src="https://logos.bugcrowdusercontent.com/logos/3e27/2dae/d8b0a7b5/a44c8386bc03fa99c885f02a925f0d81_gaming_corps_logo.jpeg" alt="Gaming Corps">
     </a>
+  </div>
+
+  <h2 class="section-title section-mt">Estadísticas</h2>
+  <div class="card-grid">
+    <div class="glass-card">
+      <small>Alcance de Impacto</small>
+      <strong>5 Entidades Globales</strong>
+    </div>
+    <div class="glass-card">
+      <small>Vectores de Investigación</small>
+      <strong>4 Write-ups</strong>
+    </div>
+    <div class="glass-card">
+      <small>Tasa de Resolución</small>
+      <strong>100% Verificado</strong>
+    </div>
   </div>
 
   <footer>

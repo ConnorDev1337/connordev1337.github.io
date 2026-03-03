@@ -82,36 +82,6 @@ title: ConnorDev | Bug Bounty Portfolio
     </table>
   </div>
 
-  <div class="card-grid">
-    <div class="glass-card">
-      <h2 style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--text-secondary);">📊 Stats Dashboard</h2>
-      <div class="card-item">
-        <small>Impact Scope</small>
-        <strong>5 Global Entities</strong>
-      </div>
-      <div class="card-item">
-        <small>Research Vectors</small>
-        <strong>4 Write-ups</strong>
-      </div>
-      <div class="card-item">
-        <small>Resolution Rate</small>
-        <strong>100% Verified</strong>
-      </div>
-    </div>
-
-    <div class="glass-card">
-      <h2 style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--text-secondary);">🤝 Collaboration</h2>
-      <div class="card-item">
-        <small>Joint Research (NASA)</small>
-        <strong>{{ site.researchers.ivan.name }} / {{ site.researchers.diego.name }}</strong>
-      </div>
-      <div class="card-item">
-        <small>Joint Research (NFL)</small>
-        <strong>{{ site.researchers.ivan.name }} / {{ site.researchers.diego.name }}</strong>
-      </div>
-    </div>
-  </div>
-
   <h2 class="section-title section-mt">Wall of Fame</h2>
   <div class="wof-grid">
     <a href="https://bugcrowd.com/engagements/nfl-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="NFL Hall of Fame">
@@ -129,6 +99,22 @@ title: ConnorDev | Bug Bounty Portfolio
     <a href="https://bugcrowd.com/engagements/gamingcorps-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="Gaming Corps Hall of Fame">
       <img src="https://logos.bugcrowdusercontent.com/logos/3e27/2dae/d8b0a7b5/a44c8386bc03fa99c885f02a925f0d81_gaming_corps_logo.jpeg" alt="Gaming Corps">
     </a>
+  </div>
+
+  <h2 class="section-title section-mt">Statistics</h2>
+  <div class="card-grid">
+    <div class="glass-card">
+      <small>Impact Scope</small>
+      <strong>5 Global Entities</strong>
+    </div>
+    <div class="glass-card">
+      <small>Research Vectors</small>
+      <strong>4 Write-ups</strong>
+    </div>
+    <div class="glass-card">
+      <small>Resolution Rate</small>
+      <strong>100% Verified</strong>
+    </div>
   </div>
 
   <footer>
