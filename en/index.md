@@ -10,10 +10,9 @@ title: ConnorDev | Security Research Portfolio
   </div>
 
   <header>
-    <h1>Cyber Research Portfolio</h1>
+    <h1>{{ site.title }}</h1>
     <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 800px;">
-      Scientific disclosure of critical vulnerabilities discovered in global infrastructure and 
-      government assets through responsible research.
+      {{ site.description_en }}
     </p>
   </header>
 
