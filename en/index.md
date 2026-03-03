@@ -110,14 +110,18 @@ title: ConnorDev | Bug Bounty Portfolio
             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 14l3-3 3 3 6-6"></path></svg>
           </div>
           <div class="stat-title">
-            <small>Impact Scope</small>
+            <small>Organizations Impacted</small>
             <div class="stat-value">5</div>
           </div>
         </div>
-        <div class="stat-badge">Entities</div>
+        <div class="stat-badge">Programs</div>
       </div>
-      <div class="stat-sub">Global organizations impacted across disclosures.</div>
-      <div class="stat-bar"><span style="width: 62%"></span></div>
+      <div class="stat-sub">Count of unique organizations where I reported security findings.</div>
+      <div class="stat-kpis">
+        <div class="stat-kpi">Responsible disclosure</div>
+        <div class="stat-kpi">Multi-program</div>
+        <div class="stat-kpi">Real-world impact</div>
+      </div>
     </div>
 
     <div class="glass-card stat-card">
@@ -133,8 +137,12 @@ title: ConnorDev | Bug Bounty Portfolio
         </div>
         <div class="stat-badge">Write-ups</div>
       </div>
-      <div class="stat-sub">Public technical reports and detailed PoCs.</div>
-      <div class="stat-bar"><span style="width: 48%"></span></div>
+      <div class="stat-sub">Public technical reports with PoCs and reproducible steps.</div>
+      <div class="stat-kpis">
+        <div class="stat-kpi">PoC included</div>
+        <div class="stat-kpi">Screenshots</div>
+        <div class="stat-kpi">Clear steps</div>
+      </div>
     </div>
 
     <div class="glass-card stat-card">
@@ -150,8 +158,12 @@ title: ConnorDev | Bug Bounty Portfolio
         </div>
         <div class="stat-badge">Verified</div>
       </div>
-      <div class="stat-sub">Reports accepted and validated by the programs.</div>
-      <div class="stat-bar"><span style="width: 100%"></span></div>
+      <div class="stat-sub">Reports accepted and closed by the programs when applicable.</div>
+      <div class="stat-kpis">
+        <div class="stat-kpi">Accepted</div>
+        <div class="stat-kpi">Resolved</div>
+        <div class="stat-kpi">Validated</div>
+      </div>
     </div>
   </div>
 

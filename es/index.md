@@ -110,14 +110,18 @@ title: ConnorDev | Bug Bounty Portfolio
             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 14l3-3 3 3 6-6"></path></svg>
           </div>
           <div class="stat-title">
-            <small>Alcance de Impacto</small>
+            <small>Organizaciones Impactadas</small>
             <div class="stat-value">5</div>
           </div>
         </div>
-        <div class="stat-badge">Entidades</div>
+        <div class="stat-badge">Programas</div>
       </div>
-      <div class="stat-sub">Organizaciones globales impactadas a través de divulgaciones.</div>
-      <div class="stat-bar"><span style="width: 62%"></span></div>
+      <div class="stat-sub">Número de organizaciones únicas donde reporté hallazgos de seguridad.</div>
+      <div class="stat-kpis">
+        <div class="stat-kpi">Divulgación responsable</div>
+        <div class="stat-kpi">Multi-programa</div>
+        <div class="stat-kpi">Impacto real</div>
+      </div>
     </div>
 
     <div class="glass-card stat-card">
@@ -133,8 +137,12 @@ title: ConnorDev | Bug Bounty Portfolio
         </div>
         <div class="stat-badge">Write-ups</div>
       </div>
-      <div class="stat-sub">Informes técnicos públicos y PoCs detallados.</div>
-      <div class="stat-bar"><span style="width: 48%"></span></div>
+      <div class="stat-sub">Informes técnicos públicos con PoCs y pasos reproducibles.</div>
+      <div class="stat-kpis">
+        <div class="stat-kpi">PoC incluido</div>
+        <div class="stat-kpi">Imágenes</div>
+        <div class="stat-kpi">Pasos claros</div>
+      </div>
     </div>
 
     <div class="glass-card stat-card">
@@ -150,8 +158,12 @@ title: ConnorDev | Bug Bounty Portfolio
         </div>
         <div class="stat-badge">Verificado</div>
       </div>
-      <div class="stat-sub">Reportes aceptados y validados por los programas.</div>
-      <div class="stat-bar"><span style="width: 100%"></span></div>
+      <div class="stat-sub">Reportes aceptados y cerrados por los programas cuando aplica.</div>
+      <div class="stat-kpis">
+        <div class="stat-kpi">Aceptado</div>
+        <div class="stat-kpi">Resuelto</div>
+        <div class="stat-kpi">Validado</div>
+      </div>
     </div>
   </div>
 
