@@ -87,13 +87,13 @@ title: ConnorDev | Bug Bounty Portfolio
     <a href="https://bugcrowd.com/engagements/nfl-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="NFL Hall of Fame">
       <img src="https://logos.bugcrowdusercontent.com/logos/dc8e/976c/23d576ba/cbf9d3c4e7dc5a974e27565bad46ae76_national_football_league_logo.jpeg" alt="NFL">
     </a>
-    <a href="https://bugcrowd.com/engagements/university-of-canterbury-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="University of Canterbury Hall of Fame">
+    <a href="https://bugcrowd.com/engagements/university-canterbury-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="University of Canterbury Hall of Fame">
       <img src="https://logos.bugcrowdusercontent.com/logos/3f7e/826a/d0f78ced/a58f55915330f1e5d19dc75e462129d6_university_of_canterbury_logo.jpeg" alt="University of Canterbury">
     </a>
-    <a href="https://bugcrowd.com/engagements/usitc-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="US International Trade Commission Hall of Fame">
+    <a href="https://bugcrowd.com/engagements/usitc-vdp/hall_of_fames" target="_blank" class="wof-card" title="US International Trade Commission Hall of Fame">
       <img src="https://logos.bugcrowdusercontent.com/logos/df14/f8f6/e5217321/d6766f0d7e4864eca4d059e018e16bb7_U.S._International_Trade_Commission.png" alt="US ITC">
     </a>
-    <a href="https://bugcrowd.com/engagements/nasa-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="NASA Hall of Fame">
+    <a href="https://bugcrowd.com/engagements/nasa-vdp/hall_of_fames" target="_blank" class="wof-card" title="NASA Hall of Fame">
       <img src="https://logos.bugcrowdusercontent.com/logos/e34e/ced8/462922dd/fe2d0bf28f7b56095470ca07d0421e95_1615217311496.jpeg" alt="NASA">
     </a>
     <a href="https://bugcrowd.com/engagements/gamingcorps-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="Gaming Corps Hall of Fame">
