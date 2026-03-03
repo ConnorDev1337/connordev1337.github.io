@@ -112,7 +112,7 @@ title: ConnorDev | Security Research Portfolio
     </div>
   </div>
 
-  <h2 class="section-title">Wall of Fame</h2>
+  <h2 class="section-title section-mt">Wall of Fame</h2>
   <div class="wof-grid">
     <a href="https://bugcrowd.com/engagements/nfl-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="NFL Hall of Fame">
       <img src="https://logos.bugcrowdusercontent.com/logos/dc8e/976c/23d576ba/cbf9d3c4e7dc5a974e27565bad46ae76_national_football_league_logo.jpeg" alt="NFL">
@@ -125,6 +125,9 @@ title: ConnorDev | Security Research Portfolio
     </a>
     <a href="https://bugcrowd.com/engagements/nasa-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="NASA Hall of Fame">
       <img src="https://logos.bugcrowdusercontent.com/logos/e34e/ced8/462922dd/fe2d0bf28f7b56095470ca07d0421e95_1615217311496.jpeg" alt="NASA">
+    </a>
+    <a href="https://bugcrowd.com/engagements/gamingcorps-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="Gaming Corps Hall of Fame">
+      <img src="https://logos.bugcrowdusercontent.com/logos/3e27/2dae/d8b0a7b5/a44c8386bc03fa99c885f02a925f0d81_gaming_corps_logo.jpeg" alt="Gaming Corps">
     </a>
   </div>
 

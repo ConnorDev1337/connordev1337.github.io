@@ -1,4 +1,4 @@
----
+﻿---
 ---
 /* 
    ==========================================================================
@@ -91,6 +91,10 @@ h2.section-title {
     align-items: center;
     gap: 16px;
     margin-bottom: 2.5rem;
+}
+
+.section-mt {
+    margin-top: 80px;
 }
 
 h2.section-title::after {
@@ -342,9 +346,10 @@ th.col-report {
 /* Wall of Fame */
 .wof-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .wof-card {
