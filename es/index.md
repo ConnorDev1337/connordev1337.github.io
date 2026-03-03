@@ -34,7 +34,7 @@ title: ConnorDev | Bug Bounty Portfolio
           <td class="col-date">2025-10-10</td>
           <td class="col-company"><img class="company-logo" src="https://logos.bugcrowdusercontent.com/logos/dc8e/976c/23d576ba/cbf9d3c4e7dc5a974e27565bad46ae76_national_football_league_logo.jpeg" alt="NFL">NFL</td>
           <td class="col-vuln">Reflected XSS in URL Search Query Parameter</td>
-          <td class="col-severity"><span class="badge badge-p3">P3 / Media</span></td>
+          <td class="col-severity"><span class="badge badge-p3">Media</span></td>
           <td class="col-status">
             <svg class="svg-icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </td>
@@ -48,7 +48,7 @@ title: ConnorDev | Bug Bounty Portfolio
           <td class="col-date">2025-09-25</td>
           <td class="col-company"><img class="company-logo" src="https://logos.bugcrowdusercontent.com/logos/3f7e/826a/d0f78ced/a58f55915330f1e5d19dc75e462129d6_university_of_canterbury_logo.jpeg" alt="UC">University of Canterbury</td>
           <td class="col-vuln"><code>[CONFIDENCIAL / INVESTIGACIÓN]</code></td>
-          <td class="col-severity"><span class="badge badge-p2">P2 / Alta</span></td>
+          <td class="col-severity"><span class="badge badge-p2">Alta</span></td>
           <td class="col-status">
             <svg class="svg-icon icon-pending" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           </td>
@@ -58,7 +58,7 @@ title: ConnorDev | Bug Bounty Portfolio
           <td class="col-date">2025-09-18</td>
           <td class="col-company"><img class="company-logo" src="https://logos.bugcrowdusercontent.com/logos/df14/f8f6/e5217321/d6766f0d7e4864eca4d059e018e16bb7_U.S._International_Trade_Commission.png" alt="USITC">US ITC</td>
           <td class="col-vuln"><code>[CONFIDENCIAL / INVESTIGACIÓN]</code></td>
-          <td class="col-severity"><span class="badge badge-p3">P3 / Media</span></td>
+          <td class="col-severity"><span class="badge badge-p3">Media</span></td>
           <td class="col-status">
             <svg class="svg-icon icon-pending" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           </td>
@@ -68,7 +68,7 @@ title: ConnorDev | Bug Bounty Portfolio
           <td class="col-date">2025-09-16</td>
           <td class="col-company"><img class="company-logo" src="https://logos.bugcrowdusercontent.com/logos/e34e/ced8/462922dd/fe2d0bf28f7b56095470ca07d0421e95_1615217311496.jpeg" alt="NASA">NASA JPL ECCO</td>
           <td class="col-vuln">Search Form XSS Cookie Exfiltration with WAF Bypass</td>
-          <td class="col-severity"><span class="badge badge-p3">P3 / Media</span></td>
+          <td class="col-severity"><span class="badge badge-p3">Media</span></td>
           <td class="col-status">
             <svg class="svg-icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </td>
