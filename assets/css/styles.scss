@@ -744,6 +744,37 @@ th.col-report {
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* Override meta-badge colors when badge classes are also present */
+.meta-badge.badge-p1 {
+    color: var(--p1);
+    background: var(--p1-bg);
+    border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+.meta-badge.badge-p2 {
+    color: var(--p2);
+    background: var(--p2-bg);
+    border: 1px solid rgba(255, 149, 0, 0.2);
+}
+
+.meta-badge.badge-p3 {
+    color: var(--p3);
+    background: var(--p3-bg);
+    border: 1px solid rgba(255, 204, 0, 0.2);
+}
+
+.meta-badge.badge-p4 {
+    color: var(--p4);
+    background: var(--p4-bg);
+    border: 1px solid rgba(90, 200, 250, 0.2);
+}
+
+.meta-badge.badge-p5 {
+    color: var(--p5);
+    background: var(--p5-bg);
+    border: 1px solid rgba(52, 199, 89, 0.2);
+}
+
 .stat-icon .svg-icon {
     width: 22px;
     height: 22px;

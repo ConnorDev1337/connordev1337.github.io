@@ -147,7 +147,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
             <strong>Severidad</strong>
           </div>
         </div>
-        <div class="meta-badge medium">Media</div>
+        <div class="meta-badge badge badge-p3">Media</div>
       </div>
     </div>
 
