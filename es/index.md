@@ -33,7 +33,7 @@ title: ConnorDev | Bug Bounty Portfolio
         <tr>
           <td class="col-date">2025-10-10</td>
           <td class="col-company"><img class="company-logo" src="https://logos.bugcrowdusercontent.com/logos/dc8e/976c/23d576ba/cbf9d3c4e7dc5a974e27565bad46ae76_national_football_league_logo.jpeg" alt="NFL">NFL</td>
-          <td class="col-vuln">Reflected XSS in URL Search Query Parameter</td>
+          <td class="col-vuln">XSS Reflejado en Parámetro de Query de Búsqueda en URL</td>
           <td class="col-severity"><span class="badge badge-p3">Media</span></td>
           <td class="col-status">
             <svg class="svg-icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -67,7 +67,7 @@ title: ConnorDev | Bug Bounty Portfolio
         <tr>
           <td class="col-date">2025-09-16</td>
           <td class="col-company"><img class="company-logo" src="https://logos.bugcrowdusercontent.com/logos/e34e/ced8/462922dd/fe2d0bf28f7b56095470ca07d0421e95_1615217311496.jpeg" alt="NASA">NASA JPL ECCO</td>
-          <td class="col-vuln">Search Form XSS Cookie Exfiltration with WAF Bypass</td>
+          <td class="col-vuln">XSS en Formulario de Búsqueda con Exfiltración de Cookies (WAF Bypass)</td>
           <td class="col-severity"><span class="badge badge-p3">Media</span></td>
           <td class="col-status">
             <svg class="svg-icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>

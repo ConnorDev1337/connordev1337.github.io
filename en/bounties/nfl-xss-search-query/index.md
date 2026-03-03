@@ -16,7 +16,7 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
   </a>
 
   <div class="bounty-header">
-    <h1>Reflected XSS in URL Search Query</h1>
+    <h1>Reflected XSS in URL Search Query Parameter</h1>
     <p style="color: var(--p3); font-weight: 600;">National Football League (NFL)</p>
   </div>
 

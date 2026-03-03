@@ -16,7 +16,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
   </a>
 
   <div class="bounty-header">
-    <h1>Search Form XSS Cookie Exfiltration</h1>
+    <h1>Search Form XSS Cookie Exfiltration with WAF Bypass</h1>
     <p style="color: var(--p3); font-weight: 600;">National Aeronautics and Space Administration Jet Propulsion Laboratory (NASA JPL)</p>
   </div>
 
