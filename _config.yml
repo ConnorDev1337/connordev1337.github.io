@@ -20,10 +20,12 @@ researchers:
     name: "Iván Córcoles Martínez"
     email: "connordev@protonmail.com"
     bugcrowd: "https://bugcrowd.com/h/ConnorDev"
+    linkedin: "https://www.linkedin.com/in/example-ivan"
   diego:
     name: "Diego García Ayala"
     email: "diego.garaya02@gmail.com"
     bugcrowd: "https://bugcrowd.com/h/sl4sh1t0"
+    linkedin: "https://www.linkedin.com/in/example-diego"
 
 exclude:
   - README.md

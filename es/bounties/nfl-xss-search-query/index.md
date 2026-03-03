@@ -56,8 +56,22 @@ https://hbcutournament.nfl.com/blogs?q=</code></pre>
     <h2>🤝 Detalle de Colaboración</h2>
     <p>Esta investigación fue realizada en un esfuerzo conjunto con los siguientes investigadores:</p>
     <ul>
-      <li><strong>{{ site.researchers.ivan.name }}</strong> (Investigador principal)</li>
-      <li><strong>{{ site.researchers.diego.name }}</strong> (Analista de seguridad)</li>
+      <li>
+        <strong>{{ site.researchers.ivan.name }}</strong>
+        <div>
+          <a href="{{ site.researchers.ivan.bugcrowd }}" target="_blank" rel="noopener noreferrer">Bugcrowd</a>
+          <span>·</span>
+          <a href="{{ site.researchers.ivan.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </li>
+      <li>
+        <strong>{{ site.researchers.diego.name }}</strong>
+        <div>
+          <a href="{{ site.researchers.diego.bugcrowd }}" target="_blank" rel="noopener noreferrer">Bugcrowd</a>
+          <span>·</span>
+          <a href="{{ site.researchers.diego.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </li>
     </ul>
 
     <div class="card-grid" style="margin-top: 3rem;">
