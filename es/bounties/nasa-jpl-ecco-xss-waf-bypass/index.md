@@ -23,6 +23,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
   <div class="bounty-content">
     <h2>🔍 Búsqueda de cualquier cosa</h2>
     <p>Como en cualquier programa de bug bounty, lo primero que hicimos fue usar la página como lo haría cualquier usuario normal. El campo de búsqueda destacó a primera vista, por lo que decidimos probarlo.</p>
+    <pre><code>https://[REDACTED].nasa.gov/search.htm?search=pwn</code></pre>
     <p>Aquí es donde nos dimos cuenta de que el valor que estábamos agregando se reflejaba en el sitio web.</p>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal.png" alt="Búsqueda Normal">
     <p>Decidimos inspeccionar cuidadosamente el código fuente del sitio web y nos dimos cuenta de que nuestra entrada estaba dentro de una función <code>console.log()</code>.</p>
@@ -146,7 +147,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
             <strong>Severidad</strong>
           </div>
         </div>
-        <div class="meta-badge badge badge-p3">Media</div>
+        <div class="meta-badge medium">Media</div>
       </div>
     </div>
 
