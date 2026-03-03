@@ -107,7 +107,7 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
             <strong>Severity</strong>
           </div>
         </div>
-        <div class="meta-badge medium">Medium</div>
+        <div class="meta-badge badge badge-p3">Medium</div>
       </div>
     </div>
 
