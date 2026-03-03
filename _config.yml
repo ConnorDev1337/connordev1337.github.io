@@ -31,6 +31,7 @@ contacts:
   linkedin: "https://www.linkedin.com/in/ivancorcoles/"
   telegram: "https://t.me/connorhack"
   discord: "https://discord.com/users/410917080452431882"
+  hackthebox: "https://profile.hackthebox.com/profile/019c6303-f8bf-72cb-853b-a0b7448f041d"
 
 exclude:
   - README.md

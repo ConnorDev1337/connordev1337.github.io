@@ -185,6 +185,10 @@ title: ConnorDev | Bug Bounty Portfolio
         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 4a8 8 0 0 0-3-1l-1 2a9 9 0 0 0-4 0L9 3a8 8 0 0 0-3 1c-2 3-3 7-2 11a9 9 0 0 0 4 2l1-2"></path><path d="M20 15a9 9 0 0 1-4 2l-1-2"></path><path d="M9.5 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M14.5 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
         <span class="contact-handle">Discord</span>
       </a>
+      <a class="contact-link" href="{{ site.contacts.hackthebox }}" target="_blank" rel="noopener noreferrer">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2l7 4v12l-7 4-7-4V6z"></path><path d="M12 2v20"></path><path d="M5 6l7 4 7-4"></path></svg>
+        <span class="contact-handle">HackTheBox</span>
+      </a>
     </div>
   </div>
 
