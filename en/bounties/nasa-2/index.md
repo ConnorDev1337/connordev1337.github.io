@@ -10,7 +10,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
       <span class="label-full">English (EN)</span>
       <span class="label-short">EN</span>
     </a>
-    <a href="/es/bounties/nasa-jpl-ecco-xss-waf-bypass/" class="lang-btn">
+    <a href="/es/bounties/nasa-2/" class="lang-btn">
       <span class="label-full">Español (ES)</span>
       <span class="label-short">ES</span>
     </a>
@@ -25,7 +25,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
   </a>
 
   <div class="bounty-header">
-    <h1>Reflected XSS in Search Functionality with Input Filter Bypass</h1>
+    <h1>Reflected XSS in Search Functionality with Advanced WAF Bypass Techniques</h1>
     <p style="color: var(--p3); font-weight: 600;">
       National Aeronautics and Space Administration – Jet Propulsion Laboratory (NASA JPL)
     </p>
@@ -44,42 +44,44 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
       was reflected within a client-side JavaScript context without proper contextual encoding.
     </p>
 
-    <h2>🔎 Technical Identification</h2>
+    <h2>🔍 Technical Analysis</h2>
     <p>
-      The vulnerable endpoint processed user input from the query string and embedded it
-      directly into dynamically generated JavaScript.
+      Security assessment identified that the search functionality reflected user input
+      within a JavaScript context without proper output encoding.
     </p>
 
     <p>
-      Because the application relied on pattern-based filtering rather than strict contextual
-      output encoding, specially crafted input could alter the intended execution context.
+      The vulnerability allowed specially crafted input to break out of the intended
+      JavaScript context and execute arbitrary code in the browser.
     </p>
 
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal.png" alt="Search Reflection">
+    <h2>🛡️ Security Controls</h2>
+    <p>
+      The application implemented defensive measures including:
+    </p>
+    <ul>
+      <li>Web Application Firewall (WAF) with XSS pattern detection</li>
+      <li>Input filtering for malicious characters</li>
+      <li>Keyword-based blocking of common attack strings</li>
+    </ul>
 
     <p>
-      Inspection of the page source confirmed that user input was inserted into
-      a JavaScript function call without adequate encoding safeguards.
+      While these controls demonstrated robust protection against basic attacks,
+      advanced bypass techniques could circumvent the filtering mechanisms.
     </p>
 
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal Result.png" alt="JavaScript Context">
-
-    <h2>🛡️ Filter and WAF Analysis</h2>
+    <h2>🔐 Risk Assessment</h2>
     <p>
-      The application implemented filtering mechanisms and Web Application Firewall (WAF)
-      protections designed to block common XSS patterns.
+      The vulnerability posed moderate risk due to:
     </p>
+    <ul>
+      <li>Potential for JavaScript execution in victim browsers</li>
+      <li>Ability to access sensitive client-side data</li>
+      <li>Risk of phishing attacks within trusted domain context</li>
+    </ul>
 
     <p>
-      However, the defensive controls were primarily keyword-based and did not fully
-      account for contextual encoding edge cases.
-    </p>
-
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Script Tag.png" alt="WAF Blocking">
-
-    <p>
-      Under specific crafted conditions, it was possible to bypass the filtering logic
-      and achieve JavaScript execution within the browser.
+      No evidence of malicious exploitation was identified in the wild.
     </p>
 
     <h2>🔐 Potential Impact</h2>
@@ -88,10 +90,10 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     </p>
 
     <ul>
-      <li>Execution of arbitrary JavaScript in a victim’s browser.</li>
-      <li>DOM manipulation within a trusted domain context.</li>
-      <li>Session-related data exposure depending on cookie configuration.</li>
-      <li>Client-side phishing or content spoofing scenarios.</li>
+      <li>Execution of arbitrary JavaScript in victim browsers</li>
+      <li>Access to sensitive client-side data</li>
+      <li>Session hijacking depending on cookie configuration</li>
+      <li>Phishing attacks within trusted domain context</li>
     </ul>
 
     <p>
@@ -132,13 +134,56 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
       </a>
     </div>
 
-    <h2>📚 Technical Takeaways</h2>
+    <h2>📚 Security Lessons</h2>
     <ul>
-      <li>Context-aware output encoding is essential for XSS prevention.</li>
-      <li>Keyword-based filtering alone is insufficient.</li>
-      <li>WAF protections should complement, not replace, secure coding practices.</li>
-      <li>Public search functionality represents an active attack surface.</li>
+      <li>Context-aware output encoding is critical for XSS prevention</li>
+      <li>Pattern-based filtering alone provides insufficient protection</li>
+      <li>WAF should complement, not replace, secure coding practices</li>
+      <li>Public-facing functionality requires thorough security review</li>
+      <li>Defense-in-depth approach is essential for web security</li>
     </ul>
+
+    <div class="collab-grid">
+      <div class="collab-card">
+        <div class="collab-avatar">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="collab-body">
+          <div class="collab-name">{{ site.researchers.ivan.name }}</div>
+          <div class="collab-links">
+            <a class="social-pill" href="{{ site.researchers.ivan.bugcrowd }}" target="_blank" rel="noopener noreferrer">
+              <span>Bugcrowd</span>
+            </a>
+            <a class="social-pill" href="{{ site.researchers.ivan.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="collab-card">
+        <div class="collab-avatar">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="collab-body">
+          <div class="collab-name">{{ site.researchers.diego.name }}</div>
+          <div class="collab-links">
+            <a class="social-pill" href="{{ site.researchers.diego.bugcrowd }}" target="_blank" rel="noopener noreferrer">
+              <span>Bugcrowd</span>
+            </a>
+            <a class="social-pill" href="{{ site.researchers.diego.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="meta-grid">
       <div class="meta-card">

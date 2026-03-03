@@ -6,18 +6,26 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
 
 <div class="container">
   <div class="lang-switcher">
-    <a href="/en/bounties/nasa-jpl-ecco-xss-waf-bypass/" class="lang-btn"><span class="label-full">English (EN)</span><span class="label-short">EN</span></a>
-    <a href="./" class="lang-btn active"><span class="label-full">Español (ES)</span><span class="label-short">ES</span></a>
+    <a href="/en/bounties/nasa-2/" class="lang-btn">
+      <span class="label-full">English (EN)</span>
+      <span class="label-short">EN</span>
+    </a>
+    <a href="./" class="lang-btn active">
+      <span class="label-full">Español (ES)</span>
+      <span class="label-short">ES</span>
+    </a>
   </div>
 
 <article>
   <a href="/es/" class="back-btn">
-    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    <svg viewBox="0 0 24 24">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
     {{ site.title }}
   </a>
 
   <div class="bounty-header">
-    <h1>XSS Reflejado en Buscador con Bypass de Filtros</h1>
+    <h1>XSS Reflejado en Funcionalidad de Búsqueda con Técnicas Avanzadas de Bypass</h1>
     <p style="color: var(--p3); font-weight: 600;">
       National Aeronautics and Space Administration – Jet Propulsion Laboratory (NASA JPL)
     </p>
@@ -25,83 +33,95 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
 
   <div class="bounty-content">
 
-    <h2>🔍 Identificación Inicial</h2>
+    <h2>📌 Contexto</h2>
     <p>
-      Durante la evaluación de seguridad del dominio público correspondiente a JPL,
-      se analizó el comportamiento del formulario de búsqueda.
+      Durante la evaluación de seguridad de un subdominio público de NASA JPL,
+      la funcionalidad de búsqueda fue analizada como parte de la revisión rutinaria
+      del manejo de entrada de datos.
     </p>
 
     <p>
-      Se detectó que el parámetro de búsqueda reflejaba directamente la entrada del usuario
-      dentro del código JavaScript renderizado en el navegador.
+      La evaluación reveló que la entrada controlada por el usuario suministrada
+      a través del parámetro de búsqueda se reflejaba dentro de un contexto
+      JavaScript del lado del cliente sin codificación contextual adecuada.
     </p>
 
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal.png" alt="Búsqueda Normal">
-
+    <h2>🔍 Análisis Técnico</h2>
     <p>
-      El valor suministrado era insertado dentro de una función JavaScript,
-      lo que abría la posibilidad de manipular el contexto de ejecución.
-    </p>
-
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal Result.png" alt="Reflexión en JavaScript">
-
-    <h2>🛡️ Análisis del Filtro de Seguridad</h2>
-    <p>
-      La aplicación implementaba mecanismos de protección y un Web Application Firewall (WAF)
-      orientado a bloquear patrones típicos de XSS.
+      La evaluación de seguridad identificó que la funcionalidad de búsqueda
+      reflejaba la entrada del usuario dentro de un contexto JavaScript sin
+      codificación de salida adecuada.
     </p>
 
     <p>
-      Sin embargo, el filtrado estaba basado en detección de palabras clave y patrones,
-      no en codificación contextual adecuada.
+      La vulnerabilidad permitía que entradas especialmente diseñadas pudieran
+      romper el contexto JavaScript previsto y ejecutar código arbitrario en el navegador.
     </p>
 
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Script Tag.png" alt="Bloqueo del WAF">
-
-    <h2>⚙️ Vector de Inyección</h2>
+    <h2>🛡️ Controles de Seguridad</h2>
     <p>
-      El parámetro vulnerable se encontraba dentro de un contexto JavaScript.
-      Bajo ciertas condiciones, era posible romper el contexto original
-      y ejecutar código arbitrario en el navegador del usuario.
+      La aplicación implementaba medidas defensivas incluyendo:
     </p>
-
-    <p>
-      Se observaron comportamientos inconsistentes en el tratamiento de caracteres especiales
-      y su representación codificada.
-    </p>
-
-    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Closing console.log.png" alt="Contexto JavaScript">
-
-    <h2>🔐 Impacto Potencial</h2>
-    <p>
-      De haber sido explotada antes de su corrección, esta vulnerabilidad podría haber permitido:
-    </p>
-
     <ul>
-      <li>Ejecución de JavaScript arbitrario en el navegador de la víctima.</li>
-      <li>Manipulación del DOM.</li>
-      <li>Ataques de phishing dentro del mismo dominio.</li>
-      <li>Acceso a información disponible en el contexto de sesión (según configuración de cookies).</li>
+      <li>Web Application Firewall (WAF) con detección de patrones XSS</li>
+      <li>Filtrado de entrada para caracteres maliciosos</li>
+      <li>Bloqueo basado en palabras clave de cadenas de ataque comunes</li>
     </ul>
 
     <p>
-      No se detectó evidencia de explotación activa.
+      Si bien estos controles demostraron protección robusta contra ataques básicos,
+      técnicas de bypass avanzadas podrían eludir los mecanismos de filtrado.
+    </p>
+
+    <h2>🔐 Evaluación de Riesgos</h2>
+    <p>
+      La vulnerabilidad representaba un riesgo moderado debido a:
+    </p>
+    <ul>
+      <li>Potencial de ejecución de JavaScript en navegadores víctima</li>
+      <li>Capacidad de acceder a datos sensibles del lado del cliente</li>
+      <li>Riesgo de ataques de phishing dentro del contexto de dominio confiable</li>
+    </ul>
+
+    <p>
+      No se identificó evidencia de explotación maliciosa en el entorno real.
+    </p>
+
+    <h2>🔐 Impacto Potencial</h2>
+    <p>
+      Antes de la remediación, esta vulnerabilidad podría haber permitido:
+    </p>
+
+    <ul>
+      <li>Ejecución de JavaScript arbitrario en navegadores víctima</li>
+      <li>Acceso a datos sensibles del lado del cliente</li>
+      <li>Secuestro de sesión dependiendo de la configuración de cookies</li>
+      <li>Ataques de phishing dentro del contexto de dominio confiable</li>
+    </ul>
+
+    <p>
+      No se observó evidencia de explotación en el mundo real.
     </p>
 
     <h2>🛠️ Remediación</h2>
     <p>
-      Tras el reporte responsable a través del programa oficial,
-      el equipo técnico implementó:
+      El problema fue divulgado responsablemente a través del programa oficial
+      de divulgación de vulnerabilidades.
+    </p>
+
+    <p>
+      Después de la validación, la remediación incluyó:
     </p>
 
     <ul>
-      <li>Codificación contextual adecuada de la salida.</li>
-      <li>Mejoras en la validación del lado servidor.</li>
-      <li>Ajustes en las reglas del WAF.</li>
+      <li>Codificación de salida consciente del contexto adecuada.</li>
+      <li>Controles de validación del lado del servidor fortalecidos.</li>
+      <li>Ajustes en el manejo de reglas del WAF.</li>
+      <li>Mejora en la lógica de renderizado dentro del componente de búsqueda.</li>
     </ul>
 
     <p>
-      Posteriormente, la vulnerabilidad dejó de ser reproducible.
+      Después de la remediación, el comportamiento vulnerable ya no fue reproducible.
     </p>
 
     <h2>📜 Reconocimiento Oficial</h2>
@@ -113,9 +133,18 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <div style="text-align: center; margin-top: 1rem;">
       <a href="/assets/others/nasa-jpl-ecco-xss-waf-bypass/acknowledgment.pdf"
          class="lang-btn" target="_blank">
-        📥 Descargar Carta Oficial (PDF)
+        📥 Descargar Reconocimiento Oficial (PDF)
       </a>
     </div>
+
+    <h2>📚 Lecciones de Seguridad</h2>
+    <ul>
+      <li>La codificación de salida consciente del contexto es crítica para la prevención de XSS</li>
+      <li>El filtrado basado en patrones por sí solo proporciona protección insuficiente</li>
+      <li>El WAF debe complementar, no reemplazar, las prácticas de codificación segura</li>
+      <li>La funcionalidad de cara al público requiere revisión de seguridad exhaustiva</li>
+      <li>El enfoque de defensa en profundidad es esencial para la seguridad web</li>
+    </ul>
 
     <div class="collab-grid">
       <div class="collab-card">
@@ -162,11 +191,6 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <div class="meta-grid">
       <div class="meta-card">
         <div class="meta-left">
-          <div class="meta-icon">
-            <svg class="svg-icon" viewBox="0 0 24 24">
-              <path d="M20 6L9 17l-5-5"></path>
-            </svg>
-          </div>
           <div class="meta-title">
             <strong>Estado</strong>
           </div>
@@ -176,13 +200,6 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
 
       <div class="meta-card">
         <div class="meta-left">
-          <div class="meta-icon">
-            <svg class="svg-icon" viewBox="0 0 24 24">
-              <path d="M12 9v4"></path>
-              <path d="M12 17h.01"></path>
-              <path d="M10.29 3.86l-8.12 14.06A2 2 0 0 0 3.9 21h16.2a2 2 0 0 0 1.73-3.08L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-            </svg>
-          </div>
           <div class="meta-title">
             <strong>Severidad</strong>
           </div>
@@ -195,14 +212,14 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
       <h3>Verificación</h3>
       <div class="verification-grid">
         <div class="verification-item">
-          <small>ID de la submission</small>
+          <small>ID de Envío</small>
           <div class="value">{{ page.submission_id | default: 'N/A' }}</div>
         </div>
         <div class="verification-item">
-          <small>Enlace oficial</small>
+          <small>Enlace Oficial</small>
           <div class="value">
             {% if page.official_link %}
-              <a href="{{ page.official_link }}" target="_blank">
+              <a href="{{ page.official_link }}" target="_blank" rel="noopener noreferrer">
                 {{ page.official_link }}
               </a>
             {% else %}
@@ -216,27 +233,3 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
   </div>
 </article>
 </div>
-
-<div id="zoomOverlay" class="zoom-overlay">
-  <img id="zoomImg" src="" alt="Imagen Ampliada">
-</div>
-
-<script>
-document.querySelectorAll('.bounty-content img').forEach(img => {
-  img.addEventListener('click', () => {
-    const overlay = document.getElementById('zoomOverlay');
-    const zoomImg = document.getElementById('zoomImg');
-    zoomImg.src = img.src;
-    overlay.classList.add('active');
-  });
-});
-
-document.getElementById('zoomOverlay').addEventListener('click', () => {
-  document.getElementById('zoomOverlay').classList.remove('active');
-});
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape')
-    document.getElementById('zoomOverlay').classList.remove('active');
-});
-</script>
