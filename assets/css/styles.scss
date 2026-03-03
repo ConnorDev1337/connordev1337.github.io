@@ -426,14 +426,21 @@ th.col-report {
     height: 16px;
     display: block;
     flex: 0 0 auto;
-    padding: 6px;
+    padding: 6px 8px;
     box-sizing: content-box;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.10);
     background: rgba(255, 255, 255, 0.03);
     stroke-width: 2;
     color: rgba(255, 255, 255, 0.92);
+    stroke: currentColor;
+    fill: none;
     transition: var(--transition-smooth);
+}
+
+.contact-link .svg-icon.svg-fill {
+    stroke: none;
+    fill: currentColor;
 }
 
 .contact-link:hover .svg-icon {
