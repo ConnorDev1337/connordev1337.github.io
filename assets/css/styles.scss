@@ -1,5 +1,6 @@
 ---
 ---
+
 /* 
    ==========================================================================
    CONNORDEV | STEALTH CYBER DESIGN SYSTEM (V2.0)
@@ -66,6 +67,7 @@ body {
     padding: 0 40px;
 }
 
+/* Typography */
 h1,
 h2,
 h3 {
@@ -99,15 +101,24 @@ h2.section-title::after {
     background: var(--border-dim);
 }
 
+/* Header - reduced top spacing */
 header {
-    padding: 60px 0 40px;
+    padding: 30px 0 30px;
 }
 
+/* Hide hr separators */
+hr {
+    border: none;
+    height: 0;
+    margin: 50px 0;
+}
+
+/* Language Switcher */
 .lang-switcher {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .lang-btn {
@@ -130,6 +141,39 @@ header {
     background: rgba(255, 255, 255, 0.07);
 }
 
+/* Back Button */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-dim);
+    background: rgba(255, 255, 255, 0.02);
+    transition: var(--transition-smooth);
+    margin-bottom: 30px;
+}
+
+.back-btn:hover {
+    color: #fff;
+    border-color: var(--accent-primary);
+    background: rgba(47, 129, 247, 0.08);
+}
+
+.back-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Table */
 .board-wrapper {
     background: var(--bg-surface);
     border: 1px solid var(--border-dim);
@@ -164,6 +208,20 @@ td {
     font-size: 0.95rem;
 }
 
+/* Center severity, status, access columns */
+.col-severity,
+.col-status,
+.col-report {
+    text-align: center;
+}
+
+th.col-severity,
+th.col-status,
+th.col-report {
+    text-align: center;
+}
+
+/* SVG Icons */
 .svg-icon {
     width: 20px;
     height: 20px;
@@ -193,6 +251,7 @@ td {
     transform: scale(1.1);
 }
 
+/* Badges */
 .badge {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
@@ -200,6 +259,8 @@ td {
     padding: 4px 12px;
     border-radius: 6px;
     display: inline-block;
+    min-width: 110px;
+    text-align: center;
 }
 
 .badge-p1 {
@@ -232,6 +293,7 @@ td {
     border: 1px solid rgba(52, 199, 89, 0.2);
 }
 
+/* Cards */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -262,6 +324,7 @@ td {
     color: #fff;
 }
 
+/* Wall of Fame */
 .wof-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -273,13 +336,14 @@ td {
     background: var(--bg-surface);
     border: 1px solid var(--border-dim);
     border-radius: var(--radius-md);
-    padding: 24px;
+    padding: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition-smooth);
     background-clip: padding-box;
     text-decoration: none;
+    min-height: 100px;
 }
 
 .wof-card:hover {
@@ -291,7 +355,7 @@ td {
 
 .wof-card img {
     max-width: 100%;
-    max-height: 50px;
+    max-height: 70px;
     filter: grayscale(1) brightness(1.2);
     transition: var(--transition-smooth);
     opacity: 0.7;
@@ -302,10 +366,11 @@ td {
     opacity: 1;
 }
 
+/* Bounty Article */
 article {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 40px 0 120px;
+    padding: 30px 0 120px;
 }
 
 .bounty-header {
@@ -347,14 +412,25 @@ article {
     margin-bottom: 10px;
 }
 
+/* Images in bounty: centered, max 80% width, cursor zoom */
 .bounty-content img {
-    width: 100%;
+    display: block;
+    max-width: 80%;
+    width: auto;
+    margin: 2.5rem auto;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-dim);
-    margin: 2.5rem 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: zoom-in;
+    transition: var(--transition-smooth);
 }
 
+.bounty-content img:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02);
+}
+
+/* Code in Bounty */
 .bounty-content code {
     background: rgba(47, 129, 247, 0.1);
     color: var(--accent-secondary);
@@ -372,13 +448,7 @@ article {
     overflow-x: auto;
 }
 
-footer {
-    padding: 60px 0;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-}
-
+/* Global code */
 code {
     font-family: 'JetBrains Mono', monospace;
     background: rgba(255, 255, 255, 0.05);
@@ -396,6 +466,14 @@ pre {
     overflow-x: auto;
 }
 
+footer {
+    padding: 60px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* PDF Viewer - hide toolbar via fragment */
 .pdf-container {
     width: 100%;
     height: 800px;
@@ -410,4 +488,36 @@ pre {
     .pdf-container {
         height: 500px;
     }
+}
+
+/* Image Zoom Overlay */
+.zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(2, 4, 8, 0.92);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: zoom-out;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.zoom-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.zoom-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

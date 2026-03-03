@@ -4,6 +4,10 @@ layout: default
 
 <div class="container">
 <article>
+  <a href="../../../en/" class="back-btn">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    Cyber Research Portfolio
+  </a>
   <div class="lang-switcher">
     <a href="../../../es/bounties/nasa-jpl-ecco-xss-waf-bypass/" class="lang-btn">Español (ES)</a>
     <a href="./" class="lang-btn active">English (EN)</a>
@@ -17,33 +21,26 @@ layout: default
   <div class="bounty-content">
     <h2>🔍 Initial Discovery</h2>
     <p>The target was NASA's Jet Propulsion Laboratory asset <code>ecco.jpl.nasa.gov</code>. Testing the search functionality revealed reflection of input within a JavaScript context.</p>
-    
     <p><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn</code></p>
-    
     <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Search%20Normal.png" alt="Search Reflection">
 
     <h2>🛡️ WAF Evasion Strategy</h2>
     <p>The WAF initially blocked <code>&lt;script&gt;</code> tags. By breaking the <code>console.log</code> logic and encoding semicolons as <code>%3b</code>, I was able to execute arbitrary JS.</p>
-    
     <pre><code>pwn'); // Break the system logic
 a=document; // Create var 'a' containing document
 alert(a.cookie); // Call alert with cookies
 &lt;/script&gt;;// // Close tag and comment rest</code></pre>
-
     <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Bypass%20Semicollon.png" alt="Semicolon Bypass">
 
     <h2>🚀 Final Exploit Payload</h2>
     <p>The final PoC exfiltrated cookies via <code>fetch()</code> to an external server. The bypass involved using variable references to avoid direct <code>document.cookie</code> strings which were filtered.</p>
-    
     <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS%20Search%20-%20ecco.jpl.nasa.gov%20-%20Document%20Cookie%20Fetch%20Exfiltration.png" alt="Exfiltration PoC">
 
     <h2>🎖️ Recognition & Award</h2>
     <p>NASA JPL acknowledged this disclosure with an official Letter of Recognition, confirming the impact and remediation of the vulnerability.</p>
-
     <div class="pdf-container">
-      <iframe src="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf" width="100%" height="100%" frameborder="0"></iframe>
+      <iframe src="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf#toolbar=0" width="100%" height="100%" frameborder="0"></iframe>
     </div>
-
     <p style="text-align: center; margin-top: 20px;">
       <a href="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf" class="lang-btn" target="_blank">📥 Download Official Letter (PDF)</a>
     </p>
@@ -53,3 +50,18 @@ alert(a.cookie); // Call alert with cookies
   </div>
 </article>
 </div>
+
+<div class="zoom-overlay" id="zoomOverlay" onclick="this.classList.remove('active')">
+  <img id="zoomImg" src="" alt="Zoom">
+</div>
+<script>
+document.querySelectorAll('.bounty-content img').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('zoomImg').src = img.src;
+    document.getElementById('zoomOverlay').classList.add('active');
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('zoomOverlay').classList.remove('active');
+});
+</script>
