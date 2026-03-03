@@ -14,8 +14,8 @@ layout: default
   </a>
 
   <div class="bounty-header">
-    <h1>NASA JPL: Exfiltración de Cookies vía XSS</h1>
-    <p style="color: var(--p3); font-weight: 600;">NASA JPL - Solar System Dynamics (SSD) Group</p>
+    <h1>Exfiltración de Cookies vía XSS</h1>
+    <p style="color: var(--p3); font-weight: 600;">NASA JPL</p>
   </div>
 
   <div class="bounty-content">

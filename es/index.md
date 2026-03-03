@@ -103,17 +103,55 @@ title: ConnorDev | Bug Bounty Portfolio
 
   <h2 class="section-title section-mt">Estadísticas</h2>
   <div class="card-grid">
-    <div class="glass-card">
-      <small>Alcance de Impacto</small>
-      <strong>5 Entidades Globales</strong>
+    <div class="glass-card stat-card">
+      <div class="stat-top">
+        <div class="stat-meta">
+          <div class="stat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 14l3-3 3 3 6-6"></path></svg>
+          </div>
+          <div class="stat-title">
+            <small>Alcance de Impacto</small>
+            <div class="stat-value">5</div>
+          </div>
+        </div>
+        <div class="stat-badge">Entidades</div>
+      </div>
+      <div class="stat-sub">Organizaciones globales impactadas a través de divulgaciones.</div>
+      <div class="stat-bar"><span style="width: 62%"></span></div>
     </div>
-    <div class="glass-card">
-      <small>Vectores de Investigación</small>
-      <strong>4 Write-ups</strong>
+
+    <div class="glass-card stat-card">
+      <div class="stat-top">
+        <div class="stat-meta">
+          <div class="stat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M8 13h8"></path><path d="M8 17h6"></path></svg>
+          </div>
+          <div class="stat-title">
+            <small>Vectores de Investigación</small>
+            <div class="stat-value">4</div>
+          </div>
+        </div>
+        <div class="stat-badge">Write-ups</div>
+      </div>
+      <div class="stat-sub">Informes técnicos públicos y PoCs detallados.</div>
+      <div class="stat-bar"><span style="width: 48%"></span></div>
     </div>
-    <div class="glass-card">
-      <small>Tasa de Resolución</small>
-      <strong>100% Verificado</strong>
+
+    <div class="glass-card stat-card">
+      <div class="stat-top">
+        <div class="stat-meta">
+          <div class="stat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+          </div>
+          <div class="stat-title">
+            <small>Tasa de Resolución</small>
+            <div class="stat-value">100%</div>
+          </div>
+        </div>
+        <div class="stat-badge">Verificado</div>
+      </div>
+      <div class="stat-sub">Reportes aceptados y validados por los programas.</div>
+      <div class="stat-bar"><span style="width: 100%"></span></div>
     </div>
   </div>
 
