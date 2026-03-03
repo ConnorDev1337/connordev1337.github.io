@@ -1007,6 +1007,131 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    header {
+        padding: 18px 0 18px;
+    }
+
+    h2.section-title {
+        gap: 12px;
+        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .section-mt {
+        margin-top: 44px;
+    }
+
+    hr {
+        margin: 28px 0;
+    }
+
+    .lang-switcher {
+        top: 12px;
+        right: 12px;
+        gap: 8px;
+    }
+
+    .lang-btn {
+        padding: 6px 10px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 22px;
+    }
+
+    .glass-card {
+        padding: 22px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .board-wrapper {
+        padding: 6px;
+    }
+
+    th {
+        padding: 12px 12px;
+    }
+
+    td {
+        padding: 14px 12px;
+        font-size: 0.92rem;
+    }
+
+    .badge {
+        min-width: 92px;
+    }
+
+    .wof-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+    }
+
+    .wof-card {
+        padding: 18px;
+        min-height: 84px;
+    }
+
+    .contact-panel {
+        padding: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    article {
+        padding: 20px 0 70px;
+    }
+
+    .bounty-header {
+        padding-bottom: 18px;
+    }
+
+    .bounty-content {
+        padding: 22px;
+    }
+
+    .bounty-content h2 {
+        margin: 2.2rem 0 1.1rem;
+        font-size: 1.35rem;
+        padding-left: 14px;
+    }
+
+    .bounty-content p {
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .bounty-content ul,
+    .bounty-content ol {
+        margin-bottom: 1.2rem;
+        padding-left: 20px;
+    }
+
+    .bounty-content img {
+        max-width: 100%;
+        margin: 1.6rem auto;
+    }
+
+    footer {
+        padding: 40px 0;
+    }
+}
+
 /* Image Zoom Overlay */
 .zoom-overlay {
     position: fixed;
