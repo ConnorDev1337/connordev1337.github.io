@@ -678,6 +678,31 @@ th.col-report {
     background: rgba(255, 204, 0, 0.10);
 }
 
+.meta-badge.critical {
+    border-color: rgba(255, 69, 58, 0.28);
+    background: rgba(255, 69, 58, 0.12);
+}
+
+.meta-badge.high {
+    border-color: rgba(255, 159, 10, 0.26);
+    background: rgba(255, 159, 10, 0.12);
+}
+
+.meta-badge.medium {
+    border-color: rgba(47, 129, 247, 0.26);
+    background: rgba(47, 129, 247, 0.12);
+}
+
+.meta-badge.low {
+    border-color: rgba(52, 199, 89, 0.20);
+    background: rgba(52, 199, 89, 0.08);
+}
+
+.meta-badge.info {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+}
+
 .stat-icon .svg-icon {
     width: 22px;
     height: 22px;

@@ -104,10 +104,10 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
           </div>
           <div class="meta-title">
             <small>Estado</small>
-            <strong>Resuelto y Verificado</strong>
+            <strong>Resuelto</strong>
           </div>
         </div>
-        <div class="meta-badge success">Verificado</div>
+        <div class="meta-badge success">Resuelto</div>
       </div>
 
       <div class="meta-card">
@@ -117,10 +117,10 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
           </div>
           <div class="meta-title">
             <small>Severidad</small>
-            <strong>Alta (reportada como P3)</strong>
+            <strong>Alta</strong>
           </div>
         </div>
-        <div class="meta-badge warning">P3</div>
+        <div class="meta-badge high">Alta</div>
       </div>
     </div>
 
