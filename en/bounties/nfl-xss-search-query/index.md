@@ -3,6 +3,10 @@ layout: default
 ---
 
 <div class="container">
+  <div class="lang-switcher">
+    <a href="/es/bounties/nfl-xss-search-query/" class="lang-btn">Español (ES)</a>
+    <a href="./" class="lang-btn active">English (EN)</a>
+  </div>
 <article>
   <a href="/en/" class="back-btn">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
