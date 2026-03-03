@@ -422,8 +422,23 @@ th.col-report {
 }
 
 .contact-link .svg-icon {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    display: block;
+    flex: 0 0 auto;
+    padding: 6px;
+    box-sizing: content-box;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.03);
+    stroke-width: 2;
+    color: rgba(255, 255, 255, 0.92);
+    transition: var(--transition-smooth);
+}
+
+.contact-link:hover .svg-icon {
+    border-color: rgba(47, 129, 247, 0.35);
+    background: rgba(47, 129, 247, 0.12);
 }
 
 .contact-handle {
