@@ -14,8 +14,8 @@ layout: default
   </a>
 
   <div class="bounty-header">
-    <h1>NFL: Reflected XSS in URL Search Query</h1>
-    <p style="color: var(--p3); font-weight: 600;">National Football League (NFL) - Digital Infrastructure</p>
+    <h1>Reflected XSS in URL Search Query</h1>
+    <p style="color: var(--p3); font-weight: 600;">National Football League (NFL)</p>
   </div>
 
   <div class="bounty-content">
