@@ -116,11 +116,10 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.29 3.86l-8.12 14.06A2 2 0 0 0 3.9 21h16.2a2 2 0 0 0 1.73-3.08L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
           </div>
           <div class="meta-title">
-            <small>Severity</small>
-            <strong>High</strong>
+            <strong>Severity</strong>
           </div>
         </div>
-        <div class="meta-badge high">High</div>
+        <div class="meta-badge medium">Medium</div>
       </div>
     </div>
 

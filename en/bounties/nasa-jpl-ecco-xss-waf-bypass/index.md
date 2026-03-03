@@ -137,6 +137,32 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
       </div>
     </div>
 
+    <div class="meta-grid">
+      <div class="meta-card">
+        <div class="meta-left">
+          <div class="meta-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+          </div>
+          <div class="meta-title">
+            <strong>Status</strong>
+          </div>
+        </div>
+        <div class="meta-badge success">Resolved</div>
+      </div>
+
+      <div class="meta-card">
+        <div class="meta-left">
+          <div class="meta-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.29 3.86l-8.12 14.06A2 2 0 0 0 3.9 21h16.2a2 2 0 0 0 1.73-3.08L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+          </div>
+          <div class="meta-title">
+            <strong>Severity</strong>
+          </div>
+        </div>
+        <div class="meta-badge medium">Medium</div>
+      </div>
+    </div>
+
     <div class="verification-panel">
       <h3>Verification</h3>
       <div class="verification-grid">
