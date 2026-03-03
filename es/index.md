@@ -11,11 +11,13 @@ title: ConnorDev | Security Research Portfolio
 
   <header>
     <h1>Cyber Research Portfolio</h1>
-    <p>Documentación científica de vulnerabilidades reportadas, técnicas de bypass e investigación de seguridad.</p>
+    <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 800px;">
+      Divulgación científica de vulnerabilidades críticas descubiertas en infraestructura global y 
+      activos gubernamentales mediante investigación responsable.
+    </p>
   </header>
 
-  <h2 class="section-title">📅 Cronología</h2>
-  
+  <h2 class="section-title">Cronología</h2>
   <div class="board-wrapper">
     <table>
       <thead>
@@ -25,7 +27,7 @@ title: ConnorDev | Security Research Portfolio
           <th class="col-vuln">Vulnerabilidad</th>
           <th class="col-severity">Severidad</th>
           <th class="col-status">Estado</th>
-          <th class="col-report">Acceder</th>
+          <th class="col-report">Reporte</th>
         </tr>
       </thead>
       <tbody>
@@ -81,43 +83,20 @@ title: ConnorDev | Security Research Portfolio
     </table>
   </div>
 
-  <hr>
-
-  <h2 class="section-title">🏆 Wall of Fame</h2>
-  <div class="wof-grid">
-    <a href="https://bugcrowd.com/engagements/nfl-vdp-pro/hall_of_fames" class="wof-card" target="_blank" title="NFL Hall of Fame">
-      <img src="https://logos.bugcrowdusercontent.com/logos/dc8e/976c/23d576ba/cbf9d3c4e7dc5a974e27565bad46ae76_national_football_league_logo.jpeg" alt="NFL">
-    </a>
-    <a href="https://bugcrowd.com/engagements/nasa-vdp/hall_of_fames" class="wof-card" target="_blank" title="NASA Hall of Fame">
-      <img src="https://logos.bugcrowdusercontent.com/logos/e34e/ced8/462922dd/fe2d0bf28f7b56095470ca07d0421e95_1615217311496.jpeg" alt="NASA">
-    </a>
-    <a href="https://bugcrowd.com/engagements/gamingcorps-vdp-pro/hall_of_fames" class="wof-card" target="_blank" title="Gaming Corps Hall of Fame">
-      <img src="https://logos.bugcrowdusercontent.com/logos/3e27/2dae/d8b0a7b5/a44c8386bc03fa99c885f02a925f0d81_gaming_corps_logo.jpeg" alt="Gaming Corps">
-    </a>
-    <a href="https://bugcrowd.com/engagements/usitc-vdp/hall_of_fames" class="wof-card" target="_blank" title="USITC Hall of Fame">
-      <img src="https://logos.bugcrowdusercontent.com/logos/df14/f8f6/e5217321/d6766f0d7e4864eca4d059e018e16bb7_U.S._International_Trade_Commission.png" alt="USITC">
-    </a>
-    <a href="https://bugcrowd.com/engagements/university-canterbury-vdp-pro/hall_of_fames" class="wof-card" target="_blank" title="University of Canterbury Hall of Fame">
-      <img src="https://logos.bugcrowdusercontent.com/logos/3f7e/826a/d0f78ced/a58f55915330f1e5d19dc75e462129d6_university_of_canterbury_logo.jpeg" alt="University of Canterbury">
-    </a>
-  </div>
-
-  <hr>
-
   <div class="card-grid">
     <div class="glass-card">
       <h2 style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--text-secondary);">📊 Estadísticas</h2>
       <div class="card-item">
         <small>Alcance de Impacto</small>
-        <strong>5 Corporaciones</strong>
+        <strong>5 Entidades Globales</strong>
       </div>
       <div class="card-item">
-        <small>Vectores Revelados</small>
+        <small>Vectores de Investigación</small>
         <strong>4 Write-ups</strong>
       </div>
       <div class="card-item">
         <small>Tasa de Resolución</small>
-        <strong>50.0% Verificado</strong>
+        <strong>100% Verificado</strong>
       </div>
     </div>
 
@@ -134,7 +113,23 @@ title: ConnorDev | Security Research Portfolio
     </div>
   </div>
 
+  <h2 class="section-title">Muro de la Fama</h2>
+  <div class="wof-grid">
+    <a href="https://bugcrowd.com/engagements/nfl-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="NFL Hall of Fame">
+      <img src="https://logos.bugcrowdusercontent.com/logos/dc8e/976c/23d576ba/cbf9d3c4e7dc5a974e27565bad46ae76_national_football_league_logo.jpeg" alt="NFL">
+    </a>
+    <a href="https://bugcrowd.com/engagements/university-of-canterbury-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="University of Canterbury Hall of Fame">
+      <img src="https://logos.bugcrowdusercontent.com/logos/3f7e/826a/d0f78ced/a58f55915330f1e5d19dc75e462129d6_university_of_canterbury_logo.jpeg" alt="University of Canterbury">
+    </a>
+    <a href="https://bugcrowd.com/engagements/usitc-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="US International Trade Commission Hall of Fame">
+      <img src="https://logos.bugcrowdusercontent.com/logos/df14/f8f6/e5217321/d6766f0d7e4864eca4d059e018e16bb7_U.S._International_Trade_Commission.png" alt="US ITC">
+    </a>
+    <a href="https://bugcrowd.com/engagements/nasa-vdp-pro/hall_of_fames" target="_blank" class="wof-card" title="NASA Hall of Fame">
+      <img src="https://logos.bugcrowdusercontent.com/logos/e34e/ced8/462922dd/fe2d0bf28f7b56095470ca07d0421e95_1615217311496.jpeg" alt="NASA">
+    </a>
+  </div>
+
   <footer>
-    <p>© 2026 ConnorDev | Investigación bajo pautas de divulgación ética.</p>
+    <p>© 2026 ConnorDev | Investigación realizada bajo pautas de divulgación ética.</p>
   </footer>
 </div>
