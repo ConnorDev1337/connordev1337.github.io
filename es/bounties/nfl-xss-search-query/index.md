@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # NFL: XSS Reflejado en el Parámetro de Búsqueda URL
 
 [English (EN)](../../../en/bounties/nfl-xss-search-query/)
@@ -102,3 +105,4 @@ Esta investigación fue realizada en una **colaboración al 50%** entre **{{ sit
 
 **{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
 **{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))
+

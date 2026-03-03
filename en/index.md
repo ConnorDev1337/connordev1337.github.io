@@ -6,7 +6,6 @@ title: ConnorDev | Security Research Portfolio
 <div class="container">
   <div class="lang-switcher">
     <a href="../es/" class="lang-btn">Español (ES)</a>
-    <a href="./" class="lang-btn active">English (EN)</a>
   </div>
 
   <header>

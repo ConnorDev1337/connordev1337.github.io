@@ -1,12 +1,11 @@
---- ---
+---
+---
 /* 
    ==========================================================================
    CONNORDEV | STEALTH CYBER DESIGN SYSTEM (V2.0)
-   Premium Security Portfolio - Ultramodern Dark Mode
    ========================================================================== 
 */
 
-/* 1. Global Reset & High-End Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap');
 
 *,
@@ -15,90 +14,51 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
-    /* Color Palette - Ultra Dark Stealth */
     --bg-base: #020408;
     --bg-surface: #0a0c10;
     --bg-card: #0d1117;
     --bg-card-hover: #161b22;
-
     --border-dim: rgba(255, 255, 255, 0.05);
-    --border-glow: rgba(47, 129, 247, 0.3);
-
-    /* Semantic Colors */
     --text-primary: #f0f6fc;
     --text-secondary: #8b949e;
     --text-muted: #6e7681;
-
-    /* Accents */
     --accent-primary: #2f81f7;
-    /* High-end Blue */
     --accent-secondary: #00d4ff;
-    /* Electric Cyan */
-    --accent-soft: rgba(47, 129, 247, 0.1);
-
-    /* Severity Palette (P1-P5) - Professional Hues */
     --p1: #ff3b30;
-    /* Critical */
     --p1-bg: rgba(255, 59, 48, 0.1);
     --p2: #ff9500;
-    /* High */
     --p2-bg: rgba(255, 149, 0, 0.1);
     --p3: #ffcc00;
-    /* Medium */
     --p3-bg: rgba(255, 204, 0, 0.1);
     --p4: #5ac8fa;
-    /* Low */
     --p4-bg: rgba(90, 200, 250, 0.1);
     --p5: #34c759;
-    /* Info */
     --p5-bg: rgba(52, 199, 89, 0.1);
-
-    /* Layout Spacing */
     --radius-lg: 16px;
     --radius-md: 12px;
     --radius-sm: 8px;
     --container-max: 1000px;
-    --spacing-xl: 100px;
-    --spacing-lg: 60px;
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 2. Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-base);
-}
-
-::-webkit-scrollbar-thumb {
-    background: #21262d;
-    border-radius: 10px;
-    border: 2px solid var(--bg-base);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #30363d;
-}
-
-/* 3. Global Foundation */
 body {
     font-family: 'Inter', sans-serif;
-    /* Cleaner for body text */
-    background-color: var(--bg-base);
-    background-image:
-        radial-gradient(circle at 50% -20%, #111827 0%, transparent 60%),
-        radial-gradient(circle at 100% 100%, rgba(47, 129, 247, 0.02) 0%, transparent 40%);
-    background-attachment: fixed;
+    background-color: var(--bg-base) !important;
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden;
+    background-image: radial-gradient(circle at 50% -20%, #111827 0%, transparent 60%);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure full coverage */
+html,
+body {
+    min-height: 100vh;
 }
 
 .container {
@@ -107,13 +67,11 @@ body {
     padding: 0 32px;
 }
 
-/* 4. Typography System */
 h1,
 h2,
 h3 {
     font-family: 'Outfit', sans-serif;
     color: #fff;
-    letter-spacing: -0.01em;
 }
 
 h1 {
@@ -142,22 +100,15 @@ h2.section-title::after {
     background: var(--border-dim);
 }
 
-/* 5. Navigation & Header */
 header {
     padding: 120px 0 60px;
-}
-
-header p {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    max-width: 600px;
 }
 
 .lang-switcher {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .lang-btn {
@@ -165,13 +116,12 @@ header p {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
     padding: 6px 14px;
     border-radius: var(--radius-sm);
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-dim);
     color: var(--text-muted);
-    transition: var-transition-smooth;
+    transition: var(--transition-smooth);
 }
 
 .lang-btn:hover,
@@ -181,13 +131,12 @@ header p {
     background: rgba(255, 255, 255, 0.07);
 }
 
-/* 6. Elite Data Board (Tables) */
 .board-wrapper {
     background: var(--bg-surface);
     border: 1px solid var(--border-dim);
     border-radius: var(--radius-lg);
     padding: 8px;
-    overflow: hidden;
+    overflow-x: auto;
 }
 
 table {
@@ -203,15 +152,6 @@ th {
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-bottom: 1px solid var(--border-dim);
-}
-
-tr {
-    transition: var-transition-smooth;
-}
-
-tr:not(:last-child) td {
     border-bottom: 1px solid var(--border-dim);
 }
 
@@ -221,53 +161,10 @@ tr:hover {
 
 td {
     padding: 24px 20px;
+    border-bottom: 1px solid var(--border-dim);
     font-size: 0.95rem;
-    vertical-align: middle;
 }
 
-.col-date {
-    color: var(--text-muted);
-    font-family: 'JetBrains Mono';
-    font-size: 0.8rem;
-    width: 140px;
-}
-
-.col-company {
-    font-weight: 600;
-    color: #fff;
-    width: 220px;
-}
-
-.col-vuln {
-    color: var(--text-primary);
-}
-
-/* Column Alignments */
-td:nth-child(4),
-td:nth-child(5),
-td:nth-child(6) {
-    text-align: center;
-}
-
-/* Status & Indicators */
-.status-icon {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-.icon-link {
-    font-size: 1.25rem;
-    color: var(--text-muted) !important;
-    text-decoration: none;
-    transition: var-transition-smooth;
-}
-
-.icon-link:hover {
-    color: #fff !important;
-    transform: scale(1.15) rotate(5deg);
-}
-
-/* 7. Severity Badges */
 .badge {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
@@ -275,7 +172,6 @@ td:nth-child(6) {
     padding: 4px 12px;
     border-radius: 6px;
     display: inline-block;
-    letter-spacing: -0.02em;
 }
 
 .badge-p1 {
@@ -308,7 +204,6 @@ td:nth-child(6) {
     border: 1px solid rgba(52, 199, 89, 0.2);
 }
 
-/* 8. Modern Grid Information (Stats & Collab) */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -321,18 +216,7 @@ td:nth-child(6) {
     border: 1px solid var(--border-dim);
     border-radius: var(--radius-lg);
     padding: 40px;
-    transition: var-transition-smooth;
-    position: relative;
-    overflow: hidden;
-}
-
-.glass-card:hover {
-    border-color: rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.card-item {
-    margin-bottom: 24px;
+    transition: var(--transition-smooth);
 }
 
 .card-item small {
@@ -341,7 +225,6 @@ td:nth-child(6) {
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
     margin-bottom: 6px;
 }
 
@@ -349,102 +232,31 @@ td:nth-child(6) {
     font-family: 'Outfit';
     font-size: 1.25rem;
     color: #fff;
-    font-weight: 500;
-}
-
-/* 9. Methodology Section */
-.method-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
-}
-
-.method-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 }
 
 .method-list li {
-    font-size: 1.05rem;
+    margin: 15px 0;
     color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    gap: 12px;
 }
 
 .method-list li::before {
-    content: '→';
+    content: '→ ';
     color: var(--accent-primary);
-    font-weight: bold;
-}
-
-.method-list li strong {
-    color: #fff;
-    font-weight: 600;
-}
-
-/* 10. Dividers & Footer */
-hr {
-    border: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-dim), transparent);
-    margin: var(--spacing-lg) 0;
 }
 
 footer {
-    padding: var(--spacing-lg) 0;
+    padding: 60px 0;
     text-align: center;
     color: var(--text-muted);
     font-size: 0.85rem;
-    letter-spacing: 0.02em;
-}
-
-/* 11. Responsive Overrides */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 24px;
-    }
-
-    header {
-        padding: 80px 0 40px;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .col-date,
-    th:first-child {
-        display: none;
-    }
-
-    td {
-        padding: 20px 16px;
-    }
-}
-
-/* 12. Write-up Details (Deep Content) */
-article {
-    margin: 0 auto;
-    padding-bottom: 120px;
-}
-
-article p {
-    margin-bottom: 1.5rem;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-}
-
-article h2 {
-    margin: 3rem 0 1.5rem;
-    color: #fff;
 }
 
 article img {
     width: 100%;
-    margin: 2.5rem 0;
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-dim);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    margin: 2rem 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 code {
@@ -453,14 +265,13 @@ code {
     padding: 3px 8px;
     border-radius: 6px;
     color: var(--accent-secondary);
-    font-size: 0.9em;
 }
 
 pre {
     background: #010408;
-    padding: 32px;
-    border-radius: var(--radius-md);
+    padding: 24px;
+    border-radius: 12px;
     border: 1px solid var(--border-dim);
-    margin: 2.5rem 0;
+    margin: 2rem 0;
     overflow-x: auto;
 }

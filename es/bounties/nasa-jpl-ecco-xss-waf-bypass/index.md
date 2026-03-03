@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # NASA JPL: Reflected XSS en Formulario de Búsqueda y Exfiltración de Cookies
 
 [English (EN)](../../../en/bounties/nasa-jpl-ecco-xss-waf-bypass/)
@@ -153,3 +156,4 @@ Esta investigación fue realizada en una **colaboración al 50%** entre **{{ sit
 
 **{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
 **{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))
+
