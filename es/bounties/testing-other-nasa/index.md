@@ -1,9 +1,20 @@
 ---
 layout: default
+submission_id: "4b01725e-288b-4db5-a38c-1a37f827d215"
+official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f827d215"
 ---
 
 <div class="container">
+  <div class="lang-switcher">
+    <a href="/en/bounties/testing-other-nasa/" class="lang-btn"><span class="label-full">English (EN)</span><span class="label-short">EN</span></a>
+    <a href="./" class="lang-btn active"><span class="label-full">Español (ES)</span><span class="label-short">ES</span></a>
+  </div>
 <article>
+  <a href="/es/" class="back-btn">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    {{ site.title }}
+  </a>
+
   <div class="bounty-header">
     <h1>Reflected Cross-Site Scripting with Cookie Exfiltration in NASA JPL ECCO Search Portal</h1>
     <p style="color: var(--p3); font-weight: 600;">NASA Jet Propulsion Laboratory (Testing)</p>
