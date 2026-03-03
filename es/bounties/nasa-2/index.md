@@ -117,6 +117,48 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
       </a>
     </div>
 
+    <div class="collab-grid">
+      <div class="collab-card">
+        <div class="collab-avatar">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="collab-body">
+          <div class="collab-name">{{ site.researchers.ivan.name }}</div>
+          <div class="collab-links">
+            <a class="social-pill" href="{{ site.researchers.ivan.bugcrowd }}" target="_blank" rel="noopener noreferrer">
+              <span>Bugcrowd</span>
+            </a>
+            <a class="social-pill" href="{{ site.researchers.ivan.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="collab-card">
+        <div class="collab-avatar">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="collab-body">
+          <div class="collab-name">{{ site.researchers.diego.name }}</div>
+          <div class="collab-links">
+            <a class="social-pill" href="{{ site.researchers.diego.bugcrowd }}" target="_blank" rel="noopener noreferrer">
+              <span>Bugcrowd</span>
+            </a>
+            <a class="social-pill" href="{{ site.researchers.diego.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="meta-grid">
       <div class="meta-card">
         <div class="meta-left">
