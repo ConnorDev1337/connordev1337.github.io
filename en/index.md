@@ -10,8 +10,8 @@ title: ConnorDev | Security Research Portfolio
   </div>
 
   <header>
-    <h1>Security Research Portfolio</h1>
-    <p>Professional documentation of vulnerabilities and bug bounty reports.</p>
+    <h1>Cyber Research Portfolio</h1>
+    <p>Scientific documentation of disclosed vulnerabilities, bypass techniques, and security research.</p>
   </header>
 
   <h2 class="section-title">📅 Timeline</h2>
@@ -22,10 +22,10 @@ title: ConnorDev | Security Research Portfolio
         <tr>
           <th class="col-date">Date</th>
           <th class="col-company">Company</th>
-          <th class="col-vuln">Vulnerability</th>
+          <th class="col-vuln">Vulnerability Research</th>
           <th class="col-severity">Severity</th>
           <th class="col-status">Status</th>
-          <th class="col-report">Report</th>
+          <th class="col-report">Access</th>
         </tr>
       </thead>
       <tbody>
@@ -33,33 +33,33 @@ title: ConnorDev | Security Research Portfolio
           <td class="col-date">2025-10-10</td>
           <td class="col-company">NFL</td>
           <td class="col-vuln">Reflected XSS in URL Search Query Parameter</td>
-          <td class="col-severity"><span class="badge badge-p3">P3</span></td>
+          <td class="col-severity"><span class="badge badge-p3">P3 / Medium</span></td>
           <td class="col-status"><span class="status-icon" title="Resolved">✅</span></td>
-          <td class="col-report"><a href="./bounties/nfl-xss-search-query.md" class="icon-link" title="View Report">👁️</a></td>
+          <td class="col-report"><a href="./bounties/nfl-xss-search-query.md" class="icon-link" title="Open Report">👁️</a></td>
         </tr>
         <tr>
           <td class="col-date">2025-09-25</td>
           <td class="col-company">U. Canterbury</td>
-          <td class="col-vuln"><code>[CONFIDENTIAL]</code></td>
-          <td class="col-severity"><span class="badge badge-p2">P2</span></td>
-          <td class="col-status"><span class="status-icon" title="Unresolved">⏳</span></td>
+          <td class="col-vuln"><code>[CONFIDENTIAL RESEARCH]</code></td>
+          <td class="col-severity"><span class="badge badge-p2">P2 / High</span></td>
+          <td class="col-status"><span class="status-icon" title="Awaiting Resolution">⏳</span></td>
           <td class="col-report">-</td>
         </tr>
         <tr>
           <td class="col-date">2025-09-18</td>
           <td class="col-company">US ITC</td>
-          <td class="col-vuln"><code>[CONFIDENTIAL]</code></td>
-          <td class="col-severity"><span class="badge badge-p3">P3</span></td>
-          <td class="col-status"><span class="status-icon" title="Unresolved">⏳</span></td>
+          <td class="col-vuln"><code>[CONFIDENTIAL RESEARCH]</code></td>
+          <td class="col-severity"><span class="badge badge-p3">P3 / Medium</span></td>
+          <td class="col-status"><span class="status-icon" title="Awaiting Resolution">⏳</span></td>
           <td class="col-report">-</td>
         </tr>
         <tr>
           <td class="col-date">2025-09-16</td>
           <td class="col-company">NASA JPL ECCO</td>
           <td class="col-vuln">Search Form XSS Cookie Exfiltration with WAF Bypass</td>
-          <td class="col-severity"><span class="badge badge-p3">P3</span></td>
+          <td class="col-severity"><span class="badge badge-p3">P3 / Medium</span></td>
           <td class="col-status"><span class="status-icon" title="Resolved">✅</span></td>
-          <td class="col-report"><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md" class="icon-link" title="View Report">👁️</a></td>
+          <td class="col-report"><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md" class="icon-link" title="Open Report">👁️</a></td>
         </tr>
       </tbody>
     </table>
@@ -69,44 +69,44 @@ title: ConnorDev | Security Research Portfolio
 
   <div class="card-grid">
     <div class="glass-card">
-      <h2 style="font-size: 1.25rem; margin-bottom: 2rem;">📊 Statistics</h2>
+      <h2 style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--text-secondary);">📊 Stats Dashboard</h2>
       <div class="card-item">
-        <span>Impacted Companies</span>
-        <strong>4 Corporations</strong>
+        <small>Impact Area</small>
+        <strong>4 Major Entities</strong>
       </div>
       <div class="card-item">
-        <span>Reports Sent</span>
-        <strong>4 Total Bugs</strong>
+        <small>Disclosed Vectors</small>
+        <strong>4 Security Write-ups</strong>
       </div>
       <div class="card-item">
-        <span>Resolution Rate</span>
-        <strong>50.0% Success</strong>
+        <small>Remediation Rate</small>
+        <strong>50.0% Verified</strong>
       </div>
     </div>
 
     <div class="glass-card">
-      <h2 style="font-size: 1.25rem; margin-bottom: 2rem;">🤝 Collaboration</h2>
+      <h2 style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--text-secondary);">🤝 Team Collaboration</h2>
       <div class="card-item">
-        <span>NASA (ECCO JPL)</span>
-        <strong>50% {{ site.researchers.ivan.name }} / 50% {{ site.researchers.diego.name }}</strong>
+        <small>Joint Research (NASA JPL)</small>
+        <strong>{{ site.researchers.ivan.name }} / {{ site.researchers.diego.name }}</strong>
       </div>
       <div class="card-item">
-        <span>NFL (HBCU)</span>
-        <strong>50% {{ site.researchers.ivan.name }} / 50% {{ site.researchers.diego.name }}</strong>
+        <small>Joint Research (NFL)</small>
+        <strong>{{ site.researchers.ivan.name }} / {{ site.researchers.diego.name }}</strong>
       </div>
     </div>
   </div>
 
-  <h2 class="section-title" style="margin-top: 60px;">🧠 Methodology</h2>
-  <div class="glass-card">
+  <h2 class="section-title" style="margin-top: 60px;">🧠 Research Framework</h2>
+  <div class="glass-card method-card">
     <ul class="method-list">
-      <li><strong>Web App Sec</strong>: Discovery of hidden attack surfaces & logic flows.</li>
-      <li><strong>Bypass Culture</strong>: Expertise in XSS, WAF & input filtering evasion.</li>
-      <li><strong>Client-Side Analysis</strong>: Advanced exploitation of browser-side security mechanisms.</li>
+      <li><strong>Discovery Phase</strong>: Deep mapping of hidden application logic and API endpoints.</li>
+      <li><strong>Exploitation & Bypass</strong>: Advancing beyond filtering with WAF-evading payloads.</li>
+      <li><strong>Impact Analysis</strong>: Verifying critical data exfiltration vectors (XSS, Session Takeover).</li>
     </ul>
   </div>
 
   <footer>
-    <p>This portfolio is continuously updated with new research.</p>
+    <p>© 2026 ConnorDev | Research conducted under ethical disclosure guidelines.</p>
   </footer>
 </div>

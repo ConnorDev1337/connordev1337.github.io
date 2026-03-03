@@ -1,13 +1,13 @@
 --- ---
 /* 
    ==========================================================================
-   CONNORDEV | CUSTOM SECURITY DESIGN SYSTEM
-   Professional Bug Bounty Portfolio
+   CONNORDEV | STEALTH CYBER DESIGN SYSTEM (V2.0)
+   Premium Security Portfolio - Ultramodern Dark Mode
    ========================================================================== 
 */
 
-/* 1. Global Reset & Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+/* 1. Global Reset & High-End Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap');
 
 *,
 *::before,
@@ -15,191 +15,221 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
-    /* Color Palette - Deep Tech */
-    --bg-deep: #05070a;
-    --bg-main: #0a0c12;
-    --bg-card: #121520;
-    --bg-hover: #1b2132;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-active: #2f81f7;
+    /* Color Palette - Ultra Dark Stealth */
+    --bg-base: #020408;
+    --bg-surface: #0a0c10;
+    --bg-card: #0d1117;
+    --bg-card-hover: #161b22;
 
-    /* Text Colors */
+    --border-dim: rgba(255, 255, 255, 0.05);
+    --border-glow: rgba(47, 129, 247, 0.3);
+
+    /* Semantic Colors */
     --text-primary: #f0f6fc;
-    --text-secondary: #9198a1;
+    --text-secondary: #8b949e;
     --text-muted: #6e7681;
 
-    /* Brand Colors */
-    --brand-blue: #2f81f7;
-    --brand-cyan: #00d4ff;
-    --brand-purple: #bc8cff;
+    /* Accents */
+    --accent-primary: #2f81f7;
+    /* High-end Blue */
+    --accent-secondary: #00d4ff;
+    /* Electric Cyan */
+    --accent-soft: rgba(47, 129, 247, 0.1);
 
-    /* Severity Colors (P1-P5) */
-    --p1: #ff453a;
+    /* Severity Palette (P1-P5) - Professional Hues */
+    --p1: #ff3b30;
     /* Critical */
-    --p2: #ff9f0a;
+    --p1-bg: rgba(255, 59, 48, 0.1);
+    --p2: #ff9500;
     /* High */
-    --p3: #ffd60a;
+    --p2-bg: rgba(255, 149, 0, 0.1);
+    --p3: #ffcc00;
     /* Medium */
-    --p4: #64d2ff;
+    --p3-bg: rgba(255, 204, 0, 0.1);
+    --p4: #5ac8fa;
     /* Low */
-    --p5: #32d74b;
+    --p4-bg: rgba(90, 200, 250, 0.1);
+    --p5: #34c759;
     /* Info */
+    --p5-bg: rgba(52, 199, 89, 0.1);
 
-    /* Spacing & Borders */
-    --radius: 12px;
-    --container-width: 960px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Layout Spacing */
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --container-max: 1000px;
+    --spacing-xl: 100px;
+    --spacing-lg: 60px;
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 2. Base Styles */
-html {
-    scroll-behavior: smooth;
+/* 2. Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #21262d;
+    border-radius: 10px;
+    border: 2px solid var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #30363d;
+}
+
+/* 3. Global Foundation */
 body {
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--bg-deep);
+    font-family: 'Inter', sans-serif;
+    /* Cleaner for body text */
+    background-color: var(--bg-base);
     background-image:
-        radial-gradient(circle at 50% -20%, #1e253c 0%, transparent 50%),
-        radial-gradient(circle at 0% 0%, rgba(47, 129, 247, 0.03) 0%, transparent 30%);
+        radial-gradient(circle at 50% -20%, #111827 0%, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(47, 129, 247, 0.02) 0%, transparent 40%);
     background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* 3. Layout */
 .container {
-    max-width: var(--container-width);
+    max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 32px;
 }
 
-section {
-    padding: 60px 0;
-}
-
-/* 4. Typography */
+/* 4. Typography System */
 h1,
 h2,
-h3,
-h4 {
-    font-weight: 700;
-    letter-spacing: -0.02em;
+h3 {
+    font-family: 'Outfit', sans-serif;
     color: #fff;
+    letter-spacing: -0.01em;
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, var(--brand-blue) 100%);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #fff 40%, rgba(255, 255, 255, 0.6) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-h2 {
-    font-size: 1.75rem;
+h2.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 2rem;
+    gap: 16px;
+    margin-bottom: 2.5rem;
 }
 
-p {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
+h2.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-dim);
 }
 
-/* 5. Header & Navigation */
+/* 5. Navigation & Header */
 header {
-    padding: 80px 0 40px;
-    text-align: left;
+    padding: 120px 0 60px;
+}
+
+header p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 600px;
 }
 
 .lang-switcher {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .lang-btn {
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
-    transition: var(--transition);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-dim);
+    color: var(--text-muted);
+    transition: var-transition-smooth;
 }
 
 .lang-btn:hover,
 .lang-btn.active {
-    border-color: var(--brand-blue);
+    border-color: rgba(255, 255, 255, 0.2);
     color: #fff;
-    box-shadow: 0 0 20px rgba(47, 129, 247, 0.15);
+    background: rgba(255, 255, 255, 0.07);
 }
 
-/* 6. Professional Boards (Tables) */
+/* 6. Elite Data Board (Tables) */
 .board-wrapper {
-    overflow-x: auto;
-    margin: 2rem 0;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-lg);
+    padding: 8px;
+    overflow: hidden;
 }
 
 table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 8px;
+    border-spacing: 0;
 }
 
 th {
-    padding: 0 20px 12px;
+    padding: 16px 20px;
     text-align: left;
     color: var(--text-muted);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--border-dim);
 }
 
 tr {
-    background: var(--bg-card);
-    transition: var(--transition);
+    transition: var-transition-smooth;
+}
+
+tr:not(:last-child) td {
+    border-bottom: 1px solid var(--border-dim);
 }
 
 tr:hover {
-    background: var(--bg-hover);
-    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 td {
-    padding: 20px;
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+    padding: 24px 20px;
+    font-size: 0.95rem;
+    vertical-align: middle;
 }
 
-td:first-child {
-    border-left: 1px solid var(--border-subtle);
-    border-top-left-radius: var(--radius);
-    border-bottom-left-radius: var(--radius);
-}
-
-td:last-child {
-    border-right: 1px solid var(--border-subtle);
-    border-top-right-radius: var(--radius);
-    border-bottom-right-radius: var(--radius);
-}
-
-/* Specific Table Column Styles */
 .col-date {
-    font-size: 0.85rem;
     color: var(--text-muted);
-    width: 120px;
+    font-family: 'JetBrains Mono';
+    font-size: 0.8rem;
+    width: 140px;
 }
 
 .col-company {
@@ -212,183 +242,225 @@ td:last-child {
     color: var(--text-primary);
 }
 
-.col-severity,
-.col-status,
-.col-report {
+/* Column Alignments */
+td:nth-child(4),
+td:nth-child(5),
+td:nth-child(6) {
     text-align: center;
-    width: 80px;
 }
 
-/* 7. Components: Badges & Icons */
-.badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 6px;
-    display: inline-block;
-}
-
-.badge-p1 {
-    color: var(--p1);
-    background: rgba(255, 69, 58, 0.1);
-    border: 1px solid rgba(255, 69, 58, 0.3);
-}
-
-.badge-p2 {
-    color: var(--p2);
-    background: rgba(255, 159, 10, 0.1);
-    border: 1px solid rgba(255, 159, 10, 0.3);
-}
-
-.badge-p3 {
-    color: var(--p3);
-    background: rgba(255, 214, 10, 0.1);
-    border: 1px solid rgba(255, 214, 10, 0.3);
-}
-
-.badge-p4 {
-    color: var(--p4);
-    background: rgba(100, 210, 255, 0.1);
-    border: 1px solid rgba(100, 210, 255, 0.3);
-}
-
-.badge-p5 {
-    color: var(--p5);
-    background: rgba(50, 215, 75, 0.1);
-    border: 1px solid rgba(50, 215, 75, 0.3);
-}
-
+/* Status & Indicators */
 .status-icon {
     font-size: 1.1rem;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    opacity: 0.9;
 }
 
 .icon-link {
     font-size: 1.25rem;
+    color: var(--text-muted) !important;
     text-decoration: none;
-    transition: var(--transition);
-    display: inline-block;
+    transition: var-transition-smooth;
 }
 
 .icon-link:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 8px var(--brand-blue));
+    color: #fff !important;
+    transform: scale(1.15) rotate(5deg);
 }
 
-/* 8. Summary & Methodology Cards */
+/* 7. Severity Badges */
+.badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    letter-spacing: -0.02em;
+}
+
+.badge-p1 {
+    color: var(--p1);
+    background: var(--p1-bg);
+    border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+.badge-p2 {
+    color: var(--p2);
+    background: var(--p2-bg);
+    border: 1px solid rgba(255, 149, 0, 0.2);
+}
+
+.badge-p3 {
+    color: var(--p3);
+    background: var(--p3-bg);
+    border: 1px solid rgba(255, 204, 0, 0.2);
+}
+
+.badge-p4 {
+    color: var(--p4);
+    background: var(--p4-bg);
+    border: 1px solid rgba(90, 200, 250, 0.2);
+}
+
+.badge-p5 {
+    color: var(--p5);
+    background: var(--p5-bg);
+    border: 1px solid rgba(52, 199, 89, 0.2);
+}
+
+/* 8. Modern Grid Information (Stats & Collab) */
 .card-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
     margin-top: 40px;
 }
 
 .glass-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 32px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    transition: var-transition-smooth;
     position: relative;
     overflow: hidden;
 }
 
-.glass-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(47, 129, 247, 0.3), transparent);
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .card-item {
-    margin-bottom: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    margin-bottom: 24px;
 }
 
-.card-item span {
+.card-item small {
+    display: block;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
 }
 
 .card-item strong {
-    font-size: 1.1rem;
+    font-family: 'Outfit';
+    font-size: 1.25rem;
     color: #fff;
+    font-weight: 500;
 }
 
-/* 9. Utilities & Content Content */
-hr {
-    border: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
-    margin: 80px 0;
+/* 9. Methodology Section */
+.method-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
 }
 
-ul {
-    list-style: none;
+.method-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .method-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border-subtle);
+    font-size: 1.05rem;
     color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.method-list li::before {
+    content: '→';
+    color: var(--accent-primary);
+    font-weight: bold;
 }
 
 .method-list li strong {
-    color: var(--text-primary);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* 10. Dividers & Footer */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-dim), transparent);
+    margin: var(--spacing-lg) 0;
 }
 
 footer {
-    padding: 100px 0 60px;
+    padding: var(--spacing-lg) 0;
     text-align: center;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
 }
 
-/* 10. Markdown / Writeup Specifics */
+/* 11. Responsive Overrides */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 24px;
+    }
+
+    header {
+        padding: 80px 0 40px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .col-date,
+    th:first-child {
+        display: none;
+    }
+
+    td {
+        padding: 20px 16px;
+    }
+}
+
+/* 12. Write-up Details (Deep Content) */
 article {
-    max-width: 800px;
     margin: 0 auto;
+    padding-bottom: 120px;
+}
+
+article p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+article h2 {
+    margin: 3rem 0 1.5rem;
+    color: #fff;
 }
 
 article img {
-    max-width: 100%;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-subtle);
-    margin: 2rem 0;
+    width: 100%;
+    margin: 2.5rem 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-dim);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
 code {
     font-family: 'JetBrains Mono', monospace;
-    background: rgba(110, 118, 129, 0.2);
-    padding: 3px 6px;
-    border-radius: 4px;
-    color: var(--brand-cyan);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px 8px;
+    border-radius: 6px;
+    color: var(--accent-secondary);
+    font-size: 0.9em;
 }
 
 pre {
-    background: #010409;
-    padding: 24px;
-    border-radius: 12px;
-    border: 1px solid var(--border-subtle);
+    background: #010408;
+    padding: 32px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-dim);
+    margin: 2.5rem 0;
     overflow-x: auto;
-    margin: 2rem 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    td:nth-child(1),
-    th:nth-child(1) {
-        display: none;
-    }
 }
