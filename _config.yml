@@ -27,6 +27,11 @@ researchers:
     bugcrowd: "https://bugcrowd.com/h/sl4sh1t0"
     linkedin: "https://www.linkedin.com/in/diego-garc%C3%ADa-ayala/"
 
+contacts:
+  linkedin: "https://www.linkedin.com/in/ivancorcoles/"
+  telegram: "https://t.me/connorhack"
+  discord: "https://discord.com/users/410917080452431882"
+
 exclude:
   - README.md
   - .gitignore

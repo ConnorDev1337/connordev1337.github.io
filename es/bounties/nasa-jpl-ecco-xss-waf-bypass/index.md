@@ -1,5 +1,7 @@
 ---
 layout: default
+submission_id: "4b01725e-288b-4db5-a38c-1a37f827d215"
+official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f827d215"
 ---
 
 <div class="container">
@@ -113,6 +115,26 @@ layout: default
         </div>
       </li>
     </ul>
+
+    <div class="verification-panel">
+      <h3>Verificación</h3>
+      <div class="verification-grid">
+        <div class="verification-item">
+          <small>ID de la submission</small>
+          <div class="value">{{ page.submission_id | default: 'N/A' }}</div>
+        </div>
+        <div class="verification-item">
+          <small>Enlace oficial</small>
+          <div class="value">
+            {% if page.official_link %}
+              <a href="{{ page.official_link }}" target="_blank" rel="noopener noreferrer">{{ page.official_link }}</a>
+            {% else %}
+              N/A
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </article>
 </div>

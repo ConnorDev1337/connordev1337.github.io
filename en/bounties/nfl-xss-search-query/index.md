@@ -1,5 +1,7 @@
 ---
 layout: default
+submission_id: "e8471382-6e56-4e74-b4e2-ff20279371ff"
+official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279371ff"
 ---
 
 <div class="container">
@@ -23,8 +25,7 @@ layout: default
     <p>We identified a Reflected Cross-Site Scripting (XSS) vulnerability on the public-facing domain <code>hbcutournament.nfl.com</code>. The vulnerability resides in the search results page URL fragment (<code>?q=</code>) parameter, which improperly processes user-supplied input without adequate sanitization.</p>
 
     <h2>⚙️ Affected URLs</h2>
-    <pre><code>https://hbcutournament.nfl.com/resources?q=
-https://hbcutournament.nfl.com/blogs?q=</code></pre>
+    <pre><code>https://hbcutournament.nfl.com/{resources,blogs}?q=</code></pre>
 
     <h2>🛠️ Proof of Concept Payloads</h2>
     
@@ -82,6 +83,26 @@ https://hbcutournament.nfl.com/blogs?q=</code></pre>
       <div class="glass-card">
         <small>Severity</small>
         <strong>High (reported as P3)</strong>
+      </div>
+    </div>
+
+    <div class="verification-panel">
+      <h3>Verification</h3>
+      <div class="verification-grid">
+        <div class="verification-item">
+          <small>Submission ID</small>
+          <div class="value">{{ page.submission_id | default: 'N/A' }}</div>
+        </div>
+        <div class="verification-item">
+          <small>Official Link</small>
+          <div class="value">
+            {% if page.official_link %}
+              <a href="{{ page.official_link }}" target="_blank" rel="noopener noreferrer">{{ page.official_link }}</a>
+            {% else %}
+              N/A
+            {% endif %}
+          </div>
+        </div>
       </div>
     </div>
   </div>

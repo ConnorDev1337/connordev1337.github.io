@@ -155,6 +155,27 @@ title: ConnorDev | Bug Bounty Portfolio
     </div>
   </div>
 
+  <div class="contact-panel">
+    <div>
+      <h3>Contact</h3>
+      <p>Want to verify details, collaborate, or ask questions? Reach me here.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="{{ site.contacts.linkedin }}" target="_blank" rel="noopener noreferrer">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="contact-handle">LinkedIn</span>
+      </a>
+      <a class="contact-link" href="{{ site.contacts.telegram }}" target="_blank" rel="noopener noreferrer">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 2L11 13"></path><path d="M22 2L15 22l-4-9-9-4z"></path></svg>
+        <span class="contact-handle">Telegram</span>
+      </a>
+      <a class="contact-link" href="{{ site.contacts.discord }}" target="_blank" rel="noopener noreferrer">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 4a8 8 0 0 0-3-1l-1 2a9 9 0 0 0-4 0L9 3a8 8 0 0 0-3 1c-2 3-3 7-2 11a9 9 0 0 0 4 2l1-2"></path><path d="M20 15a9 9 0 0 1-4 2l-1-2"></path><path d="M9.5 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M14.5 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
+        <span class="contact-handle">Discord</span>
+      </a>
+    </div>
+  </div>
+
   <footer>
     <p>© 2026 ConnorDev | Research conducted under ethical disclosure guidelines.</p>
   </footer>
