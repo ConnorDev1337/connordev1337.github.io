@@ -5,8 +5,8 @@ title: ConnorDev | Bug Bounty Portfolio
 
 <div class="container">
   <div class="lang-switcher">
-    <a href="../es/" class="lang-btn">Español (ES)</a>
-    <a href="./" class="lang-btn active">English (EN)</a>
+    <a href="../es/" class="lang-btn"><span class="label-full">Español (ES)</span><span class="label-short">ES</span></a>
+    <a href="./" class="lang-btn active"><span class="label-full">English (EN)</span><span class="label-short">EN</span></a>
   </div>
 
   <header>

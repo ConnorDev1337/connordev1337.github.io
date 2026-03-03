@@ -6,8 +6,8 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
 
 <div class="container">
   <div class="lang-switcher">
-    <a href="/en/bounties/nasa-jpl-ecco-xss-waf-bypass/" class="lang-btn">English (EN)</a>
-    <a href="./" class="lang-btn active">Español (ES)</a>
+    <a href="/en/bounties/nasa-jpl-ecco-xss-waf-bypass/" class="lang-btn"><span class="label-full">English (EN)</span><span class="label-short">EN</span></a>
+    <a href="./" class="lang-btn active"><span class="label-full">Español (ES)</span><span class="label-short">ES</span></a>
   </div>
 <article>
   <a href="/es/" class="back-btn">

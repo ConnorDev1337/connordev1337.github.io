@@ -6,8 +6,8 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
 
 <div class="container">
   <div class="lang-switcher">
-    <a href="/en/bounties/nfl-xss-search-query/" class="lang-btn">English (EN)</a>
-    <a href="./" class="lang-btn active">Español (ES)</a>
+    <a href="/en/bounties/nfl-xss-search-query/" class="lang-btn"><span class="label-full">English (EN)</span><span class="label-short">EN</span></a>
+    <a href="./" class="lang-btn active"><span class="label-full">Español (ES)</span><span class="label-short">ES</span></a>
   </div>
 <article>
   <a href="/es/" class="back-btn">
