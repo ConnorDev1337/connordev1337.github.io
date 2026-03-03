@@ -53,7 +53,7 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
           <div class="collab-name">{{ site.researchers.ivan.name }}</div>
           <div class="collab-links">
             <a class="social-pill" href="{{ site.researchers.ivan.bugcrowd }}" target="_blank" rel="noopener noreferrer">
-              <svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor"><path d="M131 472.501L6 256.001 131 39.498h250L506 256 381 472.501H131z"/><path d="M131 472.501L6 256.001 131 39.498h250L506 256 381 472.501H131z" fill="none" stroke="currentColor" stroke-width="12.78574"/><path d="M267.315 238.765c-26.466 0-48.01 21.48-48.01 48.01 0 26.467 21.544 48.01 48.01 48.01 26.53 0 48.075-21.543 48.075-48.01 0-26.53-21.544-48.01-48.075-48.01zm11.36-45.377c45.281 0 82.015 41.803 82.015 93.368s-36.734 93.342-82.015 93.342c-23.36 0-44.424-11.098-59.338-28.895v24.772h-45.358V181.542c0-6.258-5.076-11.334-11.334-11.334H151.31v-39.662h34.03c18.775 0 33.997 15.222 33.997 34.023v57.747c14.914-17.823 35.979-28.928 59.338-28.928z"/></svg>
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.5l6.5 3.6v7.8L12 17.5l-6.5-3.6v-7.8L12 4.5z"/><path d="M10 9h4v6h-4V9zm1-1h2v2h-2V8z"/></svg>
               <span>Bugcrowd</span>
             </a>
             <a class="social-pill" href="{{ site.researchers.ivan.linkedin }}" target="_blank" rel="noopener noreferrer">
@@ -72,7 +72,7 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
           <div class="collab-name">{{ site.researchers.diego.name }}</div>
           <div class="collab-links">
             <a class="social-pill" href="{{ site.researchers.diego.bugcrowd }}" target="_blank" rel="noopener noreferrer">
-              <svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor"><path d="M131 472.501L6 256.001 131 39.498h250L506 256 381 472.501H131z"/><path d="M131 472.501L6 256.001 131 39.498h250L506 256 381 472.501H131z" fill="none" stroke="currentColor" stroke-width="12.78574"/><path d="M267.315 238.765c-26.466 0-48.01 21.48-48.01 48.01 0 26.467 21.544 48.01 48.01 48.01 26.53 0 48.075-21.543 48.075-48.01 0-26.53-21.544-48.01-48.075-48.01zm11.36-45.377c45.281 0 82.015 41.803 82.015 93.368s-36.734 93.342-82.015 93.342c-23.36 0-44.424-11.098-59.338-28.895v24.772h-45.358V181.542c0-6.258-5.076-11.334-11.334-11.334H151.31v-39.662h34.03c18.775 0 33.997 15.222 33.997 34.023v57.747c14.914-17.823 35.979-28.928 59.338-28.928z"/></svg>
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.5l6.5 3.6v7.8L12 17.5l-6.5-3.6v-7.8L12 4.5z"/><path d="M10 9h4v6h-4V9zm1-1h2v2h-2V8z"/></svg>
               <span>Bugcrowd</span>
             </a>
             <a class="social-pill" href="{{ site.researchers.diego.linkedin }}" target="_blank" rel="noopener noreferrer">
