@@ -1,6 +1,19 @@
 ---
-layout: default
+layout: null
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA JPL: Reflected XSS | ConnorDev</title>
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+<div class="container submission-body">
+<article class="bounty-report">
+
 # NASA JPL: Reflected XSS Search Form XSS Cookie Exfiltration
 
 [Español (ES)](../../../es/bounties/nasa-jpl-ecco-xss-waf-bypass/)
@@ -146,7 +159,7 @@ Following the ethical disclosure, I received a **Letter of Recognition** from th
 
 <div class="pdf-container">
   <iframe src="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf" width="100%" height="100%" frameborder="0"></iframe>
-
+</div>
 
 <p style="text-align: center;">
   <a href="../../../assets/others/nasa-jpl-ecco-xss-waf-bypass/Letter%20of%20Recognition%20-%20NASA%20Vulnerability%20Disclosure%20ConnorDev.pdf" class="lang-btn" target="_blank">📥 Download Official Letter (PDF)</a>
@@ -170,3 +183,8 @@ This research was conducted in a **50/50 collaboration** between **{{ site.resea
 
 **{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
 **{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))
+
+</article>
+</div>
+</body>
+</html>

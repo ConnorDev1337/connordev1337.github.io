@@ -1,7 +1,16 @@
 ---
-layout: default
-title: ConnorDev | Security Research Portfolio
+layout: null
 ---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnorDev | Portafolio de Investigación de Seguridad</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
 
 <div class="container">
   <div class="lang-switcher" style="padding-top: 20px;">
@@ -145,3 +154,6 @@ title: ConnorDev | Security Research Portfolio
     <p>© 2026 ConnorDev | Investigación bajo pautas de divulgación ética.</p>
   </footer>
 </div>
+
+</body>
+</html>
