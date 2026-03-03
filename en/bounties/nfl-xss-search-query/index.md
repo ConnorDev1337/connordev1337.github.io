@@ -1,6 +1,6 @@
 # NFL: Reflected XSS in URL Search Query Parameter
 
-[Español (ES)](../../es/bounties/nfl-xss-search-query.md)
+[Español (ES)](../../../es/bounties/nfl-xss-search-query/)
 
 ## Introduction
 
@@ -30,7 +30,7 @@ To confirm the vulnerability, I first attempted a simple HTML injection to see i
 <h1>This is a HTML Injection test</h1> --- This is a normal text.
 ```
 
-![NFL HTML Injection](../../assets/images/nfl/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20HTML%20Injection.png)
+![NFL HTML Injection](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20HTML%20Injection.png)
 
 The result confirmed that the application was rendering raw HTML tags provided via the URL parameter.
 
@@ -48,7 +48,7 @@ After confirming HTML injection, I moved to JavaScript execution. After testing 
 **Malicious URL:**
 `https://hbcutournament.nfl.com/resources?q=<img/src/onerror=alert(8)>`
 
-![NFL Alert 1](../../assets/images/nfl/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Alert%201.png)
+![NFL Alert 1](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Alert%201.png)
 
 ---
 
@@ -63,11 +63,11 @@ The final goal was to demonstrate a critical impact. I crafted a payload to exfi
 
 By tricking an authenticated user into clicking this link, an attacker could steal their session cookies and achieve account takeover.
 
-![NFL Cookies Exfiltration](../../assets/images/nfl/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration.png)
+![NFL Cookies Exfiltration](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration.png)
 
 The exfiltrated cookies were successfully received on the attacker's server:
 
-![NFL Cookies Exfiltration Result](../../assets/images/nfl/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration%20Result.png)
+![NFL Cookies Exfiltration Result](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration%20Result.png)
 
 ---
 

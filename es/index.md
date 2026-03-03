@@ -35,7 +35,7 @@ title: ConnorDev | Security Research Portfolio
           <td class="col-vuln">Reflected XSS in URL Search Query Parameter</td>
           <td class="col-severity"><span class="badge badge-p3">P3 / Media</span></td>
           <td class="col-status"><span class="status-icon" title="Resuelto">✅</span></td>
-          <td class="col-report"><a href="./bounties/nfl-xss-search-query.md" class="icon-link" title="Ver Reporte">👁️</a></td>
+          <td class="col-report"><a href="./bounties/nfl-xss-search-query/" class="icon-link" title="Ver Reporte">👁️</a></td>
         </tr>
         <tr>
           <td class="col-date">2025-09-25</td>
@@ -59,7 +59,7 @@ title: ConnorDev | Security Research Portfolio
           <td class="col-vuln">Search Form XSS Cookie Exfiltration with WAF Bypass</td>
           <td class="col-severity"><span class="badge badge-p3">P3 / Media</span></td>
           <td class="col-status"><span class="status-icon" title="Resuelto">✅</span></td>
-          <td class="col-report"><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass.md" class="icon-link" title="Ver Reporte">👁️</a></td>
+          <td class="col-report"><a href="./bounties/nasa-jpl-ecco-xss-waf-bypass/" class="icon-link" title="Ver Reporte">👁️</a></td>
         </tr>
       </tbody>
     </table>

@@ -1,6 +1,6 @@
 # NFL: XSS Reflejado en el Parámetro de Búsqueda URL
 
-[English (EN)](../../en/bounties/nfl-xss-search-query.md)
+[English (EN)](../../../en/bounties/nfl-xss-search-query/)
 
 ## Introducción
 
@@ -30,7 +30,7 @@ Para confirmar la vulnerabilidad, primero intenté una inyección HTML simple pa
 <h1>Esta es una prueba de inyección HTML</h1> --- Esto es un texto normal.
 ```
 
-![Inyección HTML NFL](../../assets/images/nfl/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20HTML%20Injection.png)
+![Inyección HTML NFL](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20HTML%20Injection.png)
 
 El resultado confirmó que la aplicación estaba renderizando etiquetas HTML crudas proporcionadas a través del parámetro de la URL.
 
@@ -48,7 +48,7 @@ Tras confirmar la inyección HTML, pasé a la ejecución de JavaScript. Después
 **URL Maliciosa:**
 `https://hbcutournament.nfl.com/resources?q=<img/src/onerror=alert(8)>`
 
-![Alerta 1 NFL](../../assets/images/nfl/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Alert%201.png)
+![Alerta 1 NFL](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Alert%201.png)
 
 ---
 
@@ -63,11 +63,11 @@ El objetivo final era demostrar un impacto crítico. Diseñé un payload para ex
 
 Al engañar a un usuario autenticado para que haga clic en este enlace, un atacante podría robar sus cookies de sesión y lograr el acceso a su cuenta.
 
-![Exfiltración de Cookies NFL](../../assets/images/nfl/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration.png)
+![Exfiltración de Cookies NFL](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration.png)
 
 Las cookies exfiltradas se recibieron con éxito en el servidor del atacante:
 
-![Resultado de Exfiltración de Cookies NFL](../../assets/images/nfl/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration%20Result.png)
+![Resultado de Exfiltración de Cookies NFL](../../../assets/images/nfl-xss-search-query/NFL%20-%20XSS%20Search%20Query%20Parameter%20-%20Cookies%20Exfiltration%20Result.png)
 
 ---
 
