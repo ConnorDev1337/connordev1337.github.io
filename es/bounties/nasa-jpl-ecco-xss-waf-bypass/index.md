@@ -39,12 +39,12 @@ layout: default
     <p>Insertamos <code>')</code> inmediatamente después de una cadena de texto, que es lo que JavaScript necesitaba para cerrar <code>console.log()</code>. Sin embargo, el símbolo de punto y coma <code>;</code> no se mostraba.</p>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Closing console.log.png" alt="Cerrando console.log">
 
-    <h2>� Anexar Javascript (No funciona)</h2>
+    <h2>&#x1F9E9; Anexar Javascript (No funciona)</h2>
     <pre><code>https://ecco.jpl.nasa.gov/search.htm?search=pwn');alert(1)</code></pre>
     <p>Lo intentamos de nuevo, pero con texto después del punto y coma. Tras varias pruebas, no conseguimos que el punto y coma apareciera. Peor aún, todo lo que venía después del punto y coma ni siquiera se reflejaba.</p>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Where is semicollon.png" alt="¿Dónde está el punto y coma?">
 
-    <h2>�🧱 Anexar Javascript (Bypass)</h2>
+    <h2>&#x1F9F1; Anexar Javascript (Bypass)</h2>
     <p>Para que funcionara y empezar a inyectar código, tuvimos que codificar el punto y coma en formato HTML, cambiándolo de <code>;</code> a <code>%3b</code>.</p>
     <pre><code>pwn')%3balert(1)</code></pre>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Bypass Semicollon.png" alt="Bypass del Punto y Coma">
@@ -55,12 +55,12 @@ layout: default
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1 HTML.png" alt="Alert 1 HTML">
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Alert 1.png" alt="Alert 1">
 
-    <h2>� Segunda Alerta (El Firewall bloquea)</h2>
+    <h2>&#x1F6AB; Segunda Alerta (El Firewall bloquea)</h2>
     <p>Una vez logramos ejecutar un <code>alert()</code> en la web, quisimos ir más allá e intentar leer las cookies del usuario. El WAF continuó rechazando las solicitudes en cuanto detectaba cadenas sospechosas como <code>document.cookie</code>.</p>
     <pre><code>pwn')%3balert(document.cookie)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Search Script Tag.png" alt="Bloqueado por el WAF">
 
-    <h2>�🕵️ Bypass del Firewall para Cookies</h2>
+    <h2>&#x1F575;&#xFE0F; Bypass del Firewall para Cookies</h2>
     <p>El WAF rechazaba cadenas como <code>document.cookie</code>. Para lograr un bypass efectivo del WAF, creamos una variable <code>a</code> que contenía <code>document</code>, y solicitamos <code>cookie</code> desde esa variable.</p>
     <pre><code>pwn')%3ba=document%3balert(a.cookie)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/nasa-jpl-ecco-xss-waf-bypass/XSS Search - ecco.jpl.nasa.gov - Document Cookie Alert.png" alt="Alerta de Document Cookie">
