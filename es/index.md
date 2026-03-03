@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ConnorDev | Security Research Portfolio
+title: ConnorDev | Bug Bounty Portfolio
 ---
 
 <div class="container">

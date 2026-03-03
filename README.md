@@ -1,6 +1,6 @@
 # 🛡️ Bug Bounty Portfolio
 
-This repository contains my security research and bug bounty reports.
+This repository contains my bug bounty reports.
 
 ### 🌐 Live Portfolio
 You can view the live portfolio at: **[connordev1337.github.io](https://connordev1337.github.io)**
