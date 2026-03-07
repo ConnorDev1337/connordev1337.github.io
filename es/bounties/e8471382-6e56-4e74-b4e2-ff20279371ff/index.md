@@ -23,7 +23,8 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
   <div class="bounty-content">
     <h2>🎯 Resumen de la Vulnerabilidad</h2>
     <p>Identificamos una vulnerabilidad de Cross-Site Scripting (XSS) reflejado en el dominio público <code>[REDACTED].nfl.com</code>. La vulnerabilidad reside en el parámetro del fragmento de URL de la página de resultados de búsqueda (<code>?q=</code>), que procesa incorrectamente la entrada del usuario sin el saneamiento adecuado.</p>
-
+    
+    <hr>
     <h2>🛠️ Payloads de Prueba de Concepto</h2>
     
     <h3>Inyección HTML</h3>
@@ -42,6 +43,7 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
     <img src="/assets/images/e8471382-6e56-4e74-b4e2-ff20279371ff/52b7f32d1681e1aa49561d1b6e8f52c9.png" alt="Payload de Exfiltración de Cookies">
     <img src="/assets/images/e8471382-6e56-4e74-b4e2-ff20279371ff/7b0e77b3db46e0d8de3558376f153ed0.png" alt="Resultado de la Exfiltración">
 
+    <hr>
     <h2>🤝 Detalle de Colaboración</h2>
     <p>Esta investigación fue realizada en un esfuerzo conjunto con los siguientes investigadores:</p>
     <div class="collab-grid">

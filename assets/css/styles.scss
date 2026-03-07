@@ -1,5 +1,4 @@
----
----
+--- ---
 /* 
    ==========================================================================
    CONNORDEV | STEALTH CYBER DESIGN SYSTEM (V2.0)
@@ -111,7 +110,7 @@ header {
 
 /* Hide hr separators */
 hr {
-    border: none;
+    border: 0.5px solid #ffffff0d;
     height: 0;
     margin: 50px 0;
 }
@@ -339,8 +338,8 @@ th.col-report {
     flex-direction: column;
     gap: 14px;
     background: radial-gradient(1200px 400px at 0% 0%, rgba(47, 129, 247, 0.10), transparent 55%),
-                radial-gradient(900px 350px at 100% 0%, rgba(52, 199, 89, 0.08), transparent 55%),
-                var(--bg-surface);
+        radial-gradient(900px 350px at 100% 0%, rgba(52, 199, 89, 0.08), transparent 55%),
+        var(--bg-surface);
 }
 
 .stat-card:hover {
@@ -471,7 +470,7 @@ th.col-report {
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-dim);
     background: radial-gradient(900px 420px at 0% 0%, rgba(47, 129, 247, 0.10), transparent 60%),
-                var(--bg-surface);
+        var(--bg-surface);
 }
 
 .verification-panel h3 {
@@ -840,7 +839,7 @@ th.col-report {
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.stat-bar > span {
+.stat-bar>span {
     display: block;
     height: 100%;
     width: 0;

