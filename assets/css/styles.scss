@@ -110,7 +110,7 @@ header {
 
 /* Hide hr separators */
 hr {
-    border: 0.5px solid #ffffff0d;
+    border: 0.5px solid var(--border-dim);
     height: 0;
     margin: 50px 0;
 }
