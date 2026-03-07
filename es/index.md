@@ -39,7 +39,7 @@ title: ConnorDev | Bug Bounty Portfolio
             <svg class="svg-icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </td>
           <td class="col-report">
-            <a href="./bounties/nfl-xss-search-query/" class="icon-link" title="Ver Reporte">
+            <a href="./bounties/e8471382-6e56-4e74-b4e2-ff20279371ff/" class="icon-link" title="Ver Reporte">
               <svg class="svg-icon icon-view" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
             </a>
           </td>
@@ -73,7 +73,7 @@ title: ConnorDev | Bug Bounty Portfolio
             <svg class="svg-icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </td>
           <td class="col-report">
-            <a href="./bounties/nasa-jpl-ecco-xss-waf-bypass/" class="icon-link" title="Ver Reporte">
+            <a href="./bounties/4b01725e-288b-4db5-a38c-1a37f827d215/" class="icon-link" title="Ver Reporte">
               <svg class="svg-icon icon-view" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
             </a>
           </td>

