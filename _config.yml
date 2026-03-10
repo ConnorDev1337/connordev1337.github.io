@@ -1,0 +1,40 @@
+title: ConnorDev | Bug Bounty Portfolio
+description_en: "Scientific disclosure of critical vulnerabilities discovered in global infrastructure and government assets through responsible research."
+description_es: "Divulgación científica de vulnerabilidades críticas descubiertas en infraestructura global y activos gubernamentales mediante investigación responsable."
+show_downloads: false
+
+# No theme - fully custom CSS
+# remote_theme: pages-themes/hacker@v0.2.0
+
+baseurl: ""
+url: "https://connordev1337.github.io"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Researchers Data
+researchers:
+  ivan:
+    name: "Iván Córcoles Martínez"
+    email: "connordev@protonmail.com"
+    bugcrowd: "https://bugcrowd.com/h/ConnorDev"
+    linkedin: "https://www.linkedin.com/in/ivancorcoles/"
+  diego:
+    name: "Diego García Ayala"
+    email: "diego.garaya02@gmail.com"
+    bugcrowd: "https://bugcrowd.com/h/sl4sh1t0"
+    linkedin: "https://www.linkedin.com/in/diego-garc%C3%ADa-ayala/"
+
+contacts:
+  linkedin: "https://www.linkedin.com/in/ivancorcoles/"
+  telegram: "https://t.me/connorhack"
+  discord: "https://discord.com/users/410917080452431882"
+  hackthebox: "https://profile.hackthebox.com/profile/019c6303-f8bf-72cb-853b-a0b7448f041d"
+
+exclude:
+  - README.md
+  - .gitignore
+  - .git/
+  - tmp/
